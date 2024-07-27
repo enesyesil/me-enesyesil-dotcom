@@ -11,7 +11,7 @@
     </div>
     <div class="mb-6">
       <label for="python" class="block text-lg font-medium text-gray-700">Python</label>
-      <Progressbar progress="70" id="python" color="green" />
+      <Progressbar progress="75" id="python" color="green" />
     </div>
     <div class="mb-6">
       <label for="css" class="block text-lg font-medium text-gray-700">CSS</label>
@@ -24,6 +24,18 @@
     <div class="mb-6">
       <label for="sub" class="block text-lg font-medium text-gray-700">Java</label>
       <Progressbar progress="90" id="html" color="green"/>
+    </div>
+    <div class="mb-6">
+      <label for="sub" class="block text-lg font-medium text-gray-700">Svelte</label>
+      <Progressbar progress="85" id="html" color="green"/>
+    </div>
+    <div class="mb-6">
+      <label for="sub" class="block text-lg font-medium text-gray-700">TypeScript</label>
+      <Progressbar progress="80" id="html" color="green"/>
+    </div>
+    <div class="mb-6">
+      <label for="sub" class="block text-lg font-medium text-gray-700">React</label>
+      <Progressbar progress="75" id="html" color="green"/>
     </div>
     <!-- Add more skills as needed -->
   </section>
