@@ -3,23 +3,27 @@
   import { ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
 
-<section class="bg-amber-50 p-16 rounded-lg  max-w-full mx-auto flex flex-col items-center justify-center">
+<section class="bg-amber-50 p-16 rounded-lg max-w-full flex flex-col items-center">
   <h2 class="text-3xl font-bold mb-4 text-center">My Timeline</h2>
   <Timeline>
-    <TimelineItem title="Application UI code in Tailwind CSS" date="February 2022">
+    <TimelineItem title="Started University" date="September 2021">
       <p class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
-        Get access to over 20+ pages including a dashboard layout, charts, kanban board, calendar, and pre-order E-commerce & Marketing pages.
-      </p>
-      <Button color="none">Learn more<ArrowRightOutline class="ml-2 w-5 h-5" /></Button>
-    </TimelineItem>
-    <TimelineItem title="Application UI code in Tailwind CSS" date="March 2022">
-      <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-        All of the pages and components are first designed in Figma and we keep a parity between the two versions even as we update the project.
+        Began my journey in Computer Science at York University.
       </p>
     </TimelineItem>
-    <TimelineItem title="Application UI code in Tailwind CSS" date="April 2022">
+    <TimelineItem title="Founded Arise Student Club" date="September 2022">
       <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-        Get started with dozens of web components and interactive elements built on top of Tailwind CSS.
+        Established a student club called Arise, focusing on fostering community and innovation.
+      </p>
+    </TimelineItem>
+    <TimelineItem title="Started Research Assistant Job" date="March 2024">
+      <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+        Joined as a Research Assistant, working on advanced computing projects.
+      </p>
+    </TimelineItem>
+    <TimelineItem title="Started Internship at Zyfera" date="May 2024">
+      <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+        Began an internship at Zyfera, gaining hands-on experience in software development.
       </p>
     </TimelineItem>
   </Timeline>
