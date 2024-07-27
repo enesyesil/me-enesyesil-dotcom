@@ -1,19 +1,16 @@
-<script lang="ts">
-  import { Section, Cta } from 'flowbite-svelte-blocks';
+<script>
+  import { Card, Button, Toggle } from 'flowbite-svelte';
   import { ArrowRightOutline } from 'flowbite-svelte-icons';
+  let hCard = false;
 </script>
 
-<Section name="ctawithimg">
-  <Cta ctatype="image">
-    <svelte:fragment slot="img">
-      <img class="w-full dark:hidden" src="" alt="dashboard" />
-      <img class="w-full hidden dark:block" src="" alt="dashboard" />
-    </svelte:fragment>
-    <svelte:fragment slot="h2">Let's create more tools and ideas that brings us together.</svelte:fragment>
-    <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400">Flowbite helps you connect with friends and communities of people who share your interests. Connecting with your friends and family as well as discovering new ones is easy with features like Groups.</p>
-    <a href="/" class="inline-flex items-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-primary-900">
-      Get started
-      <ArrowRightOutline size="md" class="ml-2 -mr-1" />
-    </a>
-  </Cta>
-</Section>
+<div class="space-y-8 bg-amber-50 mx-80 mt-12">
+  <Card img="/images/my_profile.JPG" href="/" horizontal size="none" reverse={hCard} class="bg-amber-50 hover:bg-amber-100 inline-flex">
+    <h5 class="mb-4 mx-6 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Who Am I?</h5>
+    <p class="mb-6 mx-6 font-normal text-gray-700 dark:text-gray-400 ">Hello, I'm Enes Yesil!. I'm a passionate software developer with a keen interest in AI and financial technology. Currently, I'm pursuing a Computer Science degree at York University and working on exciting projects that leverage my skills in AI, machine learning, and full-stack development. My tech stack includes TypeScript, Java, JavaScript, and Python, along with libraries such as the MERN stack, and tools like React, Node.js</p>
+    <p class="mb-6 mx-6 font-normal text-gray-700 dark:text-gray-400 ">⚡ Fun Fact: 
+      I love solving complex financial problems and making technology accessible to everyone. In my free time, I enjoy hiking and exploring new tech gadgets.</p>
+    <Button color="green" href="/MoreMe" class="mx-6">Learn more<ArrowRightOutline/></Button>
+  </Card>
+  <Toggle bind:checked={hCard} class="italic dark:text-gray-500">Reverse</Toggle>
+</div>

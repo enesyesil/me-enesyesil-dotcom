@@ -1,32 +1,20 @@
 <script>
-  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider } from 'flowbite-svelte';
+  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Timeline } from 'flowbite-svelte';
 </script>
 
-<Navbar>
+<Navbar class="bg-amber-50">
   <NavBrand href="/">
-    <img src="/images/flowbite-svelte-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Flowbite Logo" />
-    <span class="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Flowbite</span>
+    
+    <span class="self-center whitespace-nowrap text-2xl font-semibold  dark:text-white">me.('enesyesil')</span>
   </NavBrand>
   <div class="flex items-center md:order-2">
-    <Avatar id="avatar-menu" src="/images/profile-picture-3.webp" />
+    <Avatar id="avatar-menu" size="lg" src="/images/avatar_pp.jpg"/>
     <NavHamburger class1="w-full md:flex md:w-auto md:order-1" />
   </div>
-  <Dropdown placement="bottom" triggeredBy="#avatar-menu">
-    <DropdownHeader>
-      <span class="block text-sm">Bonnie Green</span>
-      <span class="block truncate text-sm font-medium">name@flowbite.com</span>
-    </DropdownHeader>
-    <DropdownItem>Dashboard</DropdownItem>
-    <DropdownItem>Settings</DropdownItem>
-    <DropdownItem>Earnings</DropdownItem>
-    <DropdownDivider />
-    <DropdownItem>Sign out</DropdownItem>
-  </Dropdown>
+  
+ 
   <NavUl>
-    <NavLi href="/" active={true}>Home</NavLi>
-    <NavLi href="/about">About</NavLi>
-    <NavLi href="/docs/components/navbar">Navbar</NavLi>
-    <NavLi href="/pricing">Pricing</NavLi>
-    <NavLi href="/contact">Contact</NavLi>
+    <NavLi href="/"  class="text-2xl text-center" active={true}> Hello Friend 👋</NavLi>
+
   </NavUl>
 </Navbar>
