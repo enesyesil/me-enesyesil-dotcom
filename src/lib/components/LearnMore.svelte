@@ -65,7 +65,7 @@
       <!-- Contact Button -->
       <div class="text-center">
         <Button href="/Contact" class="size:lg bg-green-600 hover:bg-green-700 text-white">
-          Contact Us
+          Contact Me!
         </Button>
       </div>
     </div>
