@@ -1,38 +1,25 @@
-# create-svelte
+# Personal Website
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+Welcome to my personal website! I'm Enes Yesil, a passionate software developer specializing in AI applications, machine learning, and web development. This website is built with Svelte to provide a fast and responsive user experience.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Project Showcase**: Explore my projects and other ventures that highlight my skills in AI, machine learning, and web development.
+- **Journey**: Discover my journey, read my story, and learn more about my experiences and milestones.
+- **Contact**: Get in touch with me for collaborations or inquiries.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Getting Started
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+These instructions will help you set up the project on your local machine for development and testing purposes.
 
-## Developing
+### Prerequisites
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- [Node.js](https://nodejs.org/)
+- [Svelte](https://svelte.dev/)
 
-```bash
-npm run dev
+### Installation
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/personal-website.git
+   cd personal-website
