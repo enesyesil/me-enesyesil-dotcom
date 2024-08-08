@@ -32,9 +32,9 @@
       <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">My Vision</h2>
       <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">Creating a Positive Impact</h4>
       <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-        As a junior engineer, my vision is to harness the power of technology to create innovative solutions that not only address current challenges but also anticipate future needs. 
-        My ultimate goal is to make a meaningful impact on the world and contribute to society in a positive way. The idea of making people's lives easier, more efficient, and more connected is central to my vision. 
-        I believe that technology has the potential to transform lives, and I am dedicated to being part of that transformation.
+        As a junior software engineer and computer science student, my vision is rooted in the desire to simplify complex systems and make technology more accessible to everyone. I am passionate about breaking down intricate problems and creating user-friendly solutions that enhance everyday life.
+         In a world that is constantly evolving with technological advancements, being an active contributor to this change is incredibly fulfilling. 
+         I strive to harness my skills and knowledge to not only keep up with the rapid pace of innovation but also to drive it forward, making a positive impact on society.
       </p>
   
       <!-- My Projects Section -->
