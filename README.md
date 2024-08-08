@@ -12,14 +12,8 @@ Welcome to my personal website! I'm Enes Yesil, a passionate software developer 
 
 These instructions will help you set up the project on your local machine for development and testing purposes.
 
-### Prerequisites
+### Tech Stack
 
 - [Node.js](https://nodejs.org/)
 - [Svelte](https://svelte.dev/)
 
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/personal-website.git
-   cd personal-website
