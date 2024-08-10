@@ -5,7 +5,7 @@
   </script>
   
   <Footer footerType="socialmedia" class="bg-amber-50">
-    <div class="mx-auto max-w-screen-xl text-center">
+    <div class="mx-auto max-w-full text-center">
      
       <p class="my-6 text-gray-500 dark:text-gray-400">Dedicated and hardworking Computer Science student with a passion for software development, committed to delivering outstanding results and exceeding expectations.</p>
       <FooterLinkGroup ulClass="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
