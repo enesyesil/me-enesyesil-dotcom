@@ -38,7 +38,7 @@
       </p>
   
       <!-- My Projects Section -->
-      <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-8">My Projects</h2>
+      <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-4">My Projects</h2>
       <div class="grid grid-cols-1 bg-amber-50 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         <!-- Example Project -->
         <Card class="dark:bg-gray-800 bg-amber-50 ">
@@ -62,12 +62,12 @@
       
       </div>
   
-      <!-- Contact Button -->
       <div class="text-center">
-        <Button href="/" class="size:lg bg-green-600 hover:bg-green-700 text-white">
-          Contact Me!
+        <Button href="/Projects" size="xl" class="bg-green-600 hover:bg-green-700 text-white ">
+          My Projects
         </Button>
+       
       </div>
-    </div>
+      </div>
   </div>
   
