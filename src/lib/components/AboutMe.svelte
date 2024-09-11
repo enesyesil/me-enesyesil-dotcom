@@ -12,7 +12,7 @@
         <div class="flex-1">
           <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Who Am I?</h5>
           <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">Hello, I'm Enes Yesil! 👋. I'm a passionate software developer with a keen interest in AI and financial technology. Currently, I'm pursuing a Computer Science degree at York University and working on exciting projects that leverage my skills in AI, machine learning, and full-stack development. My tech stack includes TypeScript, Java, JavaScript, and Python, along with libraries such as the MERN stack, and tools like React, Node.js</p>
-          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">⚡ Fun Fact: I love solving complex financial problems and making technology accessible to everyone. In my free time, I enjoy hiking and exploring new tech gadgets.</p>
+          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">⚡ Fun Fact: I love solving complex financial problems and making technology accessible to everyone. In my free time, I enjoy exploring new tech gadgets and following soccer/football.</p>
           <Button color="green" href="/MoreMe">Learn more<ArrowRightOutline/></Button>
         </div>
       </div>

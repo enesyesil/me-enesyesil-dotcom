@@ -15,7 +15,7 @@
  
   <NavUl>
     <NavLi href="/"  class="text-xl text-center" active={true}> Home</NavLi>
-    <NavLi href="/resume.pdf"  class="text-xl text-center" active={true}> Resume</NavLi>
+    <NavLi href="/enesyesil-resume.pdf"  class="text-xl text-center" active={true}> Resume</NavLi>
     <NavLi href="/MoreMe"  class="text-xl text-center" active={true}> About Me</NavLi>
     <NavLi href="/Projects"  class="text-xl text-center" active={true}>Projects</NavLi>
   </NavUl>

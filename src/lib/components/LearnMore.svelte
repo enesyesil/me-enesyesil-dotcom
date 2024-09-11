@@ -9,7 +9,7 @@
       <!-- Introduction Section -->
       <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
         I am Enes, and I am a computer science student at York University. I come from Turkey.
-        My hobbies and interests are Football,(I mean Soccer) and History.
+        My hobbies and interests are Football,(I mean Soccer 😄 ) and History.
         What makes me unique is that I am able to adapt in an environment very easily and fast.
         Thanks to my life story and background, I have always been able to adapt in a new city or country throughout my childhood.
         Thus, I believe that this will make me one step ahead in my career.
@@ -25,7 +25,7 @@
         Recent Internship: Software Developer Intern at Zyfera
       </p>
       <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-        Interests: AI application development, full-stack development, interface design.
+        Interests: AI application development, full-stack development, Fintech.
       </p>
   
       <!-- Vision Section -->
