@@ -10,7 +10,7 @@
     </h1>
     
       <!-- Image Section -->
-      <img class="w-full mb-8" src="/images/Weddify.jpg" alt="Weddify img" />
+      <img class="w-full mb-8" src="/images/s4.png" alt="Weddify img" />
 
        
     <!-- Introduction Section -->
