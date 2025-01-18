@@ -48,6 +48,7 @@
           </div>
         </div>
       </Card>
+      <div class="w-full max-w-4xl my-4"> 
       <Card href="/Projects/Moneyball/" horizontal={hCard} size="none" reverse={hCard} class="bg-amber-50 hover:bg-amber-100">
         <div class="flex flex-col md:flex-row items-center md:items-start">
           <img src="/images/mycom.png" alt="Profile Image" class="w-48 h-48 md:w-48 md:h-48 object-cover mb-4 md:mb-0 md:mr-6">
@@ -59,6 +60,7 @@
           </div>
         </div>
       </Card>
+    </div>
       
     </div>
   </div>
