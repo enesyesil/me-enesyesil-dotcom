@@ -1,0 +1,28 @@
+<script lang="ts">
+    import { Card, Button, Toggle } from 'flowbite-svelte';
+    let hCard = false;
+    import Navbar from '$lib/components/Navbar.svelte';
+    import Footer from '$lib/components/Footer.svelte';
+    import { ArrowRightOutline } from 'flowbite-svelte-icons';
+  
+  </script>
+  <Navbar/>
+  <div class="flex flex-col justify-center items-center bg-amber-50 py-12">
+    <div class="w-full max-w-4xl my-4">
+      <Card href="/Blog/Jan-24" horizontal={hCard} size="none" reverse={hCard} class="bg-amber-50 hover:bg-amber-100">
+        <div class="flex flex-col md:flex-row items-center md:items-start">
+          <img src="/images/duck-rabbit.png" alt="Profile Image" class="w-48 h-48 md:w-48 md:h-48 object-cover mb-4 md:mb-0 md:mr-6">
+          <div class="flex-1 mb-4">
+            <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Rabbit or Duck?</h1>
+            <p class="mb-8 font-normal text-gray-700 dark:text-gray-400">Exploring the intersection of computer science and philosophy through Bayes' Theorem, examining how minds and machines process probability and perception.</p>
+            <Button  color="green" href="/Blog/Jan-24">Read<ArrowRightOutline/></Button>
+          </div>
+        </div>
+      </Card>
+      
+   
+      
+    </div>
+  </div>
+  
+  <Footer/>

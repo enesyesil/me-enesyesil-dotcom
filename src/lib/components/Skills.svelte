@@ -37,6 +37,10 @@
       <label for="sub" class="block text-lg font-medium text-gray-700">React</label>
       <Progressbar progress="75" id="html" color="green"/>
     </div>
+    <div class="mb-6">
+      <label for="sub" class="block text-lg font-medium text-gray-700">Spring</label>
+      <Progressbar progress="70" id="html" color="green"/>
+    </div>
     <!-- Add more skills as needed -->
   </section>
 </div>

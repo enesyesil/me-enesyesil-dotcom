@@ -52,7 +52,7 @@
           </PricingBodyHead>
           <PricingItemWrapper>
             <svelte:fragment slot="btn">
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <a href="https://weddify-ten.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <Button color="green">Visit Website</Button>
               </a>
             </svelte:fragment>
