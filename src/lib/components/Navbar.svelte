@@ -18,6 +18,6 @@
     <NavLi href="/enesyesil-resume-25.pdf"  class="text-xl text-center" active={true}> Resume</NavLi>
     <NavLi href="/MoreMe"  class="text-xl text-center" active={true}> About Me</NavLi>
     <NavLi href="/Projects"  class="text-xl text-center" active={true}>Projects</NavLi>
-    <NavLi href="/Blog/Jan-24"  class="text-xl text-center" active={true}>Blog</NavLi>
+    <NavLi href="/Blog"  class="text-xl text-center" active={true}>Blog</NavLi>
   </NavUl>
 </Navbar>
