@@ -1,5 +1,7 @@
 <script>
-  import { Navbar, NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Timeline } from 'flowbite-svelte';
+// @ts-nocheck
+
+  import { Navbar, Button ,  NavBrand, NavLi, NavUl, NavHamburger, Avatar, Dropdown, DropdownItem, DropdownHeader, DropdownDivider, Timeline } from 'flowbite-svelte';
 </script>
 
 <Navbar class="bg-amber-50">
@@ -8,8 +10,10 @@
     <span class="self-center whitespace-nowrap text-2xl font-semibold  dark:text-white">me.('enesyesil')</span>
   </NavBrand>
   <div class="flex items-center md:order-2">
-    <Avatar id="avatar-menu" size="lg" src="/images/avatar_pp.jpg"/>
-    <NavHamburger class1="w-full md:flex md:w-auto md:order-1" />
+    <a href="mailto:enesy@my.yorku.ca">
+      <Button color="green">Contact Me</Button>
+    </a>
+   <NavHamburger class1="w-full md:flex md:w-auto md:order-1" /> 
   </div>
   
  

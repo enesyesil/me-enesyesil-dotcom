@@ -1,9 +1,12 @@
 <script>
+	import Footer from '$lib/components/Footer.svelte';
+	import Navbar from '$lib/components/Navbar.svelte';
     import { Button, Card, Avatar } from 'flowbite-svelte';
     // import ContactMe from './ContactMe.svelte';
     import { Section, PricingBodyHead, PricingCard, PricingItemWrapper, PricingHead, PricingItem } from 'flowbite-svelte-blocks';
   </script>
   <div class="bg-amber-50 ">
+    <Navbar/>
   <div class="min-h-screen bg-white-100 dark:bg-gray-900 py-10">
   <div class="max-w-screen-lg mx-auto px-4">
     <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-6 mt-12">Rabbit or Duck?: The Philosophical and Computational Insights of Bayes’ Theorem
@@ -12,7 +15,7 @@
   
   
       <!-- Image Section -->
-      <img class="w-full mb-8" src="/images/duck-rabbit.png" alt="Fisor img" />
+      <img class="w-full mb-8 rounded-lg" src="/images/duck-rabbit.png" alt="Fisor img" />
   
   
     <!-- Introduction Section -->
@@ -171,4 +174,5 @@
   <!-- Contact Button -->
   
   </div>
+  <Footer/>
 </div>
