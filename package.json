@@ -40,6 +40,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"flowbite-svelte": "^0.46.15"
+		"flowbite-svelte": "^0.46.15",
+		"gray-matter": "^4.0.3",
+		"marked": "^15.0.12",
+		"remark": "^15.0.1",
+		"remark-html": "^16.0.1"
 	}
 }

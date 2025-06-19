@@ -4,6 +4,7 @@ import { configDefaults } from 'vitest/config';
 
 
 export default defineConfig({
+	assetsInclude: ['**/*.md'],
 	plugins: [sveltekit()],
 	test: {
 	  globals: true,

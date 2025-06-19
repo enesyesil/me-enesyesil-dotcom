@@ -1,43 +1,33 @@
 <script lang="ts">
-    import { Card, Button, Toggle } from 'flowbite-svelte';
-    let hCard = false;
-    import Navbar from '$lib/components/Navbar.svelte';
-    import Footer from '$lib/components/Footer.svelte';
-    import { ArrowRightOutline } from 'flowbite-svelte-icons';
-  
-  </script>
-  <Navbar/>
-  <div class="flex flex-col justify-center items-center bg-amber-50 py-12">
-    <div class="w-full max-w-4xl my-4">
-      <Card href="/Blog/Jan-24" horizontal={hCard} size="none" reverse={hCard} class="bg-amber-50 hover:bg-amber-100">
-        <div class="flex flex-col md:flex-row items-center md:items-start">
-          <img src="/images/duck-rabbit.png" alt="Profile Image" class="w-48 h-48 md:w-48 md:h-48 object-cover mb-4 md:mb-0 md:mr-6 rounded-lg">
-          <div class="flex-1 mb-4">
-            <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Rabbit or Duck?</h1>
-            <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">Exploring the intersection of computer science and philosophy through Bayes' Theorem, examining how minds and machines process probability and perception.</p>
-            <Button  color="green" href="/Blog/Jan-24">Read<ArrowRightOutline/></Button>
-          </div>
-        </div>
-      </Card>
-      
-    
-    </div>
-    <div class="w-full max-w-4xl my-4">
-      <Card href="/Blog/J-25" horizontal={hCard} size="none" reverse={hCard} class="bg-amber-50 hover:bg-amber-100">
-        <div class="flex flex-col md:flex-row items-center md:items-start">
-          <img src="/images/brain.jpg" alt="Profile Image" class="w-48 h-48 md:w-48 md:h-48 object-cover mb-4 md:mb-0 md:mr-6 rounded-lg">
-          <div class="flex-1 mb-4">
-            <h1 class="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white">The Human Brain: Complexity in Thought and Experience</h1>
-            <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">  Exploring the concepts of access and phenomenal consciousness, the challenges of understanding subjective experiences, and the parallels between brains and computers.</p>
-            <Button  color="green" href="/Blog/J-25">Read<ArrowRightOutline/></Button>
-          </div>
-        </div>
-      </Card>
-      
-      
-   
-      
-    </div>
-  </div>
-  
-  <Footer/>
+	import Navbar from '$lib/components/Navbar.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+
+	export let data: {
+		posts: {
+			slug: string;
+			title: string;
+			image?: string;
+			description?: string;
+		}[];
+	};
+</script>
+
+<Navbar />
+
+<main class="max-w-screen-lg mx-auto px-4 py-12">
+	<h1 class="text-4xl font-bold mb-8 text-gray-900 dark:text-white">Blog</h1>
+
+	{#each data.posts as post}
+		<article class="mb-10 p-6 rounded-lg bg-white dark:bg-gray-800 shadow hover:bg-amber-100 dark:hover:bg-gray-700 transition">
+			<a href={`/Blog/${post.slug}`} class="block">
+				{#if post.image}
+					<img src={post.image} alt={post.title} class="w-full h-64 object-cover rounded mb-4" />
+				{/if}
+				<h2 class="text-2xl font-semibold mb-2 text-gray-900 dark:text-white">{post.title}</h2>
+				<p class="text-gray-700 dark:text-gray-300">{post.description}</p>
+			</a>
+		</article>
+	{/each}
+</main>
+
+<Footer />
