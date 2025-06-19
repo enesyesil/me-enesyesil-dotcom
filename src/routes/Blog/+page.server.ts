@@ -6,29 +6,18 @@ export async function load() {
 	const postsDir = 'src/lib/posts';
 	const files = fs.readdirSync(postsDir).filter((f) => f.endsWith('.md'));
 
-	const posts = [];
+	const posts = files.map((file) => {
+		const slug = file.replace('.md', '');
+		const raw = fs.readFileSync(path.join(postsDir, file), 'utf-8');
+		const { data } = matter(raw);
 
-	for (const file of files) {
-		try {
-			const slug = file.replace('.md', '');
-			const fullPath = path.join(postsDir, file);
-			const content = fs.readFileSync(fullPath, 'utf-8');
-			const { data } = matter(content);
+		return {
+			slug,
+			title: data.title,
+			description: data.description,
+			image: data.image
+		};
+	});
 
-			if (!data.title) continue; // skip if no title
-
-			posts.push({
-				slug,
-				title: data.title,
-				image: data.image,
-				description: data.description ?? ''
-			});
-		} catch (e) {
-			console.warn(`⚠️ Failed to load post: ${file}`, e);
-		}
-	}
-
-	return {
-		posts
-	};
+	return { posts };
 }
