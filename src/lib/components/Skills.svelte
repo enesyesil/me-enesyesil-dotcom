@@ -4,43 +4,139 @@
 
 <div class="max-w-full flex items-center justify-center mb-8 mt-8 px-2 sm:px-4 lg:px-4">
   <section class="p-12 rounded-lg w-full max-w-4xl mx-auto">
-    <h2 class="text-3xl text-center font-bold mb-4">Key Facts or Skills</h2>
-    <div class="mb-6">
-      <label for="javascript" class="block text-lg font-medium text-gray-700">JavaScript</label>
-      <Progressbar progress="80" id="javascript" color="green"/>
+    <h2 class="text-3xl text-center font-bold mb-8">Key Skills</h2>
+
+    <!-- Frontend -->
+    <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Frontend</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="html" class="block text-lg">HTML</label>
+        <Progressbar progress="90" id="html" color="green" />
+      </div>
+      <div>
+        <label for="css" class="block text-lg">CSS</label>
+        <Progressbar progress="70" id="css" color="green" />
+      </div>
+      <div>
+        <label for="javascript" class="block text-lg">JavaScript</label>
+        <Progressbar progress="80" id="javascript" color="green" />
+      </div>
+      <div>
+        <label for="typescript" class="block text-lg">TypeScript</label>
+        <Progressbar progress="80" id="typescript" color="green" />
+      </div>
+      <div>
+        <label for="svelte" class="block text-lg">Svelte</label>
+        <Progressbar progress="85" id="svelte" color="green" />
+      </div>
+      <div>
+        <label for="react" class="block text-lg">React</label>
+        <Progressbar progress="75" id="react" color="green" />
+      </div>
+      <div>
+        <label for="tailwind" class="block text-lg">Tailwind CSS</label>
+        <Progressbar progress="80" id="tailwind" color="green" />
+      </div>
     </div>
-    <div class="mb-6">
-      <label for="python" class="block text-lg font-medium text-gray-700">Python</label>
-      <Progressbar progress="75" id="python" color="green" />
+
+    <!-- Backend -->
+    <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Backend</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="java" class="block text-lg">Java</label>
+        <Progressbar progress="90" id="java" color="green" />
+      </div>
+      <div>
+        <label for="spring" class="block text-lg">Spring Boot</label>
+        <Progressbar progress="75" id="spring" color="green" />
+      </div>
+      <div>
+        <label for="node" class="block text-lg">Node.js</label>
+        <Progressbar progress="70" id="node" color="green" />
+      </div>
+      <div>
+        <label for="fastapi" class="block text-lg">FastAPI</label>
+        <Progressbar progress="70" id="fastapi" color="green" />
+      </div>
+      <div>
+        <label for="go" class="block text-lg">Go (Golang)</label>
+        <Progressbar progress="65" id="go" color="green" />
+      </div>
     </div>
-    <div class="mb-6">
-      <label for="css" class="block text-lg font-medium text-gray-700">CSS</label>
-      <Progressbar progress="60" id="css" color="green"/>
+
+    <!-- Programming Languages -->
+    <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Languages</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="python" class="block text-lg">Python</label>
+        <Progressbar progress="80" id="python" color="green" />
+      </div>
+      <div>
+        <label for="c" class="block text-lg">C</label>
+        <Progressbar progress="70" id="c" color="green" />
+      </div>
+      <div>
+        <label for="bash" class="block text-lg">Bash / Shell</label>
+        <Progressbar progress="65" id="bash" color="green" />
+      </div>
     </div>
-    <div class="mb-6">
-      <label for="html" class="block text-lg font-medium text-gray-700">HTML</label>
-      <Progressbar progress="90" id="html" color="green"/>
+
+    <!-- Cloud & DevOps -->
+    <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Cloud & DevOps</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="aws" class="block text-lg">AWS</label>
+        <Progressbar progress="80" id="aws" color="green" />
+      </div>
+      <div>
+        <label for="aws" class="block text-lg">Azure</label>
+        <Progressbar progress="70" id="aws" color="green" />
+      </div>
+      <div>
+        <label for="docker" class="block text-lg">Docker</label>
+        <Progressbar progress="75" id="docker" color="green" />
+      </div>
+      <div>
+        <label for="terraform" class="block text-lg">Terraform</label>
+        <Progressbar progress="65" id="terraform" color="green" />
+      </div>
+      <div>
+        <label for="github" class="block text-lg">GitHub Actions</label>
+        <Progressbar progress="85" id="github" color="green" />
+      </div>
     </div>
-    <div class="mb-6">
-      <label for="sub" class="block text-lg font-medium text-gray-700">Java</label>
-      <Progressbar progress="90" id="html" color="green"/>
+
+    <!-- Tools & Databases -->
+    <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Tools & Databases</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="postgresql" class="block text-lg">Postgres</label>
+        <Progressbar progress="80" id="postgresql" color="green" />
+      </div>
+      <div>
+        <label for="postgresql" class="block text-lg">SQL</label>
+        <Progressbar progress="80" id="postgresql" color="green" />
+      </div>
+      <div>
+        <label for="redis" class="block text-lg">Redis</label>
+        <Progressbar progress="70" id="redis" color="green" />
+      </div>
+      <div>
+        <label for="git" class="block text-lg">Git</label>
+        <Progressbar progress="85" id="git" color="green" />
+      </div>
+      <div>
+        <label for="prometheus" class="block text-lg">Prometheus + Grafana</label>
+        <Progressbar progress="65" id="prometheus" color="green" />
+      </div>
+      <div>
+        <label for="prometheus" class="block text-lg">Apache Iceberg</label>
+        <Progressbar progress="75" id="prometheus" color="green" />
+      </div>
+      <div>
+        <label for="prometheus" class="block text-lg">Apache Spark</label>
+        <Progressbar progress="65" id="prometheus" color="green" />
+      </div>
     </div>
-    <div class="mb-6">
-      <label for="sub" class="block text-lg font-medium text-gray-700">Svelte</label>
-      <Progressbar progress="85" id="html" color="green"/>
-    </div>
-    <div class="mb-6">
-      <label for="sub" class="block text-lg font-medium text-gray-700">TypeScript</label>
-      <Progressbar progress="80" id="html" color="green"/>
-    </div>
-    <div class="mb-6">
-      <label for="sub" class="block text-lg font-medium text-gray-700">React</label>
-      <Progressbar progress="75" id="html" color="green"/>
-    </div>
-    <div class="mb-6">
-      <label for="sub" class="block text-lg font-medium text-gray-700">Spring</label>
-      <Progressbar progress="70" id="html" color="green"/>
-    </div>
-    <!-- Add more skills as needed -->
   </section>
 </div>

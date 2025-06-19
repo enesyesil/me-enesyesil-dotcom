@@ -1,118 +1,107 @@
 <script>
-  import { Button, Card, Avatar } from 'flowbite-svelte';
+  import { Button, Card } from 'flowbite-svelte';
   import ContactMe from './ContactMe.svelte';
-  import { Section, PricingBodyHead, PricingCard, PricingItemWrapper, PricingHead, PricingItem } from 'flowbite-svelte-blocks';
+  import { Section, PricingBodyHead, PricingCard, PricingItemWrapper, PricingHead } from 'flowbite-svelte-blocks';
 </script>
 
 <div class="min-h-screen bg-white-100 dark:bg-gray-900 py-10">
-<div class="max-w-screen-lg mx-auto px-4">
-  <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-6 mt-12">Fisor: Revolutionizing Financial Management
-  </h1>
+  <div class="max-w-screen-lg mx-auto px-4">
+    <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-6 mt-12">
+      Fisor Analytics: Predictive Intelligence for Modern Businesses
+    </h1>
 
+    <!-- Image -->
+    <img class="w-full mb-8" src="/images/new-fisor.png" alt="Fisor Analytics" />
 
+    <!-- Introduction -->
+    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
+      Fisor Analytics empowers Canadian SMEs with predictive, AI-powered insights that uncover revenue opportunities, reduce waste, and drive strategic decision-making — without requiring a full data team.
+    </p>
 
-    <!-- Image Section -->
-    <img class="w-full mb-8" src="/images/Fisor.jpg" alt="Fisor img" />
+    <!-- About -->
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">About Us</h2>
+    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
+      Built for SMEs, Fisor Analytics combines open public data, operational signals, and AI models to offer actionable intelligence. Our modular engines provide insights tailored to industries like logistics, construction, and real estate.
+    </p>
 
+    <!-- Mission -->
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Our Mission</h2>
+    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
+      Democratize predictive analytics for businesses that have outgrown spreadsheets but can’t afford enterprise BI tools. We help companies make data-driven decisions with ease and confidence.
+    </p>
 
-  <!-- Introduction Section -->
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
-    Revolutionize financial management with our advanced calculator, powered by AI and data analytics to simplify complex financial calculations across buying homes, purchasing cars, managing investments, and planning for retirement.
-  </p>
+    <!-- Vision -->
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Our Vision</h2>
+    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
+      We envision a Canadian business landscape where every company — regardless of budget or size — can access the same level of data intelligence as large enterprises. Fisor aims to be the 'Palantir for Canada’s SMEs.'
+    </p>
 
-  <!-- About Us Section -->
-  <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">About Us</h2>
-  
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    At Fisor, we’re not just a financial calculator; we’re innovators and educators in the financial technology landscape. Our platform is built on the foundation of AI and data analytics, designed to simplify financial calculations and empower users with actionable insights. From personal budgeting to complex investment strategies, Fisor provides the tools and knowledge necessary to navigate today’s financial challenges with confidence.
-  </p>
-   
-  <!-- Mission Section -->
-  <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Our Mission</h2>
-  
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    Empowering Financial Independence with Smart Technology. Our mission is to make financial mastery achievable for everyone. Fisor leverages cutting-edge technology to deliver personalized, precise financial advice and calculations that help individuals and businesses optimize their financial outcomes. We are committed to breaking down barriers to financial education and enabling our users to make decisions that lead to financial success.
-  </p>
+    <!-- Tools & Technologies -->
+    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Tools and Technologies</h2>
+    <ul class="list-disc text-lg font-light text-gray-500 dark:text-gray-400 pl-6 space-y-4 mb-12">
+      <li><strong>Go (Golang):</strong> High-performance backend orchestration</li>
+      <li><strong>Python:</strong> AI pipeline and analytics engine development</li>
+      <li><strong>SvelteKit:</strong> Frontend interface with fast, reactive UI</li>
+      <li><strong>PostgreSQL:</strong> Secure tenant-aware relational database</li>
+      <li><strong>Apache Iceberg:</strong> Columnar data lakehouse format for efficient analytics</li>
+      <li><strong>Apache Spark:</strong> High-speed analytics and ML pipelines</li>
+      <li><strong>Redis:</strong> Low-latency context memory and caching</li>
+      <li><strong>Azure Blob Storage:</strong> Public + internal dataset storage per tenant</li>
+      <li><strong>Cohere + Perplexity API:</strong> AI agents for research, reasoning, and summarization</li>
+    </ul>
 
-  <!-- Vision Section -->
-  <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Our Vision</h2>
-  
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    Creating a Financially Informed World. We envision a future where everyone, regardless of background or education level, has access to the tools and information needed to make empowered financial decisions. Fisor aims to lead the way in creating a globally informed community, equipped to achieve financial security and prosperity through our intuitive and powerful technological solutions.
-  </p>
-
-  <!-- Tech Stack Section -->
-  <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Tools and Technologies</h2>
-  
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    SvelteKit: The frontend framework used for building fast, reactive user interfaces.
-  </p>
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    TypeScript: The programming language used on the backend to ensure type safety and build robust APIs.
-  </p>
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    PostgreSQL: The relational database used for storing and managing data securely.
-  </p>
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    OpenAI API: Integrated for natural language processing and text embedding, enhancing user interactions and insights.
-  </p>
-  <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-    Data Modeling & Training: Leveraging advanced data models to provide accurate financial advice and predictions, continuously improving through machine learning.
-  </p>
-
-  <!-- More Info Section -->
-  <Section name="pricing">
+    <!-- Links -->
+    <Section name="pricing">
       <PricingHead>
         <svelte:fragment slot="h2">More Info & Links</svelte:fragment>
-        <svelte:fragment slot="paragraph">Here are your options.</svelte:fragment>
+        <svelte:fragment slot="paragraph">Explore our resources.</svelte:fragment>
       </PricingHead>
+
       <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
         <PricingCard class="bg-amber-50">
           <PricingBodyHead>
             <svelte:fragment slot="h3">Website</svelte:fragment>
-            <svelte:fragment slot="paragraph">Website is temporarily unavailable</svelte:fragment>
+            <svelte:fragment slot="paragraph">This page is part of our early showcase.</svelte:fragment>
           </PricingBodyHead>
           <PricingItemWrapper>
             <svelte:fragment slot="btn">
-              <a href="/" target="_blank" rel="noopener noreferrer">
+              <a href="https://fisoranalytics.org/" target="_blank">
                 <Button color="green">Visit Website</Button>
               </a>
             </svelte:fragment>
           </PricingItemWrapper>
         </PricingCard>
-    
+
+     
+
         <PricingCard class="bg-amber-50">
           <PricingBodyHead>
-            <svelte:fragment slot="h3">GitHub</svelte:fragment>
-            <svelte:fragment slot="paragraph">Explore the repository.</svelte:fragment>
-          </PricingBodyHead>
-          <PricingItemWrapper>
-            <svelte:fragment slot="btn">
-              <a href="https://github.com/enesyesil/Fisor" target="_blank" rel="noopener noreferrer">
-                <Button color="green">Go to GitHub</Button>
-              </a>
-            </svelte:fragment>
-          </PricingItemWrapper>
-        </PricingCard>
-    
-        <PricingCard class="bg-amber-50">
-          <PricingBodyHead>
-            <svelte:fragment slot="h3">Email</svelte:fragment>
-            <svelte:fragment slot="paragraph">Got a question? Let me know.</svelte:fragment>
+            <svelte:fragment slot="h3">Contact</svelte:fragment>
+            <svelte:fragment slot="paragraph">Have a question or want to collaborate?</svelte:fragment>
           </PricingBodyHead>
           <PricingItemWrapper>
             <svelte:fragment slot="btn">
               <a href="mailto:enesy@my.yorku.ca">
-                <Button color="green">Send me an email</Button>
+                <Button color="green">Send Email</Button>
+              </a>
+            </svelte:fragment>
+          </PricingItemWrapper>
+        </PricingCard>
+
+        <PricingCard class="bg-amber-50">
+          <PricingBodyHead>
+            <svelte:fragment slot="h3">Linkedin</svelte:fragment>
+            <svelte:fragment slot="paragraph">You can connect with Fisor Analytics team!</svelte:fragment>
+          </PricingBodyHead>
+          <PricingItemWrapper>
+            <svelte:fragment slot="btn">
+              <a href="https://www.linkedin.com/company/fisoranalytics">
+                <Button color="green">Let's Connect!</Button>
               </a>
             </svelte:fragment>
           </PricingItemWrapper>
         </PricingCard>
       </div>
-  </Section>
-  
-</div>
-
-<!-- Contact Button -->
-
+    </Section>
+  </div>
 </div>

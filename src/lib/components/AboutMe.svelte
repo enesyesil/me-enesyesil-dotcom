@@ -11,14 +11,19 @@
         <img src="/images/my_profile.JPG" alt="Profile Image" class="w-48 h-48 md:w-48 md:h-48 object-cover rounded-full mb-4 md:mb-0 md:mr-6">
         <div class="flex-1">
           <h5 class="mb-4 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Who Am I?</h5>
-          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">Hello, I'm Enes Yesil! 👋. I'm a passionate software developer with a keen interest in AI and financial technology. Currently, I'm pursuing a Computer Science degree at York University and working on exciting projects that leverage my skills in AI, machine learning, and full-stack development. My tech stack includes TypeScript, Java, JavaScript, and Python, along with libraries such as the MERN stack, and tools like React, Node.js</p>
-          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">⚡ Fun Fact: I love solving complex financial problems and making technology accessible to everyone. In my free time, I enjoy exploring new tech gadgets and following soccer/football.</p>
+          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">
+            I'm a software developer passionate about building AI/ML and data infrastructure. I enjoy turning complex systems into powerful, usable tools—especially when it comes to automation and platform engineering.
+          </p>
+          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">
+            I’m in my final year of Computer Science at York University and currently building real-world systems like Fisor Analytics—a multi-tenant AI analytics platform powered by LLMs, Spark, and Iceberg.
+          </p>
+          <p class="mb-4 font-normal text-gray-700 dark:text-gray-400">
+            ⚡ Outside of code, I enjoy following football, reading about history, exploring new tech gadgets, and thinking about how cultures and technologies shape each other over time.
+          </p>
           <Button color="green" href="/MoreMe">Learn more<ArrowRightOutline/></Button>
         </div>
       </div>
     </Card>
-    <div class="flex justify-center mt-4">
-      <Toggle bind:checked={hCard} class="italic dark:text-gray-500">Reverse</Toggle>
-    </div>
+  
   </div>
 </div>
