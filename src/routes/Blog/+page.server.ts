@@ -1,23 +1,19 @@
-import fs from 'fs';
-import path from 'path';
+import { marked } from 'marked';
 import matter from 'gray-matter';
 
 export async function load() {
-	const postsDir = 'src/lib/posts';
-	const files = fs.readdirSync(postsDir).filter((f) => f.endsWith('.md'));
+  const imports = import.meta.glob('/src/lib/posts/*.md', {
+    query: '?raw',
+    import: 'default'
+  });
 
-	const posts = files.map((file) => {
-		const slug = file.replace('.md', '');
-		const raw = fs.readFileSync(path.join(postsDir, file), 'utf-8');
-		const { data } = matter(raw);
+  const posts = [];
 
-		return {
-			slug,
-			title: data.title,
-			description: data.description,
-			image: data.image
-		};
-	});
+  for (const path in imports) {
+    const raw = await imports[path]() as string;
+    const { data } = matter(raw);
+    posts.push({ ...data, slug: path.split('/').pop()?.replace('.md', '') });
+  }
 
-	return { posts };
+  return { posts };
 }
