@@ -35,7 +35,7 @@ In many ways, the idea of the “elite school” advantage is starting to break.
 
 ### Skipping Generations of Infrastructure
 
-In the past, building an innovation hub took generations, universities, labs, ministries, and years of government investment. Now? Some countries are jumping right over that. No elite school, no expensive setup.
+In the past, building a foundation took generations, universities, labs, ministries, and years of investment. Now?
 
 
 And that’s the idea, really. We’re entering an age where the sum of humanity’s knowledge, science, literature, history, philosophy, math, language is increasingly embedded in systems we can actually interact with. Large language models models trained on billions of pages from books, papers, websites, and cultural archives have become the closest thing we’ve ever had to a dynamic, conversational world library. And for the first time in history, you don’t need to inherit knowledge, institutions, or infrastructure. You just need curiosity, access, and the will to explore.
