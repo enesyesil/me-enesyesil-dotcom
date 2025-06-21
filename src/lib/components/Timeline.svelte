@@ -28,7 +28,7 @@
 
     <TimelineItem title="Started as Research Assistant" date="March 2024">
       <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-        Conducted applied research in computing and supported academic investigations in system design and AI.
+        Conducted accessibility-focused software research at York University, translating inclusive design principles into functional applications and reusable components.
       </p>
     </TimelineItem>
 
