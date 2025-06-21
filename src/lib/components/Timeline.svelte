@@ -20,9 +20,9 @@
     </TimelineItem>
 
 
-    <TimelineItem title="Started Internship at Zyfera (Fisor Project)" date="January 2024">
+    <TimelineItem title="Started Internship at Zyfera" date="January 2024">
       <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-        Joined as Software Developer Intern, building AI-powered analytics tools for mid-sized businesses.
+        Joined as Software Developer Intern, building AI-powered tools.
       </p>
     </TimelineItem>
 
