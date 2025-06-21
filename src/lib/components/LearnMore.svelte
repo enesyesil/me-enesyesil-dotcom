@@ -35,7 +35,7 @@
     </p>
     
     <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Interests:</strong> AI infrastructure, LLM agent systems, full-stack development, cloud-native platforms, data engineering, and simplifying complex backend systems through automation and orchestration.
+      <strong>Interests:</strong> AI infrastructure, cloud-native platforms, data engineering, and simplifying complex systems through automation and orchestration.
     </p>
     
     <!-- Vision Section -->
