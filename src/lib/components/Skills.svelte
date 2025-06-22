@@ -18,14 +18,6 @@
         <Progressbar progress="70" id="css" color="green" />
       </div>
       <div>
-        <label for="javascript" class="block text-lg">JavaScript</label>
-        <Progressbar progress="80" id="javascript" color="green" />
-      </div>
-      <div>
-        <label for="typescript" class="block text-lg">TypeScript</label>
-        <Progressbar progress="80" id="typescript" color="green" />
-      </div>
-      <div>
         <label for="svelte" class="block text-lg">Svelte</label>
         <Progressbar progress="85" id="svelte" color="green" />
       </div>
@@ -34,7 +26,7 @@
         <Progressbar progress="75" id="react" color="green" />
       </div>
       <div>
-        <label for="tailwind" class="block text-lg">Tailwind CSS</label>
+        <label for="tailwind" class="block text-lg">Tailwind</label>
         <Progressbar progress="80" id="tailwind" color="green" />
       </div>
     </div>
@@ -42,10 +34,7 @@
     <!-- Backend -->
     <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Backend</h3>
     <div class="space-y-4">
-      <div>
-        <label for="java" class="block text-lg">Java</label>
-        <Progressbar progress="90" id="java" color="green" />
-      </div>
+    
       <div>
         <label for="spring" class="block text-lg">Spring Boot</label>
         <Progressbar progress="75" id="spring" color="green" />
@@ -59,8 +48,8 @@
         <Progressbar progress="70" id="fastapi" color="green" />
       </div>
       <div>
-        <label for="go" class="block text-lg">Go (Golang)</label>
-        <Progressbar progress="65" id="go" color="green" />
+        <label for="go" class="block text-lg">Fiber(Golang)</label>
+        <Progressbar progress="75" id="go" color="green" />
       </div>
     </div>
 
@@ -68,8 +57,24 @@
     <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Languages</h3>
     <div class="space-y-4">
       <div>
+        <label for="java" class="block text-lg">Java</label>
+        <Progressbar progress="90" id="java" color="green" />
+      </div>
+      <div>
+        <label for="go" class="block text-lg">Go (Golang)</label>
+        <Progressbar progress="65" id="go" color="green" />
+      </div>
+      <div>
+        <label for="javascript" class="block text-lg">JavaScript</label>
+        <Progressbar progress="80" id="javascript" color="green" />
+      </div>
+      <div>
         <label for="python" class="block text-lg">Python</label>
         <Progressbar progress="80" id="python" color="green" />
+      </div>
+      <div>
+        <label for="typescript" class="block text-lg">TypeScript</label>
+        <Progressbar progress="80" id="typescript" color="green" />
       </div>
       <div>
         <label for="c" class="block text-lg">C</label>
@@ -113,10 +118,7 @@
         <label for="postgresql" class="block text-lg">Postgres</label>
         <Progressbar progress="80" id="postgresql" color="green" />
       </div>
-      <div>
-        <label for="sql" class="block text-lg">SQL</label>
-        <Progressbar progress="80" id="sql" color="green" />
-      </div>
+
       <div>
         <label for="redis" class="block text-lg">Redis</label>
         <Progressbar progress="70" id="redis" color="green" />
