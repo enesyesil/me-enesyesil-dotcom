@@ -2,9 +2,9 @@
   import { Progressbar } from 'flowbite-svelte';
 </script>
 
-<div class="max-w-full flex items-center justify-center mb-8 mt-8 px-2 sm:px-4 lg:px-4">
-  <section class="p-12 rounded-lg w-full max-w-4xl mx-auto">
-    <h2 class="text-3xl text-center font-bold mb-8">Key Skills</h2>
+<section class="bg-amber-50 px-4 py-16 w-full">
+  <div class="max-w-4xl mx-auto px-4">
+    <h2 class="text-3xl text-center font-bold mb-12">Key Skills</h2>
 
     <!-- Frontend -->
     <h3 class="text-2xl font-semibold mt-12 mb-6 text-gray-800">Frontend</h3>
@@ -89,8 +89,8 @@
         <Progressbar progress="80" id="aws" color="green" />
       </div>
       <div>
-        <label for="aws" class="block text-lg">Azure</label>
-        <Progressbar progress="70" id="aws" color="green" />
+        <label for="azure" class="block text-lg">Azure</label>
+        <Progressbar progress="70" id="azure" color="green" />
       </div>
       <div>
         <label for="docker" class="block text-lg">Docker</label>
@@ -114,8 +114,8 @@
         <Progressbar progress="80" id="postgresql" color="green" />
       </div>
       <div>
-        <label for="postgresql" class="block text-lg">SQL</label>
-        <Progressbar progress="80" id="postgresql" color="green" />
+        <label for="sql" class="block text-lg">SQL</label>
+        <Progressbar progress="80" id="sql" color="green" />
       </div>
       <div>
         <label for="redis" class="block text-lg">Redis</label>
@@ -130,13 +130,13 @@
         <Progressbar progress="65" id="prometheus" color="green" />
       </div>
       <div>
-        <label for="prometheus" class="block text-lg">Apache Iceberg</label>
-        <Progressbar progress="75" id="prometheus" color="green" />
+        <label for="iceberg" class="block text-lg">Apache Iceberg</label>
+        <Progressbar progress="75" id="iceberg" color="green" />
       </div>
       <div>
-        <label for="prometheus" class="block text-lg">Apache Spark</label>
-        <Progressbar progress="65" id="prometheus" color="green" />
+        <label for="spark" class="block text-lg">Apache Spark</label>
+        <Progressbar progress="65" id="spark" color="green" />
       </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>

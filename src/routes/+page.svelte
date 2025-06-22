@@ -7,7 +7,7 @@
   import Footer from '$lib/components/Footer.svelte';
 </script>
 
-<div class="bg-amber-50 ">
+<div class="bg-amber-50 items-center">
   <Navbar />
   <AboutMe />
 
