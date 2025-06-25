@@ -2,7 +2,7 @@
 
 title: "The Acceleration of History: How Empires Collapse, Systems Transform, and Civilizations Confront Compressed Time"
 date: 2025-06-24
-description: "A deep dive into the theory of historical acceleration—tracing its origins, comparing past empire collapses with modern systemic disruptions, and analyzing how technology, globalization, and AI are compressing historical cycles and reshaping the future of civilizations."
+description: "A concise exploration of how technological and societal acceleration is compressing the rise and fall of empires, institutions, and ideologies, transforming centuries-long collapse cycles into decades or even years."
 image: "/images/history.jpg"
 --------------------------------------------
 
