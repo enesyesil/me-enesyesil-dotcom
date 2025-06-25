@@ -1,6 +1,6 @@
 ---
 title: "The Intellectual Turning Point: What Large Language Models Might Rewrite"
-description: By compressing the world’s knowledge into accessible systems, Large Language Models might redistribute intellectual power, turning knowledge into a shared resource and creativity into a global conversation.
+description: Large Language Models might redistribute intellectual power, turning knowledge into a shared resource and creativity into a global conversation.
 date: 2025-06-18
 image: /images/global-ai-knowledge.jpg
 ---
