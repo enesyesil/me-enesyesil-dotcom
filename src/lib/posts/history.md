@@ -1,6 +1,6 @@
 ---
 
-title: "The Acceleration of History: How Empires Collapse, Systems Transform, and Civilizations Confront Compressed Time"
+title: " The Velocity of History: Cycles, Crises, and the New Tempo of Global Disruption"
 date: 2025-06-24
 description: "A concise exploration of how technological and societal acceleration is transforming centuries-long collapse cycles into decades or even years."
 image: "/images/history.jpg"
