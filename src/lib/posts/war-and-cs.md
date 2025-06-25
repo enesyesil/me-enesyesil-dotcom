@@ -5,7 +5,6 @@ description: "Exploring how wars and tensions sparked the rise of modern computi
 image: "/images/war-and-cs.jpg"
 ---
 
-# How War Gave Birth to Computer Science
 
 ### World War II: Early Computers Born from Warfare
 
