@@ -137,7 +137,7 @@ A Metasystemic Rupture is not just a rare event within the system. It is not a B
 
 Different traditions describe this in different ways. Some call it **prophecy** which is an intervention that reorders history in ways no distribution could foresee. Others call it **divinity** or **transcendence**, the idea that a higher agency can break through the ordinary logic of events. In more neutral terms, it is simply an **intervention beyond probability**.  
 
-It is also possible to see ruptures in a more human or social form. A single **charismatic leader**, a sudden **cultural awakening**, or an unexpected **social shift** can redirect history in ways that break the expected curves of probability. In these cases, it is not randomness but a decisive intervention — something that reshapes the system rather than just disturbing it.  
+It is also possible to see ruptures in a more human or social form. A single **charismatic leader**, a sudden **cultural awakening**, or an unexpected **social shift** can redirect history in ways that break the expected curves of probability. In these cases, it is not randomness but a decisive intervention, something that reshapes the system rather than just disturbing it.  
 
 If the worldview of the **Abrahamic religions** is taken as a base, then it becomes plausible to interpret some of these events through the lens of divine agency. Extraordinary individuals, movements, or turning points in history can be read not only as social phenomena but as possible signs of **divine intervention** breaking into the system of probabilities.
 
