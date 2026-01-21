@@ -60,13 +60,15 @@ jobs:
           cache-from: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache
           cache-to: type=registry,ref=${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:buildcache,mode=max
 
-      # Auto-deploy to your Dokploy on successful push (optional)
+      # Auto-deploy to Dokploy on successful push
       - name: Trigger Dokploy deploy
         if: github.ref == 'refs/heads/master'
         run: |
           curl -sS -X POST \
-            "https://deploy.enesyesil.me/api/trpc/application.deploy" \
-            -H "x-api-key: ${{ secrets.DOKPLOY_API_KEY }}" \
-            -H "content-type: application/json" \
-            --data-raw '{"json":{"applicationId":"${{ secrets.APP_KEY }}"}}'
+            "${{ secrets.DOKPLOY_URL }}/api/application.deploy" \
+            -H "Authorization: Bearer ${{ secrets.DOKPLOY_API_KEY }}" \
+            -H 'Content-Type: application/json' \
+            -d '{
+                 "applicationId": "${{ secrets.DOKPLOY_APP_ID }}"
+            }'
 

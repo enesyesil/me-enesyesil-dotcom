@@ -26,8 +26,8 @@ RUN npm ci --omit=dev
 COPY --from=build /app/build ./build
 
 ENV NODE_ENV=production
-ENV PORT=3000
-EXPOSE 3000
+ENV PORT=3001
+EXPOSE 3001
 HEALTHCHECK --interval=30s --timeout=3s CMD wget -qO- http://127.0.0.1:${PORT}/ || exit 1
 
 CMD ["node", "build"]
