@@ -12,8 +12,16 @@ export async function load() {
   for (const path in imports) {
     const raw = await imports[path]() as string;
     const { data } = matter(raw);
-    posts.push({ ...data, slug: path.split('/').pop()?.replace('.md', '') });
+    posts.push({
+      slug: path.split('/').pop()?.replace('.md', ''),
+      ...data
+    });
   }
+
+  // Sort posts by date
+  posts.sort((a, b) => {
+    return new Date(b.date).getTime() - new Date(a.date).getTime();
+  });
 
   return { posts };
 }

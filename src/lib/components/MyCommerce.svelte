@@ -1,91 +1,141 @@
 <script>
-    import { Button, Card } from 'flowbite-svelte';
-    import ContactMe from './ContactMe.svelte';
-    import { Section, PricingBodyHead, PricingCard, PricingItemWrapper, PricingHead } from 'flowbite-svelte-blocks';
-  </script>
-  
-  <div class="min-h-screen bg-white-100 dark:bg-gray-900 py-10">
-    <div class="max-w-screen-lg mx-auto px-4">
-      <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-6 mt-12">E-Commerce Platform</h1>
-      
-      <!-- Image Section -->
-      <img class="w-full mb-8" src="/images/mycom.png" alt="E-Commerce Platform" />
-  
-      <!-- Introduction Section -->
-      <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
-        A modern, fully functional e-commerce platform that enables customers to browse products, manage a shopping cart, and complete orders.
-        The platform features robust role-based access control, separating customer functionalities from administrative operations.
+  import { Button } from 'flowbite-svelte';
+  import { LinkOutline, GithubSolid, EnvelopeSolid, CartSolid } from 'flowbite-svelte-icons';
+</script>
+
+<div class="min-h-screen bg-transparent py-10">
+  <div class="max-w-4xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="text-center mb-12 mt-8 animate-fade-in-up">
+      <h1 class="heading-primary mb-6">
+        My <span class="heading-accent">Commerce</span>
+      </h1>
+      <p class="text-xl font-light text-gray-600 max-w-2xl mx-auto">
+        Modern Full-Stack E-Commerce Platform
       </p>
-  
-      <!-- Features Section -->
-      <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Features</h2>
-      <ul class="list-disc list-inside text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
-        <li>User Registration and Login: Secure user authentication using JWT tokens.</li>
-        <li>Filter products by categories, brands, and models.</li>
-        <li>Shopping cart management with persistence across sessions.</li>
-        <li>Admin features for inventory and sales management.</li>
-      </ul>
-      <img class="w-full mb-8" src="/images/Screenshot1.png" alt="E-Commerce Platform" />
-      <img class="w-full mb-8" src="/images/Screenshot2.png" alt="E-Commerce Platform" />
-      <img class="w-full mb-8" src="/images/Screenshot3.png" alt="E-Commerce Platform" />
-      <img class="w-full mb-8" src="/images/Screenshot4.png" alt="E-Commerce Platform" />
-      <!-- Tools and Technologies Section -->
-      <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">Tools and Technologies</h2>
-      <ul class="list-disc list-inside text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
-        <li>Frontend: Next.js, Tailwind CSS, Vercel</li>
-        <li>Backend: Node.js, Express.js, PostgreSQL</li>
-        <li>Database Layer: DAO Design Pattern</li>
-        <li>Deployment: Vercel (Frontend), DigitalOcean (Backend)</li>
-      </ul>
-  
-      <!-- More Info Section -->
-      <Section name="more-info">
-        <PricingHead>
-          <svelte:fragment slot="h2">More Info & Links</svelte:fragment>
-          <svelte:fragment slot="paragraph">Explore the project in detail.</svelte:fragment>
-        </PricingHead>
-        <div class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0">
-          <PricingCard class="bg-blue-50">
-            <PricingBodyHead>
-              <svelte:fragment slot="h3">Repository</svelte:fragment>
-              <svelte:fragment slot="paragraph">Browse the code on GitHub.</svelte:fragment>
-            </PricingBodyHead>
-            <PricingItemWrapper>
-              <svelte:fragment slot="btn">
-                <a href="https://github.com/enesyesil" target="_blank" rel="noopener noreferrer">
-                  <Button color="blue">View on GitHub</Button>
-                </a>
-              </svelte:fragment>
-            </PricingItemWrapper>
-          </PricingCard>
-          <PricingCard class="bg-blue-50">
-            <PricingBodyHead>
-              <svelte:fragment slot="h3">Live Demo</svelte:fragment>
-              <svelte:fragment slot="paragraph">Try out the deployed platform.</svelte:fragment>
-            </PricingBodyHead>
-            <PricingItemWrapper>
-              <svelte:fragment slot="btn">
-                <a href="https://my-commerce-frontend.vercel.app/" target="_blank" rel="noopener noreferrer">
-                  <Button color="blue">View Demo</Button>
-                </a>
-              </svelte:fragment>
-            </PricingItemWrapper>
-          </PricingCard>
-          <PricingCard class="bg-blue-50">
-            <PricingBodyHead>
-              <svelte:fragment slot="h3">Email</svelte:fragment>
-              <svelte:fragment slot="paragraph">Questions? Reach out via email.</svelte:fragment>
-            </PricingBodyHead>
-            <PricingItemWrapper>
-              <svelte:fragment slot="btn">
-                <a href="mailto:enesy@my.yorku.ca">
-                  <Button color="blue">Contact Me</Button>
-                </a>
-              </svelte:fragment>
-            </PricingItemWrapper>
-          </PricingCard>
+    </div>
+
+    <!-- Image -->
+    <div class="bg-white/50 p-2 rounded-3xl mb-12 shadow-soft animate-fade-in-up delay-100">
+       <img class="w-full rounded-2xl" src="/images/mycom.png" alt="My Commerce Dashboard" />
+    </div>
+
+    <!-- Content Blocks -->
+    <div class="space-y-12 animate-fade-in-up delay-200">
+      
+      <!-- Intro -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft">
+        <p class="text-lg text-gray-600 leading-relaxed">
+          A fully functional e-commerce platform enabling customers to browse products, manage shopping carts, and complete orders. 
+          Built with robust role-based access control to securely separate customer shopping experiences from administrative inventory management.
+        </p>
+      </div>
+
+      <!-- Features Grid -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft">
+         <h2 class="text-2xl font-bold text-gray-900 mb-6">Key Features</h2>
+         <div class="grid sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-2 p-4 bg-amber-50 rounded-xl border border-amber-100">
+               <h3 class="font-bold text-gray-900">Secure Auth</h3>
+               <p class="text-sm text-gray-600">User registration & login with JWT tokens</p>
+            </div>
+            <div class="flex flex-col gap-2 p-4 bg-amber-50 rounded-xl border border-amber-100">
+               <h3 class="font-bold text-gray-900">Advanced Filtering</h3>
+               <p class="text-sm text-gray-600">Filter by category, brand, and model</p>
+            </div>
+            <div class="flex flex-col gap-2 p-4 bg-amber-50 rounded-xl border border-amber-100">
+               <h3 class="font-bold text-gray-900">Persistent Cart</h3>
+               <p class="text-sm text-gray-600">Shopping cart state saved across sessions</p>
+            </div>
+            <div class="flex flex-col gap-2 p-4 bg-amber-50 rounded-xl border border-amber-100">
+               <h3 class="font-bold text-gray-900">Admin Dashboard</h3>
+               <p class="text-sm text-gray-600">Inventory and sales management tools</p>
+            </div>
+         </div>
+      </div>
+
+      <!-- Screenshots Gallery -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft">
+         <h2 class="text-2xl font-bold text-gray-900 mb-6">Interface Gallery</h2>
+         <div class="grid grid-cols-2 gap-4">
+            <img class="rounded-xl shadow-sm border border-amber-100 hover:scale-105 transition-transform duration-300" src="/images/Screenshot1.png" alt="Screenshot 1" />
+            <img class="rounded-xl shadow-sm border border-amber-100 hover:scale-105 transition-transform duration-300" src="/images/Screenshot2.png" alt="Screenshot 2" />
+            <img class="rounded-xl shadow-sm border border-amber-100 hover:scale-105 transition-transform duration-300" src="/images/Screenshot3.png" alt="Screenshot 3" />
+            <img class="rounded-xl shadow-sm border border-amber-100 hover:scale-105 transition-transform duration-300" src="/images/Screenshot4.png" alt="Screenshot 4" />
+         </div>
+      </div>
+
+      <!-- Tech Stack -->
+      <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft">
+         <h2 class="text-2xl font-bold text-gray-900 mb-6">Tools & Technologies</h2>
+         <div class="grid sm:grid-cols-2 gap-4">
+             <div class="flex flex-col gap-1 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                <span class="font-bold text-gray-900">Frontend</span>
+                <span class="text-sm text-gray-600">Next.js, Tailwind CSS, Vercel</span>
+             </div>
+             <div class="flex flex-col gap-1 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                <span class="font-bold text-gray-900">Backend</span>
+                <span class="text-sm text-gray-600">Node.js, Express.js, PostgreSQL</span>
+             </div>
+             <div class="flex flex-col gap-1 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                <span class="font-bold text-gray-900">Architecture</span>
+                <span class="text-sm text-gray-600">DAO Design Pattern</span>
+             </div>
+             <div class="flex flex-col gap-1 p-4 bg-amber-50 rounded-xl border border-amber-100">
+                <span class="font-bold text-gray-900">Infrastructure</span>
+                <span class="text-sm text-gray-600">DigitalOcean (Backend), Vercel (Frontend)</span>
+             </div>
+         </div>
+      </div>
+
+      <!-- Links Grid -->
+      <div>
+        <h2 class="heading-primary text-2xl md:text-3xl text-center mb-8">Links & Resources</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+           <a href="https://github.com/enesyesil" target="_blank" class="group bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all text-center flex flex-col items-center">
+              <div class="w-12 h-12 bg-gray-100 text-gray-700 rounded-xl flex items-center justify-center mb-4 group-hover:bg-gray-800 group-hover:text-white transition-colors">
+                 <GithubSolid class="w-6 h-6" />
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">GitHub</h3>
+              <p class="text-sm text-gray-500 mb-4">View the code</p>
+              <span class="text-gray-700 font-medium text-sm mt-auto group-hover:underline">View Repo &rarr;</span>
+           </a>
+
+           <a href="https://my-commerce-frontend.vercel.app/" target="_blank" class="group bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all text-center flex flex-col items-center">
+              <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                 <CartSolid class="w-6 h-6" />
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">Live Demo</h3>
+              <p class="text-sm text-gray-500 mb-4">Try the app</p>
+              <span class="text-amber-600 font-medium text-sm mt-auto group-hover:underline">Launch Demo &rarr;</span>
+           </a>
+
+           <a href="mailto:enesy@my.yorku.ca" class="group bg-white/80 backdrop-blur-sm p-6 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all text-center flex flex-col items-center">
+              <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center mb-4 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                 <EnvelopeSolid class="w-6 h-6" />
+              </div>
+              <h3 class="font-bold text-gray-900 mb-2">Email</h3>
+              <p class="text-sm text-gray-500 mb-4">Questions?</p>
+              <span class="text-amber-600 font-medium text-sm mt-auto group-hover:underline">Contact Me &rarr;</span>
+           </a>
         </div>
-      </Section>
+      </div>
+
     </div>
   </div>
+</div>
+
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
   

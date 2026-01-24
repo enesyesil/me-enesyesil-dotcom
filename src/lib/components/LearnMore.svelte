@@ -1,80 +1,113 @@
 <script>
-  import { Button, Card, Avatar } from 'flowbite-svelte';
+  import { Button, Card } from 'flowbite-svelte';
+  import { BriefcaseSolid, ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
 
-<div class="min-h-screen bg-white-100 dark:bg-gray-900 py-10">
-  <div class="max-w-screen-lg mx-auto px-4">
-    <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-6 mt-12">About Me</h1>
-
-    <!-- Introduction Section -->
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-14">
-      Hi, I'm Enes — a final-year Computer Science student at York University, originally from Turkey.
-      I'm passionate about software development, and in my free time, I enjoy following football (I mean, soccer 😄) and reading history.
-      What makes me unique is my ability to adapt quickly to new environments. 
-      Growing up, I moved between cities and countries, and this has shaped my resilience and flexibility — something I carry into both life and work.
-    </p>
-
-    <!-- Mission Section -->
-    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">My Background</h2>
-    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">💼 Professional Background:</h4>
+<div class="min-h-screen bg-transparent py-10">
+  <div class="max-w-4xl mx-auto px-4">
     
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Founder & Software Engineer – Fisor Analytics:</strong> Building a multi-tenant AI analytics platform using Go, Python, Apache Spark, and LLM agents. Focused on public+private data pipelines and automated insight generation.
-    </p>
-    
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Research Assistant – York University:</strong> Built accessibility tools with React and Next.js based on user research. Created adaptive components and resources for students with disabilities.
-    </p>
-    
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Software Developer Intern – Zyfera:</strong> Developed an AI-powered financial calculator, using Svelte, TypeScript, and PostgreSQL. Contributed to API prompt optimization, CI/CD, and edge function performance.
-    </p>
-    
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Computing Support Assistant – York University:</strong> Delivered hands-on technical support across classrooms and departments. Helped resolve hardware, network, and software issues in fast-paced academic settings.
-    </p>
-    
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      <strong>Interests:</strong> AI infrastructure, cloud-native platforms, data engineering, and simplifying complex systems through automation and orchestration.
-    </p>
-    
-    <!-- Vision Section -->
-    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-6">My Vision</h2>
-    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6">Creating a Positive Impact</h4>
-    <p class="text-lg font-light text-gray-500 dark:text-gray-400 mb-12">
-      As a junior software engineer, my vision is to simplify complex systems and make technology accessible for everyone.
-      I’m passionate about breaking down intricate problems and building user-friendly solutions that improve everyday life.
-      In a fast-evolving world, I want to contribute meaningfully — not just keeping up with change but actively driving it forward to make a real impact.
-    </p>
-
-    <!-- My Projects Section -->
-    <h2 class="text-3xl font-semibold text-gray-800 dark:text-white mb-4">My Projects</h2>
-    <div class="grid grid-cols-1 bg-amber-50 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-      <Card class="dark:bg-gray-800 bg-amber-50">
-        <h3 class="text-xl font-medium text-gray-800 dark:text-white">Fisor</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Revolutionizing financial management with an advanced calculator powered by AI and data analytics.
-          It simplifies complex calculations across home buying, car purchases, investments, and retirement planning.
-        </p>
-      </Card>
-      <Card class="dark:bg-gray-800 bg-amber-50">
-        <h3 class="text-xl font-medium text-gray-800 dark:text-white">Weddify</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          A personalized wedding RSVP and invitation platform. Create custom invitations, manage guest lists, and collect RSVPs seamlessly.
-        </p>
-      </Card>
-      <Card class="dark:bg-gray-800 bg-amber-50">
-        <h3 class="text-xl font-medium text-gray-800 dark:text-white">Moneyball-Scout-ML</h3>
-        <p class="text-gray-500 dark:text-gray-400">
-          Built a Python-based, Moneyball-inspired machine learning model to analyze football player metrics and identify undervalued talent by comparing on-field performance with market value.
-        </p>
-      </Card>
+    <!-- Hero Section -->
+    <div class="text-center mb-16 mt-8 animate-fade-in-up">
+      <div class="flex items-center justify-center gap-2 text-primary-600 font-semibold tracking-wide text-sm uppercase mb-3">
+         <span class="text-xl">👋</span> Introduction
+      </div>
+      <h1 class="heading-primary mb-6">
+        About <span class="heading-accent">Me</span>
+      </h1>
+      <p class="text-xl font-light text-gray-600 leading-relaxed max-w-2xl mx-auto">
+        Hi, I'm <strong class="text-primary-700">Enes</strong> — a final-year Computer Science student at York University with a passion for building resilient systems and turning complex problems into simple, automated solutions.
+      </p>
     </div>
 
-    <div class="text-center">
-      <Button href="/Projects" size="xl" class="bg-green-600 hover:bg-green-700 text-white">
-        My Projects
+    <!-- Personal Story / Mission -->
+    <div class="bg-white/80 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-soft mb-16 animate-fade-in-up delay-100">
+       <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
+          <span class="w-8 h-8 rounded-lg bg-amber-100 flex items-center justify-center text-xl">🚀</span>
+          My Journey
+       </h2>
+       <div class="prose prose-lg text-gray-600 prose-headings:text-gray-900 prose-strong:text-primary-700">
+          <p>
+            Originally from Turkey, my journey has been defined by adaptability. Growing up moving between cities and countries taught me resilience—a trait I carry into my code.
+          </p>
+          <p>
+            I don't just write software; I build systems. From optimizing data pipelines to crafting accessible user interfaces, I believe technology should be an enabler, effectively "invisible" while making a massive impact.
+          </p>
+       </div>
+    </div>
+
+    <!-- Professional Background -->
+    <div class="mb-16 animate-fade-in-up delay-200">
+       <h2 class="text-3xl font-bold text-center text-gray-900 mb-10">Professional <span class="text-primary-600">Background</span></h2>
+       
+       <div class="space-y-6">
+          <div class="group bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 border-l-4 border-primary-500">
+             <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Founder & Software Engineer</h3>
+                <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Fisor Analytics</span>
+             </div>
+             <p class="text-gray-600 leading-relaxed">
+                Building a multi-tenant AI analytics platform using <strong>Go, Python, Apache Spark</strong>, and <strong>LLM agents</strong>. Focused on public+private data pipelines and automated insight generation.
+             </p>
+          </div>
+
+          <div class="group bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 border-l-4 border-amber-400">
+             <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Software Developer Intern</h3>
+                <span class="text-sm font-medium text-amber-700 bg-amber-100 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Zyfera</span>
+             </div>
+             <p class="text-gray-600 leading-relaxed">
+                Developed an AI-powered financial calculator using <strong>Svelte, TypeScript</strong>, and <strong>PostgreSQL</strong>. Contributed to API prompt optimization, CI/CD pipelines, and edge function performance.
+             </p>
+          </div>
+
+          <div class="group bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 border-l-4 border-primary-300">
+             <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900">Research Assistant</h3>
+                <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">York University</span>
+             </div>
+             <p class="text-gray-600 leading-relaxed">
+                Built accessibility tools with <strong>React</strong> and <strong>Next.js</strong> based on user research. Created adaptive components and resources for students with disabilities.
+             </p>
+          </div>
+       </div>
+    </div>
+
+    <!-- Vision / Impact -->
+    <div class="bg-gradient-to-br from-primary-600 to-primary-800 rounded-3xl p-10 text-white shadow-soft-lg text-center mb-16 animate-fade-in-up delay-300 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold mb-6">My Vision</h2>
+          <p class="text-lg text-primary-50 leading-relaxed max-w-2xl mx-auto mb-8">
+            "As a junior software engineer, my vision is to simplify complex systems and make technology accessible for everyone. I don't just want to keep up with change—I want to drive it."
+          </p>
+          <div class="flex justify-center gap-4">
+             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Simplification</span>
+             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Accessibility</span>
+             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Impact</span>
+          </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="text-center animate-fade-in-up delay-300">
+      <Button href="/Projects" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-xl text-lg font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all">
+        View My Projects <ArrowRightOutline class="w-5 h-5 ml-2" />
       </Button>
     </div>
+
   </div>
 </div>
+
+<style>
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  @keyframes fadeInUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
