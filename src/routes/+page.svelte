@@ -40,7 +40,7 @@
       <a href="https://github.com/enesyesil" target="_blank" class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105">
         <GithubSolid class="w-6 h-6" />
       </a>
-      <a href="https://linkedin.com/in/enesyesil" target="_blank" class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105">
+      <a href="https://linkedin.com/in/me-enesyesil" target="_blank" class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105">
         <LinkedinSolid class="w-6 h-6" />
       </a>
       <a href="mailto:enesy@my.yorku.ca" class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105">

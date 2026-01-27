@@ -42,8 +42,8 @@
        <div class="space-y-6">
           <div class="group bg-white/80 backdrop-blur-sm p-8 rounded-3xl shadow-soft hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 border-l-4 border-primary-500">
              <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-gray-900">Founder & Software Engineer</h3>
-                <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Fisor Analytics</span>
+                <h3 class="text-xl font-bold text-gray-900">Product Owner & Software Engineer</h3>
+                <span class="text-sm font-medium text-primary-600 bg-primary-50 px-3 py-1 rounded-full w-fit mt-2 md:mt-0">Best Lassonde (Fisor Analytics)</span>
              </div>
              <p class="text-gray-600 leading-relaxed">
                 Building a multi-tenant AI analytics platform using <strong>Go, Python, Apache Spark</strong>, and <strong>LLM agents</strong>. Focused on public+private data pipelines and automated insight generation.
