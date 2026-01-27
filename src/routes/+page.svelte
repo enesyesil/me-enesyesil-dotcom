@@ -323,32 +323,7 @@
           </div>
         </div>
 
-        <!-- Project 2 -->
-        <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
-          <div class="h-40 bg-amber-50 rounded-2xl mb-5 flex items-center justify-center border border-amber-100">
-             <span class="text-2xl font-bold text-primary-600/30">AI Tools</span>
-          </div>
-          
-          <h3 class="text-xl font-bold text-gray-900 mb-2">AI-Powered Tools</h3>
-          <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
-            Suite of developer tools leveraging machine learning for automation and productivity enhancement.
-          </p>
-
-          <div class="flex flex-wrap gap-2 mb-5">
-             <span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium">React</span>
-             <span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium">Node.js</span>
-             <span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium">ML</span>
-          </div>
-
-          <div class="flex gap-2">
-             <Button href="#" class="flex-1 bg-white text-gray-700 shadow-sm hover:shadow-md px-4 py-2 rounded-lg text-sm font-medium transition-all">
-                <CodeBranchOutline class="w-4 h-4 mr-1" /> Code
-             </Button>
-             <Button href="#" class="flex-1 bg-white text-gray-700 shadow-sm hover:shadow-md px-4 py-2 rounded-lg text-sm font-medium transition-all">
-                <ArrowUpRightFromSquareOutline class="w-4 h-4 mr-1" /> Demo
-             </Button>
-          </div>
-        </div>
+        
 
         <!-- Project 3 -->
         <div class="group bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 flex flex-col">
