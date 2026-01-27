@@ -1,46 +1,85 @@
 <script>
-  import { Timeline, TimelineItem } from 'flowbite-svelte';
+  import { BriefcaseSolid, BookOpenSolid, UsersGroupSolid } from 'flowbite-svelte-icons';
 </script>
 
-<section class="bg-amber-50 px-4 py-12 rounded-lg w-full flex justify-center">
-  <div class="max-w-4xl w-full flex flex-col items-center">
-    <h2 class="text-3xl font-bold mb-8 text-center">My Timeline</h2>
-    <Timeline class="w-full">
-      <TimelineItem title="Started Computer Science at York University" date="September 2021">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Began BSc in Computer Science at York University, Toronto.
-        </p>
-      </TimelineItem>
+<section class="section-padding relative overflow-hidden">
+  <div class="max-w-4xl mx-auto relative">
+    <div class="text-center mb-16">
+      <h2 class="heading-primary">
+        My <span class="heading-accent">Timeline</span>
+      </h2>
+      <p class="text-gray-500 mt-4 max-w-lg mx-auto text-lg">
+        A journey through my education, experiences, and growth as a developer.
+      </p>
+    </div>
 
-      <TimelineItem title="Co-Founded Arise Student Club" date="September 2022">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Founded a student organization focused on career development, inclusion, and leadership.
-        </p>
-      </TimelineItem>
+    <!-- Vertical Line -->
+    <div class="absolute left-1/2 top-48 bottom-32 w-px bg-primary-200/50 -translate-x-1/2 hidden md:block"></div>
 
-      <TimelineItem title="Started Internship at Zyfera" date="January 2024">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Joined as Software Developer Intern, building AI-powered tools.
-        </p>
-      </TimelineItem>
+    <div class="space-y-16 relative">
+      <!-- Item 1: York U -->
+      <div class="relative flex flex-col items-center md:block">
+        <!-- Icon -->
+        <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0">
+           <BookOpenSolid class="w-7 h-7"/>
+        </div>
 
-      <TimelineItem title="Started as Research Assistant" date="March 2024">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Conducted accessibility-focused software research at York University, translating inclusive design principles into functional applications and reusable components.
-        </p>
-      </TimelineItem>
+        <!-- Content Left -->
+        <div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+           <div class="md:text-right bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all">
+              <span class="text-primary-600 font-medium text-sm mb-2 block">September 2021</span>
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Started Computer Science at York University</h3>
+              <p class="text-gray-600 leading-relaxed text-sm">
+                 Began BSc in Computer Science at York University, Toronto.
+              </p>
+           </div>
+           <div class="hidden md:block"></div>
+        </div>
+      </div>
 
-      <TimelineItem title="Launched Fisor Analytics" date="April 2025">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Developed a platform combining open data, AI, and business intelligence for predictive insights.
-        </p>
-      </TimelineItem>
+      <!-- Item 2: Arise -->
+      <div class="relative flex flex-col items-center md:block">
+         <!-- Icon -->
+         <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0">
+            <UsersGroupSolid class="w-7 h-7"/>
+         </div>
+ 
+         <!-- Content Right -->
+         <div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+            <div class="hidden md:block"></div>
+            <div class="md:text-left bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all">
+               <span class="text-primary-600 font-medium text-sm mb-2 block">September 2022</span>
+               <h3 class="text-xl font-bold text-gray-900 mb-2">Co-Founded Arise Student Club</h3>
+               <p class="text-gray-600 leading-relaxed text-sm">
+                  Founded a student organization focused on career development, inclusion, and leadership.
+               </p>
+            </div>
+         </div>
+       </div>
 
-      <TimelineItem title="Expected Graduation" date="December 2025">
-        <p class="text-base text-gray-500 dark:text-gray-400">
-          Anticipated graduation with a BSc in Computer Science from York University.
-        </p>
-      </TimelineItem>
-    </Timeline>
+       <!-- Item 3: Zyfera -->
+       <div class="relative flex flex-col items-center md:block">
+         <!-- Icon -->
+         <div class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0">
+            <BriefcaseSolid class="w-7 h-7"/>
+         </div>
+ 
+         <!-- Content Left -->
+         <div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+            <div class="md:text-right bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all">
+               <span class="text-primary-600 font-medium text-sm mb-2 block">January 2024</span>
+               <h3 class="text-xl font-bold text-gray-900 mb-2">Started Internship at Zyfera</h3>
+               <p class="text-gray-600 leading-relaxed text-sm">
+                  Joined as Software Developer Intern, building AI-powered tools.
+               </p>
+            </div>
+            <div class="hidden md:block"></div>
+         </div>
+       </div>
+    </div>
+
+    <!-- Gradient Fade Bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-amber-50 to-transparent pointer-events-none"></div>
   </div>
 </section>
+

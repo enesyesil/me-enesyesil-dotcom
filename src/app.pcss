@@ -1,4 +1,44 @@
 /* Write your global styles here, in PostCSS syntax */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
-@tailwind utilities
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  body {
+    @apply bg-amber-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  }
+
+  ::selection {
+    @apply bg-primary-200 text-primary-900;
+  }
+}
+
+@layer components {
+  .card-base {
+    @apply bg-white/80 backdrop-blur-sm rounded-2xl shadow-soft transition-all duration-300;
+  }
+  
+  .card-base:hover {
+    @apply shadow-soft-lg -translate-y-1;
+  }
+  
+  .section-padding {
+    @apply py-20 px-4 md:px-8;
+  }
+  
+  .heading-primary {
+    @apply text-4xl md:text-5xl font-bold text-gray-900 dark:text-white;
+  }
+  
+  .heading-accent {
+    @apply text-primary-600;
+  }
+}
