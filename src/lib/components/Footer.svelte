@@ -11,8 +11,8 @@
     
     <FooterLinkGroup ulClass="flex flex-wrap justify-center items-center mb-6 text-gray-600 space-x-6">
       <FooterLink liClass="mb-0" aClass="hover:text-primary-600 transition-colors" href="/MoreMe">About Me</FooterLink>
-      <FooterLink liClass="mb-0" aClass="hover:text-primary-600 transition-colors" href="/enesyesil-resume-25.pdf">My Resume</FooterLink>
-      <FooterLink liClass="mb-0" aClass="hover:text-primary-600 transition-colors" href="mailto:enesy@my.yorku.ca">Contact</FooterLink>
+      <FooterLink liClass="mb-0" aClass="hover:text-primary-600 transition-colors" href="/Resume">My Resume</FooterLink>
+      <FooterLink liClass="mb-0" aClass="hover:text-primary-600 transition-colors" href="/Contact">Contact</FooterLink>
     </FooterLinkGroup>
     
     <span class="text-sm text-gray-400 sm:text-center block">© 2024-2025 <a href="/" class="hover:text-primary-600 transition-colors font-medium">Enes Yesil</a>. All Rights Reserved.</span>

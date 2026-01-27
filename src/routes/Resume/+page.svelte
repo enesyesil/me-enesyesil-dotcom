@@ -16,7 +16,7 @@
       </p>
 
       <div class="flex justify-center gap-4">
-         <Button href="/enesyesil-resume-25.pdf" download="Enes_Yesil_Resume.pdf" class="bg-primary-600 hover:bg-primary-700 text-white shadow-soft group">
+         <Button href="/enes_yesil_resume.pdf" download="enes_yesil_resume.pdf" class="bg-primary-600 hover:bg-primary-700 text-white shadow-soft group">
             <ArrowDownToBracketOutline class="w-5 h-5 mr-2 group-hover:translate-y-0.5 transition-transform" />
             Download PDF
          </Button>
@@ -29,12 +29,12 @@
           Using Google Docs Viewer as a fallback or object embed. 
           For best cross-browser PDF embedding, <object> or <iframe> is standard.
        -->
-       <object data="/enesyesil-resume-25.pdf" type="application/pdf" class="w-full h-full rounded-2xl">
+       <object data="/enes_yesil_resume.pdf" type="application/pdf" class="w-full h-full rounded-2xl">
           <div class="flex flex-col items-center justify-center h-full text-center p-8 bg-amber-50 rounded-2xl">
              <FilePdfSolid class="w-16 h-16 text-primary-400 mb-4" />
              <p class="text-gray-600 mb-4">
                 It appears you don't have a PDF plugin for this browser.
-                No biggie... you can <a href="/enesyesil-resume-25.pdf" class="text-primary-600 font-bold hover:underline">click here to download the PDF file.</a>
+                No biggie... you can <a href="/enes_yesil_resume.pdf" class="text-primary-600 font-bold hover:underline">click here to download the PDF file.</a>
              </p>
           </div>
        </object>
