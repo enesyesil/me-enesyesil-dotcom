@@ -15,7 +15,7 @@
         About <span class="heading-accent">Me</span>
       </h1>
       <p class="text-xl font-light text-gray-600 leading-relaxed max-w-2xl mx-auto">
-        Hi, I'm <strong class="text-primary-700">Enes</strong> — a final-year Computer Science student at York University with a passion for building resilient systems and turning complex problems into simple, automated solutions.
+        Hi, I'm <strong class="text-primary-700">Enes</strong> — a final-year Computer Science student at York University. I like building systems that remove bottlenecks and turn complex problems into simple, reliable solutions.
       </p>
     </div>
 
@@ -27,10 +27,10 @@
        </h2>
        <div class="prose prose-lg text-gray-600 prose-headings:text-gray-900 prose-strong:text-primary-700">
           <p>
-            Originally from Turkey, my journey has been defined by adaptability. Growing up moving between cities and countries taught me resilience—a trait I carry into my code.
+            Originally from Turkey, my journey has been shaped by adaptability. Growing up and moving between cities and countries taught me resilience. I carry that mindset into my career and how I approach problems.
           </p>
           <p>
-            I don't just write software; I build systems. From optimizing data pipelines to crafting accessible user interfaces, I believe technology should be an enabler, effectively "invisible" while making a massive impact.
+            I like building and designing systems, working with distributed systems and data infrastructure, and trying to make things that are simple, reliable, and practical.
           </p>
        </div>
     </div>
@@ -78,12 +78,12 @@
         <div class="relative z-10">
           <h2 class="text-3xl font-bold mb-6">My Vision</h2>
           <p class="text-lg text-primary-50 leading-relaxed max-w-2xl mx-auto mb-8">
-            "As a junior software engineer, my vision is to simplify complex systems and make technology accessible for everyone. I don't just want to keep up with change—I want to drive it."
-          </p>
+              <p class="text-lg text-primary-50 leading-relaxed max-w-2xl mx-auto mb-8">
+            As a junior software engineer, I want to build software that is practical, reliable, and easy to understand, while continuously learning how real systems are designed and maintained.
           <div class="flex justify-center gap-4">
-             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Simplification</span>
-             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Accessibility</span>
-             <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Impact</span>
+<span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Simplicity</span>
+      <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Clarity</span>
+      <span class="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm font-medium border border-white/20">Reliability</span>
           </div>
         </div>
     </div>
