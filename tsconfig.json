@@ -11,6 +11,6 @@
 		"strict": false,
 		"noImplicitAny": false,
 		"module": "ESNext",
-        "moduleResolution": "bundler"
+		"moduleResolution": "bundler"
 	}
 }

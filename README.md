@@ -16,4 +16,3 @@ These instructions will help you set up the project on your local machine for de
 
 - [Node.js](https://nodejs.org/)
 - [Svelte](https://svelte.dev/)
-

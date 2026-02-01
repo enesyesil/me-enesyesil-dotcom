@@ -2,8 +2,8 @@ name: Build & Push Docker image to GHCR
 
 on:
   push:
-    branches: [ "master" ]
-    tags: [ "v*.*.*" ]
+    branches: ['master']
+    tags: ['v*.*.*']
   workflow_dispatch:
 
 concurrency:
@@ -71,4 +71,3 @@ jobs:
             -d '{
                  "applicationId": "${{ secrets.DOKPLOY_APP_ID }}"
             }'
-
