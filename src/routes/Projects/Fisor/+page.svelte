@@ -1,8 +1,7 @@
 <script>
-    import Fisor from '$lib/components/Fisor.svelte';
+	import Fisor from '$lib/components/Fisor.svelte';
 </script>
-  
-<div class="bg-amber-50 ">
-    <Fisor/>
+
+<div class="bg-amber-50">
+	<Fisor />
 </div>
-  

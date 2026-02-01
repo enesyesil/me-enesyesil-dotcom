@@ -1,10 +1,9 @@
 ---
-title: "How War Gave Birth to Computer Science"
+title: 'How War Gave Birth to Computer Science'
 date: 2025-06-25
-description: "Exploring how wars and tensions sparked the rise of modern computing from codebreaking machines to the early internet."
-image: "/images/war-and-cs.jpg"
+description: 'Exploring how wars and tensions sparked the rise of modern computing from codebreaking machines to the early internet.'
+image: '/images/war-and-cs.jpg'
 ---
-
 
 ### World War II: Early Computers Born from Warfare
 
@@ -17,8 +16,6 @@ Meanwhile in the U.S., the Army funded ENIAC, built at the University of Pennsyl
 Another important machine was the Mark I at Harvard (finished in 1944), built with IBM's help. It was an electromechanical computer used by the U.S. Navy for gun targeting. Grace Hopper, one of the first programmers, worked on this machine to generate firing tables and solve complex equations.
 
 In short, World War II pushed the limits of technology and made governments invest heavily in computing. The urgent need for faster calculations during the war set the stage for the modern computer age.
-
-
 
 ### Cold War Institutions and the Rise of Computing
 
@@ -33,8 +30,6 @@ Large-scale military computing also included the SAGE system – a Cold War air 
 Cold War missile and space programs, like Minuteman II and Apollo, drove the rise of the microchip. Military orders helped bring down costs and scale production, launching the era of modern microelectronics.
 
 In summary, Cold War defense projects poured massive funding into risky computing research, creating the backbone of the digital tools we use today – from the internet to AI, encryption, and silicon chips.
-
-
 
 ### Military Innovations in Algorithms, Languages, and Architecture
 
@@ -54,8 +49,6 @@ In cryptography, the military was a key driver. Early programmable machines like
 
 Many of today’s core algorithms and concepts in optimization, routing, and digital security stem directly from these military problem-solving efforts.
 
-
-
 ### From Military Prototypes to Civilian Platforms
 
 A recurring theme in tech history is the military-to-civilian transfer of innovations. ARPANET, created by DARPA to link defense researchers, became the foundation of the modern Internet. Influenced by RAND’s research on resilient communications, ARPANET connected academic institutions and expanded into civilian use by the 1970s. By 1983, the adoption of TCP/IP protocols enabled integration across sectors. NSFNET, built on the same standards, helped form the public Internet of the 1990s.
@@ -70,8 +63,6 @@ ARPA’s culture of open publication and university research also seeded the ope
 
 The Internet, GPS, operating systems, encryption, and much more owe their civilian spread to decades of military-backed development.
 
-
-
 ### Counterfactual: Could Computing Have Thrived Without War?
 
 Some parts of computing did emerge from peaceful or academic contexts. Alan Turing’s 1936 Universal Machine and Church’s lambda calculus were theoretical, not military. Konrad Zuse built early binary machines in Germany on his own initiative. IBM’s tabulators predated WWII. UNIVAC, the first commercial computer, was sold to the U.S. Census Bureau in 1951. FORTRAN was built by IBM engineers in 1957 without military involvement.
@@ -83,8 +74,6 @@ Still, the pace and focus of development during wartime was unique. ENIAC may ha
 Military funding drove urgency and high-risk investment in cryptography, real-time systems, high-performance computing, and communications. While business needs would have eventually driven similar advances, the trajectory would have been slower or less cohesive.
 
 In the end, computing today is a hybrid of war-driven acceleration and peaceful refinement. Both defense and civilian sectors shaped its path.
-
-
 
 ### Contemporary Echoes: The Military-Tech Dynamic Today
 
@@ -99,8 +88,6 @@ Autonomous vehicle research began with DARPA’s Grand Challenges in the 2000s, 
 Government investment, especially through agencies like DARPA, continues to guide innovation. China’s “Military-Civil Fusion” policy mirrors this by blending defense and industrial R&D.
 
 These developments also raise ethical concerns. Google’s Project Maven sparked protests about military uses of AI. As in the Cold War, civilian tech companies now wrestle with their role in national security.
-
-
 
 ### Conclusion
 
@@ -119,7 +106,7 @@ It is possible we could have reached the digital world of 2025 without these mil
 - [SAGE air-defense network](https://en.wikipedia.org/wiki/Semi-Automatic_Ground_Environment)
 - [ARPANET and RAND’s packet-switching research](https://www.internetsociety.org)
 - [DARPA’s contributions](https://www.openaccessgovernment.org)
-- [Shakey and A* algorithm](https://en.wikipedia.org/wiki/Shakey_the_robot)
+- [Shakey and A\* algorithm](https://en.wikipedia.org/wiki/Shakey_the_robot)
 - [NSA’s IBM Harvest](https://en.wikipedia.org/wiki/IBM_Harvest)
-- [Ada language design](https://en.wikipedia.org/wiki/Ada_(programming_language))
+- [Ada language design](<https://en.wikipedia.org/wiki/Ada_(programming_language)>)
 - [ILLIAC IV supercomputer](https://en.wikipedia.org/wiki/ILLIAC_IV)
