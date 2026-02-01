@@ -15,7 +15,7 @@
 				>Contact Me</Button
 			>
 		</a>
-		<NavHamburger class="w-full md:flex md:w-auto md:order-1" />
+		<NavHamburger class="w-full md:hidden" />
 	</div>
 
 	<NavUl>
