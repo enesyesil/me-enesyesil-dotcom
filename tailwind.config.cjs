@@ -8,6 +8,7 @@ module.exports = {
 		'./src/lib/**/*.{html,js,svelte,ts}',
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
 	],
+	darkMode: 'class',
 	theme: {
 		extend: {
 			colors: {
@@ -26,11 +27,15 @@ module.exports = {
 				}
 			},
 			fontFamily: {
-				sans: ['Outfit', 'sans-serif']
+				sans: ['Outfit', 'sans-serif'],
+				mono: ['"Space Mono"', 'monospace'],
+				pixel: ['"VT323"', 'monospace']
 			},
 			boxShadow: {
 				soft: '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04)',
-				'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1)'
+				'soft-lg': '0 10px 40px -10px rgba(0, 0, 0, 0.1)',
+				hard: '4px 4px 0px 0px rgba(0,0,0,1)',
+				'hard-lg': '8px 8px 0px 0px rgba(0,0,0,1)'
 			}
 		}
 	},
