@@ -4,16 +4,16 @@
 	export let data;
 </script>
 
-<div class="min-h-screen bg-transparent py-12 px-4">
+<div class="min-h-screen bg-transparent py-12 px-4 transition-colors duration-300">
 	<article class="max-w-3xl mx-auto">
 		<!-- Navigation -->
 		<div class="mb-8">
 			<a
 				href="/Blog"
-				class="inline-flex items-center text-gray-500 hover:text-primary-600 font-medium transition-colors group"
+				class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors group"
 			>
 				<div
-					class="w-8 h-8 rounded-full bg-white/50 flex items-center justify-center mr-2 group-hover:bg-primary-100 transition-colors"
+					class="w-8 h-8 rounded-full bg-white/50 dark:bg-gray-800/50 flex items-center justify-center mr-2 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors"
 				>
 					<ArrowLeftOutline class="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
 				</div>
@@ -23,7 +23,7 @@
 
 		<!-- Article Container -->
 		<div
-			class="bg-white/90 backdrop-blur-md rounded-3xl shadow-soft p-8 md:p-12 animate-fade-in-up"
+			class="bg-white/90 dark:bg-gray-900/90 backdrop-blur-md rounded-3xl shadow-soft dark:shadow-none border border-transparent dark:border-gray-800 p-8 md:p-12 animate-fade-in-up"
 		>
 			<!-- Header -->
 			<header class="text-center mb-12">
@@ -31,18 +31,20 @@
 					<div class="flex flex-wrap justify-center gap-2 mb-6">
 						{#each data.data.tags as tag}
 							<span
-								class="px-3 py-1 bg-amber-100 text-amber-800 text-sm rounded-full font-medium tracking-wide uppercase"
+								class="px-3 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 text-sm rounded-full font-medium tracking-wide uppercase border border-amber-200 dark:border-amber-800"
 								>{tag}</span
 							>
 						{/each}
 					</div>
 				{/if}
 
-				<h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+				<h1 class="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
 					{data.data.title}
 				</h1>
 
-				<div class="flex items-center justify-center gap-4 text-gray-500 text-sm font-medium">
+				<div
+					class="flex items-center justify-center gap-4 text-gray-500 dark:text-gray-400 text-sm font-medium"
+				>
 					<time datetime={data.data.date} class="flex items-center">
 						📅 {new Date(data.data.date).toLocaleDateString('en-US', {
 							year: 'numeric',
@@ -56,7 +58,7 @@
 			<!-- Hero Image -->
 			{#if data.data.image}
 				<div
-					class="rounded-2xl overflow-hidden shadow-sm mb-12 w-full aspect-video relative border border-gray-100"
+					class="rounded-2xl overflow-hidden shadow-sm mb-12 w-full aspect-video relative border border-gray-100 dark:border-gray-800"
 				>
 					<img
 						src={data.data.image}
@@ -69,7 +71,7 @@
 			<!-- Description / Lead -->
 			{#if data.data.description}
 				<div
-					class="mb-12 p-6 bg-amber-50 rounded-2xl border-l-4 border-primary-500 italic text-gray-700 text-lg leading-relaxed"
+					class="mb-12 p-6 bg-amber-50 dark:bg-gray-800/50 rounded-2xl border-l-4 border-primary-500 italic text-gray-700 dark:text-gray-300 text-lg leading-relaxed"
 				>
 					{data.data.description}
 				</div>
@@ -77,13 +79,13 @@
 
 			<!-- Content -->
 			<div
-				class="prose prose-lg prose-stone max-w-none
-           prose-headings:font-bold prose-headings:text-gray-900
-           prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline
+				class="prose prose-lg prose-stone dark:prose-invert max-w-none
+           prose-headings:font-bold prose-headings:text-gray-900 dark:prose-headings:text-white
+           prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-a:no-underline hover:prose-a:underline
            prose-img:rounded-2xl prose-img:shadow-sm
-           prose-strong:text-primary-700
-           prose-blockquote:border-l-primary-400 prose-blockquote:bg-gray-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
-           first-letter:text-5xl first-letter:font-bold first-letter:text-primary-600 first-letter:float-left first-letter:mr-3 first-letter:mt-[-4px]"
+           prose-strong:text-primary-700 dark:prose-strong:text-primary-300
+           prose-blockquote:border-l-primary-400 prose-blockquote:bg-gray-50 dark:prose-blockquote:bg-gray-800/50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg
+           first-letter:text-5xl first-letter:font-bold first-letter:text-primary-600 dark:first-letter:text-primary-400 first-letter:float-left first-letter:mr-3 first-letter:mt-[-4px]"
 			>
 				{@html data.content}
 			</div>

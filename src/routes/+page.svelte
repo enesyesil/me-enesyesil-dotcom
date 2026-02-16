@@ -17,223 +17,285 @@
 	} from 'flowbite-svelte-icons';
 </script>
 
-<div class="bg-amber-50 overflow-hidden">
+<div class="overflow-hidden">
 	<!-- HERO SECTION -->
+	<!-- HERO SECTION: THE ARCHITECT'S INTERFACE -->
 	<section
-		class="relative min-h-[90vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden"
+		class="relative min-h-[95vh] flex flex-col justify-center px-4 md:px-12 py-12 bg-transparent border-x-2 border-gray-900 dark:border-gray-500 mx-4 md:mx-8 my-4 relative overflow-hidden"
 	>
-		<!-- Background Glow Effect -->
-		<div class="absolute inset-0 bg-primary-50/20 opacity-50 pointer-events-none"></div>
-
-		<!-- Main Heading -->
-		<h1
-			class="text-6xl md:text-8xl font-bold tracking-tight text-gray-900 dark:text-white mb-6 animate-fade-in-up"
-		>
-			Hi, I'm Enes
-		</h1>
-
-		<!-- Subheading -->
-		<p
-			class="max-w-2xl text-lg md:text-2xl text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-10 animate-fade-in-up delay-100"
-		>
-			Software Developer specializing in <strong class="font-semibold text-gray-900 dark:text-white"
-				>distributed systems</strong
-			>
-			and <strong class="font-semibold text-gray-900 dark:text-white">infra & data</strong> with a focus
-			on performance and reliability.
-		</p>
-
-		<!-- CTA Buttons -->
-		<div class="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in-up delay-200">
-			<Button
-				href="/MoreMe"
-				class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all rounded-xl"
-			>
-				Learn More <ArrowRightOutline class="w-5 h-5 ml-2" />
-			</Button>
-			<Button
-				href="/Projects"
-				class="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-3 text-lg font-medium hover:bg-white hover:shadow-lg transition-all rounded-xl"
-			>
-				View Projects
-			</Button>
-		</div>
-
-		<!-- Social Icons -->
-		<div class="flex gap-4 animate-fade-in-up delay-300">
-			<a
-				href="https://github.com/enesyesil"
-				target="_blank"
-				class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105"
-			>
-				<GithubSolid class="w-6 h-6" />
-			</a>
-			<a
-				href="https://linkedin.com/in/me-enesyesil"
-				target="_blank"
-				class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105"
-			>
-				<LinkedinSolid class="w-6 h-6" />
-			</a>
-			<a
-				href="mailto:enesy@my.yorku.ca"
-				class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105"
-			>
-				<EnvelopeSolid class="w-6 h-6" />
-			</a>
-		</div>
-
-		<!-- Scroll Indicator -->
+		<!-- Corner Markings (Decorations) -->
 		<div
-			class="absolute bottom-10 animate-bounce cursor-pointer opacity-40 hover:opacity-70 transition-opacity"
+			class="absolute top-0 left-0 w-8 h-8 border-t-4 border-l-4 border-gray-900 dark:border-gray-500"
+		></div>
+		<div
+			class="absolute top-0 right-0 w-8 h-8 border-t-4 border-r-4 border-gray-900 dark:border-gray-500"
+		></div>
+		<div
+			class="absolute bottom-0 left-0 w-8 h-8 border-b-4 border-l-4 border-gray-900 dark:border-gray-500"
+		></div>
+		<div
+			class="absolute bottom-0 right-0 w-8 h-8 border-b-4 border-r-4 border-gray-900 dark:border-gray-500"
+		></div>
+
+		<!-- Top Status Bar -->
+		<div
+			class="absolute top-6 left-0 w-full px-8 md:px-16 flex justify-between items-center font-pixel text-lg md:text-xl text-gray-500 dark:text-gray-400 uppercase tracking-widest pointer-events-none z-10"
 		>
-			<div class="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center p-1">
-				<div class="w-1 h-2 bg-primary-500 rounded-full"></div>
+			<div class="flex items-center gap-2">
+				<span class="w-3 h-3 bg-green-500 rounded-full animate-pulse shadow-sm"></span>
+				<span class="text-gray-500 dark:text-gray-400">SYSTEM_READY</span>
+			</div>
+			<div class="hidden md:block text-gray-500 dark:text-gray-400">LAT: 43.77 // LNG: -79.50</div>
+			<div class="text-gray-500 dark:text-gray-400">
+				EST. 2024 <!-- Or dynamic date/time -->
+			</div>
+		</div>
+
+		<!-- Main Content Grid -->
+		<div
+			class="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-20"
+		>
+			<!-- Left Column: Typography & Name -->
+			<div class="lg:col-span-8 flex flex-col justify-center">
+				<div
+					class="font-pixel text-xl md:text-2xl text-primary-600 dark:text-primary-400 mb-2 tracking-widest animate-fade-in-up"
+				>
+					&gt; SUBJECT: SOFTWARE_ENGINEER
+				</div>
+
+				<h1
+					class="text-7xl sm:text-8xl md:text-[10rem] leading-[0.85] font-bold font-mono text-gray-900 dark:text-white mb-8 tracking-tighter animate-fade-in-up delay-100"
+				>
+					ENES<br /><span
+						class="text-stroke-2 text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 dark:text-stroke-white"
+						>YESIL</span
+					><span class="animate-pulse text-primary-600 dark:text-primary-400">_</span>
+				</h1>
+
+				<div class="flex flex-wrap items-center gap-4 animate-fade-in-up delay-200">
+					<!-- Social Icons -->
+					<Button
+						href="https://www.linkedin.com/in/me-enesyesil/"
+						target="_blank"
+						class="retro-btn p-3 rounded-none flex items-center justify-center bg-white dark:bg-gray-900 !text-gray-900 dark:!text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+						aria-label="LinkedIn"
+					>
+						<LinkedinSolid class="w-6 h-6" />
+					</Button>
+					<Button
+						href="https://github.com/enesyesil"
+						target="_blank"
+						class="retro-btn p-3 rounded-none flex items-center justify-center bg-white dark:bg-gray-900 !text-gray-900 dark:!text-white hover:bg-gray-100 dark:hover:bg-gray-800"
+						aria-label="GitHub"
+					>
+						<GithubSolid class="w-6 h-6" />
+					</Button>
+
+					<!-- Contact Button -->
+					<Button
+						href="/Contact"
+						class="bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 text-xl px-8 py-3 font-bold font-mono uppercase transition-all shadow-hard dark:shadow-none hover:shadow-hard-lg hover:-translate-y-0.5 rounded-none"
+					>
+						[ CONTACT_ME ]
+					</Button>
+				</div>
+			</div>
+
+			<!-- Right Column: Tech Specs / Status Block -->
+			<div
+				class="lg:col-span-4 flex flex-col justify-center items-start lg:items-end animate-bounce-vertical delay-300"
+			>
+				<div
+					class="w-full max-w-md bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 shadow-hard dark:shadow-none p-6 relative"
+				>
+					<div
+						class="absolute -top-3 left-4 bg-amber-50 dark:bg-gray-900 px-2 font-pixel text-gray-500 dark:text-gray-400 text-sm"
+					>
+						SYSTEM_SPECS
+					</div>
+
+					<div class="font-mono text-sm md:text-base space-y-4 text-gray-700 dark:text-gray-300">
+						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+							<span class="font-bold text-gray-900 dark:text-white">[ FIELD ]</span>
+							<span>Distributed Systems</span>
+						</div>
+						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+							<span class="font-bold text-gray-900 dark:text-white">[ ENGINE ]</span>
+							<!-- Changed from STACK -->
+							<span>Go, Java, Python</span>
+						</div>
+						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
+							<span class="font-bold text-gray-900 dark:text-white">[ CURRENT_OP ]</span>
+							<!-- Changed from STATUS -->
+							<span
+								class="text-green-600 dark:text-green-400 font-bold bg-green-50 dark:bg-green-900/20 px-2 animate-pulse"
+								>SEEKING_DATA</span
+							>
+						</div>
+						<div class="flex justify-between pt-2">
+							<span class="font-bold text-gray-900 dark:text-white">[ LOC ]</span>
+							<span>Toronto, ON</span>
+						</div>
+					</div>
+
+					<!-- Decorative Barcode/Data Visualization placeholder -->
+					<div class="mt-6 flex gap-1 h-4">
+						{#each Array(20) as _, i}
+							<div
+								class="h-full w-1 {Math.random() > 0.5
+									? 'bg-gray-900 dark:bg-gray-500'
+									: 'bg-gray-300 dark:bg-gray-700'}"
+							></div>
+						{/each}
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bottom Ticker / Scroller -->
+		<div
+			class="absolute bottom-6 left-0 w-full overflow-hidden border-y border-gray-900/10 dark:border-white/10 py-2 bg-white/50 dark:bg-black/50 backdrop-blur-sm"
+		>
+			<div
+				class="whitespace-nowrap font-pixel text-gray-400 dark:text-gray-500 text-lg uppercase tracking-widest animate-marquee inline-block"
+			>
+				/// INITIALIZING CONNECTION ... LOADING ASSETS ... SYSTEM OPTIMIZED ... WELCOME TO THE
+				ARCHIVE ... SCROLL FOR DATA ...
 			</div>
 		</div>
 	</section>
 
 	<!-- ABOUT ME SECTION -->
-	<section class="section-padding items-center overflow-hidden" id="about">
+	<section class="section-padding items-center overflow-hidden bg-transparent" id="about">
 		<div class="max-w-6xl mx-auto px-6">
 			<!-- Section Header (Centered) -->
 			<div class="text-center mb-12 lg:mb-16">
-				<div
-					class="flex items-center justify-center gap-2 text-primary-600 font-semibold tracking-wide text-sm uppercase mb-3"
+				<Button
+					href="/MoreMe"
+					class="mb-6 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm px-4 py-1 shadow-hard dark:shadow-none hover:shadow-hard-lg hover:-translate-y-0.5 transition-all rounded-none uppercase"
 				>
-					<span class="text-xl">✨</span> About Me
-				</div>
-				<h2 class="heading-primary">
-					Who Am I<span class="heading-accent">?</span>
-				</h2>
+					<span class="mr-2">★</span> About Me
+				</Button>
 			</div>
 
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 				<!-- Left Column: Interactive Profile Card -->
 				<div class="relative flex justify-center group order-1">
-					<!-- Background decoration -->
-					<div class="absolute w-80 h-80 bg-amber-100/40 rounded-full blur-3xl scale-110"></div>
-
 					<!-- Main Profile Card -->
-					<div
-						class="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-500 hover:-translate-y-2 max-w-sm w-full border border-amber-100/50"
-					>
+					<div class="retro-card p-6 w-full max-w-sm bg-amber-50 dark:bg-gray-900">
 						<div
-							class="w-48 h-48 mx-auto rounded-2xl bg-amber-100 flex items-center justify-center mb-6"
+							class="border-b-2 border-gray-900 dark:border-gray-500 pb-2 mb-4 font-mono text-gray-500 dark:text-gray-400 text-sm"
 						>
-							<span class="text-6xl font-bold text-primary-600 tracking-tighter">EY</span>
+							profile.ascii
+						</div>
+
+						<div
+							class="w-full aspect-square mx-auto border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center mb-6 bg-white dark:bg-black relative overflow-hidden"
+						>
+							<pre
+								class="text-[8px] sm:text-[10px] leading-none font-mono text-primary-700 dark:text-primary-500 select-none animate-zigzag">
+       _____________________
+      |  _________________  |
+      | |                 | |
+      | |   ___     ___   | |
+      | |  |   |   |   |  | |
+      | |  |___|   |___|  | |
+      | |                 | |
+      | |       ___       | |
+      | |      |___|      | |
+      | |                 | |
+      | |_________________| |
+      |_____________________|
+       
+         [ SYSTEM ONLINE ]
+							</pre>
 						</div>
 
 						<!-- Info badges -->
-						<div class="flex flex-wrap justify-center gap-2">
-							<span
-								class="px-4 py-2 bg-amber-100/80 text-gray-700 rounded-full text-sm font-medium"
+						<div class="flex flex-col gap-3">
+							<div
+								class="px-4 py-2 bg-amber-100 dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm font-bold flex items-center shadow-hard dark:shadow-none"
 							>
-								York University
-							</span>
-							<span
-								class="px-4 py-2 bg-primary-100/80 text-primary-700 rounded-full text-sm font-medium"
+								<span class="mr-2">🎓</span> York University
+							</div>
+							<div
+								class="px-4 py-2 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm font-bold flex items-center shadow-hard dark:shadow-none"
 							>
-								CS Final Year
-							</span>
+								<span class="mr-2">💻</span> CS Final Year
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<!-- Right Column: Content -->
-				<div
-					class="space-y-8 order-2 text-center lg:text-left flex flex-col items-center lg:items-start"
-				>
-					<div class="space-y-5 text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-lg">
+				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 order-2">
+					<div
+						class="border-b-2 border-gray-900 dark:border-gray-500 pb-2 mb-6 font-mono text-gray-500 dark:text-gray-400 text-sm"
+					>
+						bio.txt
+					</div>
+					<div class="space-y-5 text-lg font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
 						<p>
-							I'm a software developer interested in
-							<strong class="text-gray-900 dark:text-white"
+							<span class="text-primary-600 dark:text-primary-400">></span> I'm a software developer
+							interested in
+							<strong
+								class="text-gray-900 dark:text-white bg-primary-100 dark:bg-primary-900/30 px-1"
 								>distributed systems, data infrastructure, and AI/ML</strong
-							>. I enjoy turning complex systems into powerful and usable tools, especially when it
-							comes to automation, reliability, and platform-style engineering.
+							>.
 						</p>
 
 						<p>
-							Currently in my final year of Computer Science at
-							<strong class="text-gray-900 dark:text-white">York University</strong>, I spend most
-							of my time working on backend and systems-focused projects, exploring how distributed
-							systems and data platforms behave in real environments, often with a focus on
-							production-ready systems and real-world scenarios.
+							<span class="text-primary-600 dark:text-primary-400">></span> I enjoy turning complex systems
+							into powerful and usable tools, especially when it comes to automation, reliability, and
+							platform-style engineering.
 						</p>
 
-						<p class="flex items-center justify-center lg:justify-start gap-3">
-							<span class="text-xl">⚡</span>
-							<span>
-								Outside of code, I enjoy following football, reading about history, and exploring
-								new tech concepts.
-							</span>
+						<p>
+							<span class="text-primary-600 dark:text-primary-400">></span> Currently in my final
+							year of Computer Science at
+							<strong class="text-gray-900 dark:text-white border-b-2 border-primary-400"
+								>York University</strong
+							>, I spend most of my time working on backend and systems-focused projects.
 						</p>
 					</div>
 
-					<!-- Interactive Skill Cards (Grid) -->
-					<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 pt-2 w-full max-w-lg">
-						<!-- AI / ML Systems -->
-						<div
-							class="group/card bg-white/60 backdrop-blur-sm p-4 rounded-2xl text-center shadow-soft
-            hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer
-            border border-amber-50"
-						>
+					<div class="mt-8 pt-6 border-t-2 border-gray-900 dark:border-gray-500">
+						<div class="font-mono text-gray-500 dark:text-gray-400 text-sm mb-4">interests.log</div>
+						<!-- Interactive Skill Cards (Grid) -->
+						<div class="grid grid-cols-2 gap-3">
+							<!-- AI / ML -->
 							<div
-								class="mx-auto w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center
-              text-primary-600 mb-2 group-hover/card:scale-110 transition-transform"
+								class="border-2 border-gray-900 dark:border-gray-500 p-2 text-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
 							>
-								<BrainSolid class="w-5 h-5" />
+								<h3 class="font-bold text-gray-900 dark:text-white text-sm font-mono">
+									[ AI / ML ]
+								</h3>
 							</div>
-							<h3 class="font-bold text-gray-900 text-sm mb-0.5">AI / ML</h3>
-							<p class="text-[10px] text-gray-500 uppercase tracking-wide">Systems</p>
-						</div>
 
-						<!-- Distributed Systems -->
-						<div
-							class="group/card bg-white/60 backdrop-blur-sm p-4 rounded-2xl text-center shadow-soft
-                      hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer
-                      border border-amber-50"
-						>
+							<!-- Distributed -->
 							<div
-								class="mx-auto w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center
-                        text-primary-600 mb-2 group-hover/card:scale-110 transition-transform"
+								class="border-2 border-gray-900 dark:border-gray-500 p-2 text-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
 							>
-								<CodeBranchSolid class="w-5 h-5" />
+								<h3 class="font-bold text-gray-900 dark:text-white text-sm font-mono">
+									[ SYSTEMS ]
+								</h3>
 							</div>
-							<h3 class="font-bold text-gray-900 text-sm mb-0.5">Distributed</h3>
-							<p class="text-[10px] text-gray-500 uppercase tracking-wide">Systems</p>
-						</div>
 
-						<!-- Backend Engineering -->
-						<div
-							class="group/card bg-white/60 backdrop-blur-sm p-4 rounded-2xl text-center shadow-soft
-                      hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer
-                      border border-amber-50"
-						>
+							<!-- Backend -->
 							<div
-								class="mx-auto w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center
-                        text-primary-600 mb-2 group-hover/card:scale-110 transition-transform"
+								class="border-2 border-gray-900 dark:border-gray-500 p-2 text-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
 							>
-								<BrainSolid class="w-5 h-5" />
+								<h3 class="font-bold text-gray-900 dark:text-white text-sm font-mono">
+									[ BACKEND ]
+								</h3>
 							</div>
-							<h3 class="font-bold text-gray-900 text-sm mb-0.5">Backend</h3>
-							<p class="text-[10px] text-gray-500 uppercase tracking-wide">Engineering</p>
-						</div>
 
-						<!-- Cloud Infrastructure -->
-						<div
-							class="group/card bg-white/60 backdrop-blur-sm p-4 rounded-2xl text-center shadow-soft
-                      hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer
-                      border border-amber-50"
-						>
+							<!-- Cloud -->
 							<div
-								class="mx-auto w-10 h-10 bg-primary-100 rounded-xl flex items-center justify-center
-                        text-primary-600 mb-2 group-hover/card:scale-110 transition-transform"
+								class="border-2 border-gray-900 dark:border-gray-500 p-2 text-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
 							>
-								<CloudArrowUpSolid class="w-5 h-5" />
+								<h3 class="font-bold text-gray-900 dark:text-white text-sm font-mono">[ CLOUD ]</h3>
 							</div>
-							<h3 class="font-bold text-gray-900 text-sm mb-0.5">Cloud & Data</h3>
-							<p class="text-[10px] text-gray-500 uppercase tracking-wide">Infrastructure</p>
 						</div>
 					</div>
 				</div>
@@ -242,176 +304,166 @@
 	</section>
 
 	<!-- TIMELINE SECTION -->
-	<section class="section-padding relative overflow-hidden">
+	<section class="section-padding relative overflow-hidden bg-transparent">
 		<div class="max-w-4xl mx-auto relative px-6">
 			<div class="text-center mb-16">
-				<h2 class="heading-primary">
-					My <span class="heading-accent">Timeline</span>
-				</h2>
-				<p class="text-gray-500 mt-4 max-w-lg mx-auto text-lg">
-					A journey through my education, experiences, and growth as a developer.
+				<Button
+					href="#timeline"
+					class="mb-6 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm px-4 py-1 shadow-hard dark:shadow-none rounded-none uppercase"
+				>
+					<span class="mr-2">🕒</span> Timeline
+				</Button>
+				<p class="text-gray-500 dark:text-gray-400 mt-4 max-w-lg mx-auto text-lg font-mono">
+					> A journey through my education, experiences, and growth as a developer.
 				</p>
 			</div>
 
-			<!-- Vertical Line -->
-			<div
-				class="absolute left-1/2 top-48 bottom-32 w-px bg-primary-200/50 -translate-x-1/2 hidden md:block"
-			></div>
+			<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 relative">
+				<div
+					class="border-b-2 border-gray-900 dark:border-gray-500 pb-2 mb-8 font-mono text-gray-500 dark:text-gray-400 text-sm"
+				>
+					history.log
+				</div>
 
-			<div class="space-y-16 relative">
-				<!-- Item 1: York U -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<BookOpenSolid class="w-7 h-7" />
-					</div>
+				<!-- Vertical Line (Dashed) -->
+				<div
+					class="absolute left-8 md:left-12 top-24 bottom-12 w-px border-l-2 border-dashed border-gray-400 dark:border-gray-600 hidden md:block"
+				></div>
 
-					<!-- Content Left -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+				<div class="space-y-12 relative">
+					<!-- Item 1: York U -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-right bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">September 2021</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">
+							<BookOpenSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Sept 2021</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
 								Started Computer Science at York University
 							</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 								Began BSc in Computer Science at York University, Toronto.
 							</p>
 						</div>
-						<div class="hidden md:block"></div>
-					</div>
-				</div>
-
-				<!-- Item 2: Arise -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<UsersGroupSolid class="w-7 h-7" />
 					</div>
 
-					<!-- Content Right -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
-						<div class="hidden md:block"></div>
+					<!-- Item 2: Arise -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-left bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">September 2022</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">Co-Founded Arise Student Club</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
+							<UsersGroupSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Sept 2022</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Co-Founded Arise Student Club
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 								Founded a student organization focused on career development, inclusion, and
 								leadership.
 							</p>
 						</div>
 					</div>
-				</div>
 
-				<!-- Item 3: Zyfera -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<BriefcaseSolid class="w-7 h-7" />
-					</div>
-
-					<!-- Content Left -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+					<!-- Item 3: Zyfera -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-right bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">January 2024</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">Started Internship at Zyfera</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
+							<BriefcaseSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Jan 2024</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Started Internship at Zyfera
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 								Joined as Software Developer Intern, building AI-powered tools.
 							</p>
 						</div>
-						<div class="hidden md:block"></div>
-					</div>
-				</div>
-
-				<!-- Item 4: Research Assistant -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<BookOpenSolid class="w-7 h-7" />
 					</div>
 
-					<!-- Content Right -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
-						<div class="hidden md:block"></div>
+					<!-- Item 4: Research Assistant -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-left bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">March 2024</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">Started as Research Assistant</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
-								Conducted accessibility-focused software research at York University, translating
-								inclusive design principles into functional applications.
+							<BookOpenSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Mar 2024</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Started as Research Assistant
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+								Conducted accessibility-focused software research at York University.
 							</p>
 						</div>
 					</div>
-				</div>
 
-				<!-- Item 5: Fisor Analytics -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<CodeBranchSolid class="w-7 h-7" />
-					</div>
-
-					<!-- Content Left -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
+					<!-- Item 5: Fisor Analytics -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-right bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">April 2025</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">Launched Fisor Analytics</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
-								Developed a platform combining open data, AI, and business intelligence for
-								predictive insights.
+							<CodeBranchSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Apr 2025</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Launched Fisor Analytics
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+								Developed a platform combining open data, AI, and business intelligence.
 							</p>
 						</div>
-						<div class="hidden md:block"></div>
-					</div>
-				</div>
-
-				<!-- Item 6: Graduation -->
-				<div class="relative flex flex-col items-center md:block">
-					<!-- Icon -->
-					<div
-						class="md:absolute md:left-1/2 md:-translate-x-1/2 md:-translate-y-2 z-10 w-14 h-14 bg-white rounded-2xl flex items-center justify-center text-primary-600 shadow-soft mb-6 md:mb-0"
-					>
-						<UsersGroupSolid class="w-7 h-7" />
 					</div>
 
-					<!-- Content Right -->
-					<div class="md:grid md:grid-cols-2 md:gap-20 items-center">
-						<div class="hidden md:block"></div>
+					<!-- Item 6: Graduation -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
 						<div
-							class="md:text-left bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-soft w-full hover:shadow-soft-lg transition-all"
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
 						>
-							<span class="text-primary-600 font-medium text-sm mb-2 block">December 2025</span>
-							<h3 class="text-xl font-bold text-gray-900 mb-2">Graduation</h3>
-							<p class="text-gray-600 leading-relaxed text-sm">
+							<UsersGroupSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>Dec 2025</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Graduation
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 								Graduated with a BSc in Computer Science from York University.
 							</p>
 						</div>
 					</div>
 				</div>
-
-				<!-- Gradient Fade Bottom -->
-				<div
-					class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-amber-50 to-transparent pointer-events-none"
-				></div>
 			</div>
 		</div>
 	</section>
@@ -420,66 +472,62 @@
 	<section class="section-padding" id="projects">
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
-				<div
-					class="flex items-center justify-center gap-2 text-primary-600 font-semibold tracking-wide text-sm uppercase mb-3"
+				<Button
+					href="/Projects"
+					class="mb-6 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm px-4 py-1 shadow-hard dark:shadow-none rounded-none uppercase"
 				>
-					<span class="text-xl">✨</span> Portfolio
-				</div>
-				<h2 class="heading-primary">
-					Featured <span class="heading-accent">Projects</span>
-				</h2>
-				<p class="text-gray-500 mt-4 max-w-lg mx-auto">
-					Some of the things I've built that I'm proud of.
-				</p>
+					<span class="mr-2">★</span> Portfolio
+				</Button>
+				<h2 class="heading-primary mt-4">FEATURED PROJECTS</h2>
 			</div>
 
 			<!-- Bento Grid Layout -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
 				<!-- Featured Project: Fisor (Large Card) -->
-				<div
-					class="md:col-span-2 group bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1"
-				>
+				<div class="md:col-span-2 retro-card p-6 bg-amber-50 dark:bg-gray-900">
 					<div class="flex flex-col md:flex-row gap-8">
 						<div
-							class="flex-shrink-0 w-full md:w-64 h-48 bg-amber-50 rounded-2xl flex items-center justify-center border border-amber-100"
+							class="flex-shrink-0 w-full md:w-64 h-48 bg-amber-50 dark:bg-gray-900 rounded-none flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
 						>
-							<span class="text-4xl font-bold text-primary-600/30">Fisor</span>
+							<span class="text-4xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+								>FISOR</span
+							>
 						</div>
 						<div class="flex-1">
 							<div class="flex items-center gap-2 mb-3">
-								<span class="px-3 py-1 bg-primary-600 text-white text-xs rounded-full font-medium"
-									>Featured</span
+								<span
+									class="px-3 py-1 bg-primary-600 border border-gray-900 dark:border-gray-500 text-white text-xs font-mono font-bold"
+									>[ FEATURED ]</span
 								>
 							</div>
-							<h3 class="text-2xl font-bold text-gray-900 mb-3">Fisor Analytics</h3>
-							<p class="text-gray-600 leading-relaxed mb-4">
+							<h3 class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3">
+								Fisor Analytics
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed mb-4">
 								A multi-tenant AI analytics platform powered by LLMs, Spark, and Apache Iceberg for
 								enterprise-scale data processing.
 							</p>
-							<div class="flex flex-wrap gap-2 mb-6">
+							<div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
 								<span
-									class="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-									>Python</span
+									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+									>[Python]</span
 								>
 								<span
-									class="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-									>Spark</span
+									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+									>[Spark]</span
 								>
 								<span
-									class="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-									>LLMs</span
+									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+									>[LLMs]</span
 								>
 								<span
-									class="px-3 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-									>Iceberg</span
+									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+									>[Iceberg]</span
 								>
 							</div>
 							<div class="flex gap-3">
-								<Button
-									href="/Projects/Fisor"
-									class="bg-primary-600 hover:bg-primary-700 text-white px-5 py-2 rounded-lg text-sm font-medium transition-all"
-								>
-									View Project <ArrowUpRightFromSquareOutline class="w-4 h-4 ml-1" />
+								<Button href="/Projects/Fisor" class="retro-btn text-xs rounded-none">
+									VIEW PROJECT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 								</Button>
 							</div>
 						</div>
@@ -487,69 +535,73 @@
 				</div>
 
 				<!-- Project 3 -->
-				<div
-					class="group bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
-				>
+				<div class="retro-card p-6 flex flex-col bg-amber-50 dark:bg-gray-900">
 					<div
-						class="h-40 bg-amber-50 rounded-2xl mb-5 flex items-center justify-center border border-amber-100"
+						class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
 					>
-						<span class="text-2xl font-bold text-primary-600/30">Weddify</span>
+						<span class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+							>WEDDIFY</span
+						>
 					</div>
 
-					<h3 class="text-xl font-bold text-gray-900 mb-2">Weddify</h3>
-					<p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+					<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">Weddify</h3>
+					<p
+						class="text-gray-600 dark:text-gray-300 font-mono text-xs leading-relaxed mb-4 flex-grow"
+					>
 						Personalized wedding RSVP and invitation website with custom themes.
 					</p>
 
-					<div class="flex flex-wrap gap-2 mb-5">
-						<span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-							>SvelteKit</span
+					<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
+						<span
+							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+							>[SvelteKit]</span
 						>
-						<span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-							>Supabase</span
+						<span
+							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+							>[Supabase]</span
 						>
 					</div>
 
 					<div class="flex gap-2">
-						<Button
-							href="/Projects/Weddify"
-							class="flex-1 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all"
-						>
-							View <ArrowUpRightFromSquareOutline class="w-4 h-4 ml-1" />
+						<Button href="/Projects/Weddify" class="flex-1 retro-btn text-xs rounded-none">
+							VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 						</Button>
 					</div>
 				</div>
 
 				<!-- Project 4 -->
-				<div
-					class="group bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
-				>
+				<div class="retro-card p-6 flex flex-col bg-amber-50 dark:bg-gray-900">
 					<div
-						class="h-40 bg-amber-50 rounded-2xl mb-5 flex items-center justify-center border border-amber-100"
+						class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
 					>
-						<span class="text-2xl font-bold text-primary-600/30">Moneyball</span>
+						<span class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+							>MONEYBALL</span
+						>
 					</div>
 
-					<h3 class="text-xl font-bold text-gray-900 mb-2">Moneyball Scout ML</h3>
-					<p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">
+					<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+						Moneyball Scout ML
+					</h3>
+					<p
+						class="text-gray-600 dark:text-gray-300 font-mono text-xs leading-relaxed mb-4 flex-grow"
+					>
 						Statistical analysis to identify undervalued football players using ML.
 					</p>
 
-					<div class="flex flex-wrap gap-2 mb-5">
-						<span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-							>Python</span
+					<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
+						<span
+							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+							>[Python]</span
 						>
-						<span class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
-							>Scikit-learn</span
+						<span
+							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+							>[Scikit-learn]</span
 						>
 					</div>
 
 					<div class="flex gap-2">
-						<Button
-							href="/Projects/Moneyball"
-							class="flex-1 bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-all"
-						>
-							View <ArrowUpRightFromSquareOutline class="w-4 h-4 ml-1" />
+						<Button href="/Projects/Moneyball" class="flex-1 retro-btn text-xs rounded-none">
+							VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 						</Button>
 					</div>
 				</div>
@@ -558,9 +610,9 @@
 			<div class="text-center">
 				<Button
 					href="/Projects"
-					class="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-3 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all hover:-translate-y-0.5"
+					class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-8 py-3 rounded-none font-bold border-2 border-gray-900 dark:border-gray-500 shadow-hard dark:shadow-none hover:shadow-hard-lg transition-all hover:-translate-y-0.5"
 				>
-					View All Projects
+					[ VIEW ALL PROJECTS ]
 				</Button>
 			</div>
 		</div>
@@ -568,10 +620,23 @@
 </div>
 
 <style>
+	/* Animations */
 	.animate-fade-in-up {
 		animation: fadeInUp 0.8s ease-out forwards;
 		opacity: 0;
 		transform: translateY(20px);
+	}
+
+	.animate-bounce-vertical {
+		animation: bounceVertical 3s ease-in-out infinite;
+	}
+
+	.animate-zigzag {
+		animation: zigzag 5s ease-in-out infinite;
+	}
+
+	.animate-pulse-slow {
+		animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	}
 
 	.delay-100 {
@@ -588,6 +653,32 @@
 		to {
 			opacity: 1;
 			transform: translateY(0);
+		}
+	}
+
+	@keyframes bounceVertical {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-20px);
+		}
+	}
+
+	@keyframes zigzag {
+		0%,
+		100% {
+			transform: translate(0, 0);
+		}
+		25% {
+			transform: translate(15px, -15px);
+		}
+		50% {
+			transform: translate(-10px, -25px);
+		}
+		75% {
+			transform: translate(15px, -15px);
 		}
 	}
 </style>
