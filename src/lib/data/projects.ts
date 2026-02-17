@@ -21,8 +21,28 @@ export const projects: Project[] = [
 		title: 'Fisor Analytics',
 		description:
 			'A multi-tenant AI analytics platform powered by LLMs, Spark, and Apache Iceberg for enterprise-scale data processing. Automates insight generation from public + company data.',
+		longDescription:
+			'Fisor Analytics empowers Canadian SMEs with predictive, AI-powered insights that uncover revenue opportunities, reduce waste, and drive strategic decision-making — without requiring a full data team. Built for SMEs, Fisor Analytics combines open public data, operational signals, and AI models to offer actionable intelligence. Our modular engines provide insights tailored to industries like logistics, construction, and real estate.',
+		features: [
+			'Predictive Intelligence: AI-powered insights for modern businesses',
+			'Democratized Analytics: Enterprise-level intelligence for SMEs',
+			'Multi-Tenant Architecture: Secure and scalable data processing',
+			'Automated Insight Generation: From public and private data sources',
+			'Industry-Tailored Engines: Logistics, Construction, Real Estate'
+		],
+		techStackDetail: [
+			'Go (Golang)',
+			'Python',
+			'SvelteKit',
+			'PostgreSQL',
+			'Apache Iceberg',
+			'Apache Spark',
+			'Redis',
+			'Azure Blob',
+			'Cohere + Perplexity'
+		],
 		tags: ['Python', 'Spark', 'LLMs', 'Iceberg', 'Go'],
-		link: '/Projects/Fisor',
+		link: 'https://fisoranalytics.org/',
 		github: 'https://github.com/enesyesil/fisor-builder',
 		image: '/images/new-fisor.png',
 		featured: true
@@ -32,8 +52,23 @@ export const projects: Project[] = [
 		title: 'Weddify',
 		description:
 			'Personalized wedding RSVP and invitation website with custom themes. Features customizable invitations, guest list management, and real-time RSVP tracking.',
+		longDescription:
+			'Weddify is a personalized wedding RSVP and invitation website. It offers the ability to create customized invitations, manage guest lists, and collect RSVPs effortlessly. A dashboard allows users to manage everything in one place, and additional customization options allow tailoring the site to specific wedding needs.',
+		features: [
+			'Custom Invitations: Create personalized wedding invites',
+			'Guest List Management: Track RSVPs and guest details effortlessly',
+			'Real-time Tracking: Instant updates on guest responses',
+			'Personalized Themes: Tailor the look and feel to your wedding',
+			'Dashboard: Centralized management interface'
+		],
+		techStackDetail: [
+			'Next.js (React Framework)',
+			'TailwindCSS (Styling)',
+			'Supabase (Backend/Auth)',
+			'Google Sheets API (Guest Management)'
+		],
 		tags: ['SvelteKit', 'Supabase', 'Tailwind'],
-		link: '/Projects/Weddify',
+		link: '/Projects/weddify',
 		image: '/images/s4.png',
 		featured: true
 	},
@@ -42,8 +77,17 @@ export const projects: Project[] = [
 		title: 'Moneyball Scout ML',
 		description:
 			'Statistical analysis to identify undervalued football players using ML. Identifies undervalued players by analyzing performance metrics vs market value.',
+		longDescription:
+			'Inspired by the Moneyball philosophy, this project applies statistical analysis to football (soccer). By leveraging machine learning, we identify undervalued players whose on-field performance metrics exceed their current market valuation. This tool supports decision-making in football management, particularly in player acquisition and team building.',
+		features: [
+			'Uncover Value: Identify players whose market values do not reflect their true contributions',
+			'Data-Driven Decisions: Statistical models for player acquisition',
+			'Comprehensive Analysis: Performance, physical attributes, and historical trends',
+			'Market Value Prediction: ML-based valuation estimation'
+		],
+		techStackDetail: ['Python', 'Pandas', 'Scikit-Learn', 'Jupyter Notebooks'],
 		tags: ['Python', 'Scikit-learn', 'Pandas'],
-		link: '/Projects/Moneyball',
+		link: '/Projects/moneyball',
 		featured: true,
 		image: '/images/Soccer.jpg'
 	},
@@ -52,7 +96,24 @@ export const projects: Project[] = [
 		title: 'My Commerce',
 		description:
 			'A modern, fully functional e-commerce platform with robust features including product browsing, shopping cart management, and secure order processing.',
+		longDescription:
+			'A fully functional e-commerce platform enabling customers to browse products, manage shopping carts, and complete orders. Built with robust role-based access control to securely separate customer shopping experiences from administrative inventory management. Includes advanced filtering, persistent carts, and an admin dashboard.',
+		features: [
+			'Secure Auth: User registration & login with JWT tokens',
+			'Advanced Filtering: Filter by category, brand, and model',
+			'Persistent Cart: Shopping cart state saved across sessions',
+			'Admin Dashboard: Inventory and sales management tools',
+			'Role-Based Access: Secure separation of admin and user features'
+		],
+		techStackDetail: [
+			'Next.js (Frontend)',
+			'Node.js & Express (Backend)',
+			'MongoDB (Database)',
+			'Tailwind CSS (Styling)',
+			'Vercel & DigitalOcean (Deployment)'
+		],
 		tags: ['React', 'Node.js', 'MongoDB'],
+		link: 'https://my-commerce-frontend.vercel.app/',
 		featured: false,
 		image: '/images/mycom.png'
 	},

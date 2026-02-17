@@ -58,7 +58,7 @@
 			<GithubSolid class="w-6 h-6" />
 		</a>
 		<a
-			href="https://linkedin.com/in/enesyesil"
+			href="https://linkedin.com/in/me-enesyesil"
 			target="_blank"
 			class="p-3 rounded-xl bg-white/60 backdrop-blur-sm text-gray-600 hover:text-primary-600 hover:bg-white hover:shadow-md transition-all hover:scale-105"
 		>
@@ -89,12 +89,6 @@
 		transform: translateY(20px);
 	}
 
-	.animate-fade-in-down {
-		animation: fadeInDown 0.8s ease-out forwards;
-		opacity: 0;
-		transform: translateY(-20px);
-	}
-
 	.delay-100 {
 		animation-delay: 0.1s;
 	}
@@ -110,16 +104,5 @@
 			opacity: 1;
 			transform: translateY(0);
 		}
-	}
-
-	@keyframes fadeInDown {
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	.bg-gradient-radial {
-		background-image: radial-gradient(var(--tw-gradient-stops));
 	}
 </style>

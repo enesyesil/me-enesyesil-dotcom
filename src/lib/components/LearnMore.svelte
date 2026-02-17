@@ -1,6 +1,6 @@
 <script>
-	import { Button, Card } from 'flowbite-svelte';
-	import { BriefcaseSolid, ArrowRightOutline } from 'flowbite-svelte-icons';
+	import { Button } from 'flowbite-svelte';
+	import { ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
 
 <div class="min-h-screen bg-transparent py-10">
