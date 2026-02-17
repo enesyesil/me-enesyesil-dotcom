@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 const dataFilePath = path.join(process.cwd(), 'resume-data.json');
-const resumePath = path.join(process.cwd(), 'static', 'enes_yesil_resume.pdf');
 
 export const GET = async ({ url, fetch }) => {
 	try {

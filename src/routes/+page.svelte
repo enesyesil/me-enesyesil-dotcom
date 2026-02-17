@@ -3,16 +3,10 @@
 	import {
 		GithubSolid,
 		LinkedinSolid,
-		EnvelopeSolid,
-		ArrowRightOutline,
 		CodeBranchSolid,
-		DatabaseSolid,
-		BrainSolid,
 		BriefcaseSolid,
 		BookOpenSolid,
-		CloudArrowUpSolid,
 		UsersGroupSolid,
-		CodeBranchOutline,
 		ArrowUpRightFromSquareOutline
 	} from 'flowbite-svelte-icons';
 </script>
@@ -140,7 +134,7 @@
 
 					<!-- Decorative Barcode/Data Visualization placeholder -->
 					<div class="mt-6 flex gap-1 h-4">
-						{#each Array(20) as _, i}
+						{#each Array(20) as _, i (i)}
 							<div
 								class="h-full w-1 {Math.random() > 0.5
 									? 'bg-gray-900 dark:bg-gray-500'
@@ -221,7 +215,7 @@
 							<div
 								class="px-4 py-2 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm font-bold flex items-center shadow-hard dark:shadow-none"
 							>
-								<span class="mr-2">💻</span> CS Final Year
+								<span class="mr-2">💻</span> Computer Science
 							</div>
 						</div>
 					</div>
@@ -633,10 +627,6 @@
 
 	.animate-zigzag {
 		animation: zigzag 5s ease-in-out infinite;
-	}
-
-	.animate-pulse-slow {
-		animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	}
 
 	.delay-100 {

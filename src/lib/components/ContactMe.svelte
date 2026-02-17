@@ -4,8 +4,7 @@
 		PricingBodyHead,
 		PricingCard,
 		PricingItemWrapper,
-		PricingHead,
-		PricingItem
+		PricingHead
 	} from 'flowbite-svelte-blocks';
 	import { Button } from 'flowbite-svelte';
 </script>

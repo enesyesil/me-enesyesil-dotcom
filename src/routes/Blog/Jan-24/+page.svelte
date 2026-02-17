@@ -1,15 +1,14 @@
 <script>
 	import Footer from '$lib/components/Footer.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
-	import { Button, Card, Avatar } from 'flowbite-svelte';
+	import { Button } from 'flowbite-svelte';
 	// import ContactMe from './ContactMe.svelte';
 	import {
 		Section,
 		PricingBodyHead,
 		PricingCard,
 		PricingItemWrapper,
-		PricingHead,
-		PricingItem
+		PricingHead
 	} from 'flowbite-svelte-blocks';
 </script>
 
