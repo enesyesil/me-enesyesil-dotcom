@@ -177,9 +177,6 @@
 								class="text-sm font-bold font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 px-3 py-1 shadow-hard dark:shadow-none inline-block"
 								>PwC Canada</span
 							>
-							<div class="text-xs font-mono text-gray-500 dark:text-gray-400 mt-1">
-								Oct 2024 - Apr 2025
-							</div>
 						</div>
 					</div>
 					<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
