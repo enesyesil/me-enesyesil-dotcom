@@ -16,7 +16,7 @@
 				ALL <span class="text-primary-600 dark:text-primary-400">PROJECTS</span>
 			</h1>
 			<p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto font-mono">
-				> A collection of projects exploring AI/ML, data engineering, and web development.
+				> A mix of prototypes, experiments, and ideas in progress. Sometimes the code shouldn’t work, but occasionally does 🙃
 			</p>
 		</div>
 

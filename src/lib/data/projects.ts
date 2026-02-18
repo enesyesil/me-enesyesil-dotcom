@@ -48,6 +48,53 @@ export const projects: Project[] = [
 		featured: true
 	},
 	{
+		id: 'issuesight',
+		title: 'IssueSight',
+		description:
+			'A distributed, event-driven platform that bridges the gap between complex open-source issues and junior contributors using AI-driven mentorship.',
+		longDescription:
+			'IssueSight solves the context-switching problem in open source. It ingests GitHub issues and uses LLMs to decompose complex tickets into junior-level prerequisites, architectural summaries, and implementation guides. Built as a distributed system with a vertical microservices layering pattern.',
+		features: [
+			'Context Bridges: Breaks down complex issues for junior devs',
+			'Distributed Architecture: Vertical microservices (Gateway, Collector, AI Worker)',
+			'Event-Driven: Redis Streams for async processing and locks',
+			'Vertical Layering: Strict separation of Client, Gateway, Logic, and Data layers',
+			'AI Mentorship: Generates prerequisites and architectural context'
+		],
+		techStackDetail: [
+			'Go (Gateway, Microservices)',
+			'Next.js (Frontend)',
+			'Redis (Streams, Cache, Distributed Locks)',
+			'MongoDB (Auth & Quotas)',
+			'PostgreSQL (Archives)',
+			'LLMs (GPT-4o/5)'
+		],
+		tags: ['Go', 'Microservices', 'Redis', 'LLMs'],
+		github: 'https://github.com/enesyesil/issuesight',
+		link: '/Projects/issuesight',
+		featured: true,
+		image: '/images/issuesight-img.png'
+	},
+	{
+		id: 'moneyball',
+		title: 'Moneyball Scout ML',
+		description:
+			'Statistical analysis to identify undervalued football players using ML. Identifies undervalued players by analyzing performance metrics vs market value.',
+		longDescription:
+			'Inspired by the Moneyball philosophy, this project applies statistical analysis to football (soccer). By leveraging machine learning, we identify undervalued players whose on-field performance metrics exceed their current market valuation. This tool supports decision-making in football management, particularly in player acquisition and team building.',
+		features: [
+			'Uncover Value: Identify players whose market values do not reflect their true contributions',
+			'Data-Driven Decisions: Statistical models for player acquisition',
+			'Comprehensive Analysis: Performance, physical attributes, and historical trends',
+			'Market Value Prediction: ML-based valuation estimation'
+		],
+		techStackDetail: ['Python', 'Pandas', 'Scikit-Learn', 'Jupyter Notebooks'],
+		tags: ['Python', 'Scikit-learn', 'Pandas'],
+		link: '/Projects/moneyball',
+		featured: true,
+		image: '/images/Soccer.jpg'
+	},
+	{
 		id: 'weddify',
 		title: 'Weddify',
 		description:
@@ -70,26 +117,7 @@ export const projects: Project[] = [
 		tags: ['SvelteKit', 'Supabase', 'Tailwind'],
 		link: '/Projects/weddify',
 		image: '/images/s4.png',
-		featured: true
-	},
-	{
-		id: 'moneyball',
-		title: 'Moneyball Scout ML',
-		description:
-			'Statistical analysis to identify undervalued football players using ML. Identifies undervalued players by analyzing performance metrics vs market value.',
-		longDescription:
-			'Inspired by the Moneyball philosophy, this project applies statistical analysis to football (soccer). By leveraging machine learning, we identify undervalued players whose on-field performance metrics exceed their current market valuation. This tool supports decision-making in football management, particularly in player acquisition and team building.',
-		features: [
-			'Uncover Value: Identify players whose market values do not reflect their true contributions',
-			'Data-Driven Decisions: Statistical models for player acquisition',
-			'Comprehensive Analysis: Performance, physical attributes, and historical trends',
-			'Market Value Prediction: ML-based valuation estimation'
-		],
-		techStackDetail: ['Python', 'Pandas', 'Scikit-Learn', 'Jupyter Notebooks'],
-		tags: ['Python', 'Scikit-learn', 'Pandas'],
-		link: '/Projects/moneyball',
-		featured: true,
-		image: '/images/Soccer.jpg'
+		featured: false
 	},
 	{
 		id: 'my-commerce',
@@ -234,6 +262,62 @@ export const projects: Project[] = [
 		tags: ['Python', 'LLMs', 'Data Pipeline'],
 		github: 'https://github.com/enesyesil/fisor-builder',
 		link: '/Projects/fisor-builder',
+		featured: false
+	},
+
+	/*
+		{
+			id: 'deck-me',
+			title: 'Deck-Me',
+			description:
+				'A local-first macOS desktop app that transforms any topic into a beautiful, research-backed presentation using AI.',
+			longDescription:
+				'Deck-Me combines deep research with visual storytelling. It uses a multi-provider AI system to research topics, plan visually compelling slides, fetch licensed media from Wikimedia, and render presentation-ready decks. Designed with a local-first architecture for security and privacy.',
+			features: [
+				'AI Research Agent: Multi-provider research with depth control',
+				'Local-First: Secure key storage in macOS Keychain',
+				'Smart Media: Auto-fetches licensed images from Wikimedia Commons',
+				'Live Preview: Real-time Reveal.js rendering',
+				'Export: High-quality PDF export'
+			],
+			techStackDetail: [
+				'Electron & Tauri (Desktop)',
+				'FastAPI (Backend)',
+				'Reveal.js (Renderer)',
+				'Python (Research Engine)',
+				'Docker'
+			],
+			tags: ['Electron', 'FastAPI', 'Python', 'AI'],
+			github: 'https://github.com/enesyesil/deck-me',
+			link: '/Projects/deck-me',
+			featured: false,
+			image: '/images/deck-me-img.png'
+		},
+	*/
+	{
+		id: 'atlas-fabric',
+		title: 'AtlasFabric',
+		description:
+			'A temporal boundary generation engine that reconstructs historical political maps using open base units and AI classification.',
+		longDescription:
+			'AtlasFabric is an experimental engine that attempts to solve the lack of open historical boundary datasets. It uses modern administrative polygons as building blocks, assigns them to historical entities using LLMs, and validates them deterministically to generate MapLibre-compatible historical maps.',
+		features: [
+			'Temporal Modeling: Reconstructs boundaries for specific years',
+			'Base Unit Aggregation: Uses modern admin polygons as atomic units',
+			'LLM Classification: AI-assisted historical entity assignment',
+			'MapLibre Compatible: Generates standard vector/geojson outputs',
+			'Deterministic Validation: Enforces topological consistency'
+		],
+		techStackDetail: [
+			'MapLibre GL JS',
+			'Python (Processing Engine)',
+			'LLMs (Classification)',
+			'PostGIS / Spatial DB',
+			'GeoJSON'
+		],
+		tags: ['Maps', 'Data Engineering', 'LLMs', 'History'],
+		github: 'https://github.com/enesyesil/atlas-fabric',
+		link: '/Projects/atlas-fabric',
 		featured: false
 	}
 ];

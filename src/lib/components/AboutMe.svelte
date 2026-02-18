@@ -39,7 +39,7 @@
 						>
 						<span
 							class="px-4 py-2 bg-primary-100/80 text-primary-700 rounded-full text-sm font-medium"
-							>CS Final Year</span
+							>Computer Science</span
 						>
 					</div>
 				</div>
@@ -49,27 +49,17 @@
 			<div class="space-y-8 order-2 text-center lg:text-left lg:pl-10">
 				<div class="space-y-5 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
 					<p>
-						I'm a software developer passionate about <strong class="text-gray-900 dark:text-white"
-							>AI/ML and data infrastructure</strong
-						>. I enjoy turning complex systems into powerful, usable tools—especially when it comes
-						to automation and platform engineering.
+						I’m a software engineer interested in <strong class="text-gray-900 dark:text-white">distributed systems</strong> and the infrastructure that powers
+						data-heavy backend platforms.
 					</p>
 					<p>
-						Currently in my final year of Computer Science at <strong
-							class="text-gray-900 dark:text-white">York University</strong
-						>, I'm building
-						<a
-							href="/Projects/Fisor"
-							class="text-primary-600 hover:text-primary-700 underline underline-offset-2 transition-colors"
-							>Fisor Analytics</a
-						>—a multi-tenant AI analytics platform powered by LLMs, Spark, and Iceberg.
+						I like learning how systems are designed, understanding the infrastructure behind them,
+						simplifying complex problems, and trying to engineer solutions that are more reliable
+						and performant.
 					</p>
-					<p class="flex items-center justify-center lg:justify-start gap-3">
-						<span class="text-xl">⚡</span>
-						<span
-							>Outside of code, I enjoy following football, reading about history, and exploring new
-							tech gadgets.</span
-						>
+					<p>
+						I recently graduated in Computer Science from <strong class="text-gray-900 dark:text-white">York University</strong>, and I spend most of my
+						time on backend and systems-focused projects.
 					</p>
 				</div>
 

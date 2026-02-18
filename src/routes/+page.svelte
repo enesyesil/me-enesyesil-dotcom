@@ -9,6 +9,9 @@
 		UsersGroupSolid,
 		ArrowUpRightFromSquareOutline
 	} from 'flowbite-svelte-icons';
+	import { projects } from '$lib/data/projects';
+
+	const featuredProjects = projects.filter((p) => p.featured);
 </script>
 
 <div class="overflow-hidden">
@@ -230,26 +233,17 @@
 					</div>
 					<div class="space-y-5 text-lg font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> I'm a software developer
-							interested in
-							<strong
-								class="text-gray-900 dark:text-white bg-primary-100 dark:bg-primary-900/30 px-1"
-								>distributed systems, data infrastructure, and AI/ML</strong
-							>.
+							<span class="text-primary-600 dark:text-primary-400">></span> I’m a software engineer interested in
+							<strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">distributed systems</strong> and the <strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">infrastructure</strong> that powers <strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">data-heavy backend platforms</strong>.
 						</p>
 
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> I enjoy turning complex systems
-							into powerful and usable tools, especially when it comes to automation, reliability, and
-							platform-style engineering.
+							<span class="text-primary-600 dark:text-primary-400">></span> I like learning how systems are designed, understanding the infrastructure behind them, simplifying complex problems, and trying to engineer solutions that are more reliable and performant.
 						</p>
 
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> Currently in my final
-							year of Computer Science at
-							<strong class="text-gray-900 dark:text-white border-b-2 border-primary-400"
-								>York University</strong
-							>, I spend most of my time working on backend and systems-focused projects.
+							<span class="text-primary-600 dark:text-primary-400">></span> I recently graduated in Computer Science from
+							<strong class="text-gray-900 dark:text-white border-b-2 border-primary-400">York University</strong>, and I spend most of my time on backend and systems-focused projects.
 						</p>
 					</div>
 
@@ -477,128 +471,104 @@
 
 			<!-- Bento Grid Layout -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-				<!-- Featured Project: Fisor (Large Card) -->
-				<div class="md:col-span-2 retro-card p-6 bg-amber-50 dark:bg-gray-900">
-					<div class="flex flex-col md:flex-row gap-8">
-						<div
-							class="flex-shrink-0 w-full md:w-64 h-48 bg-amber-50 dark:bg-gray-900 rounded-none flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
-						>
-							<span class="text-4xl font-bold font-pixel text-primary-600 dark:text-primary-400"
-								>FISOR</span
-							>
+				{#each featuredProjects as project, i}
+					{#if i === 0}
+						<!-- Featured Main Project (Large Card) -->
+						<div class="md:col-span-2 retro-card p-6 bg-amber-50 dark:bg-gray-900">
+							<div class="flex flex-col md:flex-row gap-8">
+								<div
+									class="flex-shrink-0 w-full md:w-1/2 min-h-[16rem] bg-gray-900 rounded-none flex items-center justify-center border-2 border-gray-900 dark:border-gray-500 overflow-hidden relative"
+								>
+									{#if project.image}
+										<img
+											src={project.image}
+											alt={project.title}
+											class="w-full h-full object-contain"
+										/>
+									{:else}
+										<span
+											class="text-4xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+											>{project.title.split(' ')[0].toUpperCase()}</span
+										>
+									{/if}
+								</div>
+								<div class="flex-1">
+									<div class="flex items-center gap-2 mb-3">
+										<span
+											class="px-3 py-1 bg-primary-600 border border-gray-900 dark:border-gray-500 text-white text-xs font-mono font-bold"
+											>[ FEATURED ]</span
+										>
+									</div>
+									<h3 class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3">
+										{project.title}
+									</h3>
+									<p
+										class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed mb-4"
+									>
+										{project.description}
+									</p>
+									<div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
+										{#each project.tags.slice(0, 4) as tag}
+											<span
+												class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+												>[{tag}]</span
+											>
+										{/each}
+									</div>
+									<div class="flex gap-3">
+										<Button href={project.link} class="retro-btn text-xs rounded-none">
+											VIEW PROJECT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
+										</Button>
+									</div>
+								</div>
+							</div>
 						</div>
-						<div class="flex-1">
-							<div class="flex items-center gap-2 mb-3">
-								<span
-									class="px-3 py-1 bg-primary-600 border border-gray-900 dark:border-gray-500 text-white text-xs font-mono font-bold"
-									>[ FEATURED ]</span
-								>
+					{:else}
+						<!-- Other Featured Projects -->
+						<div class="retro-card p-6 flex flex-col bg-amber-50 dark:bg-gray-900">
+							<div
+								class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500 overflow-hidden relative"
+							>
+								{#if project.image}
+									<img
+										src={project.image}
+										alt={project.title}
+										class="w-full h-full object-cover"
+									/>
+								{:else}
+									<span
+										class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+										>{project.title.split(' ')[0].toUpperCase()}</span
+									>
+								{/if}
 							</div>
-							<h3 class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3">
-								Fisor Analytics
+
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								{project.title}
 							</h3>
-							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed mb-4">
-								A multi-tenant AI analytics platform powered by LLMs, Spark, and Apache Iceberg for
-								enterprise-scale data processing.
+							<p
+								class="text-gray-600 dark:text-gray-300 font-mono text-xs leading-relaxed mb-4 flex-grow"
+							>
+								{project.description}
 							</p>
-							<div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
-								<span
-									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-									>[Python]</span
-								>
-								<span
-									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-									>[Spark]</span
-								>
-								<span
-									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-									>[LLMs]</span
-								>
-								<span
-									class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-									>[Iceberg]</span
-								>
+
+							<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
+								{#each project.tags.slice(0, 3) as tag}
+									<span
+										class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
+										>[{tag}]</span
+									>
+								{/each}
 							</div>
-							<div class="flex gap-3">
-								<Button href="/Projects/Fisor" class="retro-btn text-xs rounded-none">
-									VIEW PROJECT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
+
+							<div class="flex gap-2">
+								<Button href={project.link} class="flex-1 retro-btn text-xs rounded-none">
+									VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 								</Button>
 							</div>
 						</div>
-					</div>
-				</div>
-
-				<!-- Project 3 -->
-				<div class="retro-card p-6 flex flex-col bg-amber-50 dark:bg-gray-900">
-					<div
-						class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
-					>
-						<span class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
-							>WEDDIFY</span
-						>
-					</div>
-
-					<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">Weddify</h3>
-					<p
-						class="text-gray-600 dark:text-gray-300 font-mono text-xs leading-relaxed mb-4 flex-grow"
-					>
-						Personalized wedding RSVP and invitation website with custom themes.
-					</p>
-
-					<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-						<span
-							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-							>[SvelteKit]</span
-						>
-						<span
-							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-							>[Supabase]</span
-						>
-					</div>
-
-					<div class="flex gap-2">
-						<Button href="/Projects/Weddify" class="flex-1 retro-btn text-xs rounded-none">
-							VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
-						</Button>
-					</div>
-				</div>
-
-				<!-- Project 4 -->
-				<div class="retro-card p-6 flex flex-col bg-amber-50 dark:bg-gray-900">
-					<div
-						class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500"
-					>
-						<span class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
-							>MONEYBALL</span
-						>
-					</div>
-
-					<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
-						Moneyball Scout ML
-					</h3>
-					<p
-						class="text-gray-600 dark:text-gray-300 font-mono text-xs leading-relaxed mb-4 flex-grow"
-					>
-						Statistical analysis to identify undervalued football players using ML.
-					</p>
-
-					<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-						<span
-							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-							>[Python]</span
-						>
-						<span
-							class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
-							>[Scikit-learn]</span
-						>
-					</div>
-
-					<div class="flex gap-2">
-						<Button href="/Projects/Moneyball" class="flex-1 retro-btn text-xs rounded-none">
-							VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
-						</Button>
-					</div>
-				</div>
+					{/if}
+				{/each}
 			</div>
 
 			<div class="text-center">
