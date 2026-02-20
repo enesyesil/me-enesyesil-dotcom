@@ -95,6 +95,46 @@ export const projects: Project[] = [
 		image: '/images/Soccer.jpg'
 	},
 	{
+		id: 'self-hosted-platform',
+		title: 'Personal Self-Hosted Deployment Platform',
+		description:
+			'A self-hosted personal PaaS on a Hetzner VPS using Dokploy to reliably run apps, databases, automation, and AI services end-to-end.',
+		longDescription:
+			'I moved off Vercel Pro and built a self-hosted deployment setup on a Hetzner VPS using Dokploy. The goal was to own the full deployment pipeline end-to-end (apps, domains, SSL, databases, automation, and AI services) while keeping deployments repeatable and cost predictable.\n\n### Why I Built This (Reasoning)\nManaged platforms like Vercel optimize for speed and convenience, but they come with tradeoffs once you move beyond a single frontend: costs grow when you need always-on backends, databases, and background jobs; less control over networking, storage, and system-level behavior; and it is harder to host multiple services (automation + DB + AI inference) in one place.\n\nI wanted a setup where I can run multiple services on one VPS, keep cost stable and predictable, control networking, storage, secrets, and deployments end-to-end, and get hands-on practice operating systems the way real teams do in production.\n\n### What I Built\nA small "personal PaaS" running on a single VPS. It consists of a compute layer (Hetzner VPS), deployment layer (Dokploy), runtime (Docker containers per service), data layer (PostgreSQL, Redis, MongoDB, ClickHouse for experimentation), an AI service (Ollama via HTTP API), and self-hosted documentation tools for my personal projects and my volunteer work at Young Professionals Canada. It also includes my own custom applications running behind custom subdomains and SSL HTTPS routing.\n\n### Cost and Infrastructure (Hetzner VPS)\n- **Specs:** 3 vCPU, 4 GB RAM, 80 GB SSD.\n- **Pricing:** $9.99 / month (Current usage cost shown: $7.37)\n- **Location:** Ashburn, VA (us-east)\n- **Network and Security:** Hetzner Firewall enabled with restricted inbound rules.\n\n### Next Steps (Planned Deployments)\nI’m continuing this as an infrastructure learning track. The next phase is focused on running real distributed patterns instead of a single-host setup.\n\n**Docker Swarm cluster**\nBuild a small Swarm cluster (manager + workers), practice rolling deploys, service discovery, overlay networking, and failover behavior, and re-run the same platform services under Swarm to see what breaks and why.\n\n**Database replication and sharding experiments**\nReplication: learn availability tradeoffs and failure modes (promotion, split brain risk, recovery). Sharding: learn partitioning tradeoffs (routing, hotspots, rebalancing, operational complexity). The goal is not "production grade sharding" on day one, but learning the real operational pain points.\n\n**Deploying <a href="/Projects/issuesight" class="text-primary-600 dark:text-primary-400 hover:underline">IssueSight</a> on Swarm (Distributed architecture validation)**\nI’ll deploy <a href="/Projects/issuesight" class="text-primary-600 dark:text-primary-400 hover:underline">IssueSight</a> on Swarm to validate the system under real distributed conditions since it is a distributed event-driven system. Swarm is the right next step because it forces real questions: can services be replicated safely, what state must be single vs multi-writer, what fails when a replica dies mid-task, and how to prevent duplicate processing.',
+		features: [
+			'Cal.com (Self-hosted scheduling): Configured env vars, routed via subdomain, enabled HTTPS.',
+			'n8n (Automation): Backed by persistent DB to ensure workflows survive restarts. Connects APIs and webhooks.',
+			'PostgreSQL (Relational DB): Persistent storage mounted to prevent data loss. Separate DBs per service.',
+			'Redis (Cache): Low-latency caching, shared state, fast reads, and distributed locking experiments.',
+			'MongoDB (Document DB): Testing document modeling tradeoffs in a real deployment environment.',
+			'ClickHouse (Analytics): Experimenting with analytics-style storage and querying.',
+			'Ollama (Local LLM inference): Pulled models on demand and exposed them via an internal API.',
+			'Documentation Tools: Self-hosted apps for documenting projects and volunteer work at YPC.'
+		],
+		learnings: [
+			'Left managed hosting and provisioned a Hetzner VPS with strict firewall rules and secure SSH access.',
+			'Installed Dokploy to manage deployments, logs, env vars, and domains centrally from one place.',
+			'Connected custom domains, pointed DNS to the VPS, and enabled SSL certificates for all routes.',
+			'Deployed stateful persistence (Postgres, MongoDB, Redis, ClickHouse) via Docker with mounted volumes.',
+			'Deployed internal apps (n8n, Cal.com, Ollama) and confirmed API, workflow, and routing health.'
+		],
+		techStackDetail: [
+			'Hetzner VPS',
+			'Dokploy',
+			'Docker / Containers',
+			'PostgreSQL',
+			'Redis & MongoDB',
+			'ClickHouse',
+			'Ollama (AI)',
+			'n8n (Automation)',
+			'Cal.com'
+		],
+		tags: ['Infra', 'Self-Hosted', 'Docker', 'VPS'],
+		link: '/Projects/self-hosted-platform',
+		featured: true,
+		image: '/images/self-hosted-img.png'
+	},
+	{
 		id: 'weddify',
 		title: 'Weddify',
 		description:

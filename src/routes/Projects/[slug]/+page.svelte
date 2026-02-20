@@ -43,7 +43,7 @@
 		>
 			{#if project.image && project.image.startsWith('/')}
 				<img
-					class="w-full border border-gray-900 dark:border-gray-500"
+					class="w-full max-h-[700px] object-cover object-top border border-gray-900 dark:border-gray-500 bg-gray-50 dark:bg-gray-800"
 					src={project.image}
 					alt={project.title}
 				/>
@@ -70,9 +70,17 @@
 					>
 						<span class="text-primary-600 dark:text-primary-400">></span> Overview
 					</h2>
-					<p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-mono">
-						{project.longDescription}
-					</p>
+					<div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-mono space-y-4">
+						{#each project.longDescription.split('\n') as p}
+							{#if p.startsWith('### ')}
+								<h3 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-2 border-b-2 border-gray-200 dark:border-gray-800 pb-2">
+									{p.replace('### ', '')}
+								</h3>
+							{:else if p.trim() !== ''}
+								<p>{@html p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
+							{/if}
+						{/each}
+					</div>
 				</div>
 			{/if}
 
@@ -106,18 +114,18 @@
 			<!-- What I Learned -->
 			{#if project.learnings && project.learnings.length > 0}
 				<div
-					class="bg-gray-900 dark:bg-gray-800 p-8 shadow-hard dark:shadow-none border-2 border-gray-900 dark:border-gray-500 text-white"
+					class="bg-white dark:bg-gray-900 p-8 shadow-hard dark:shadow-none border-2 border-gray-900 dark:border-gray-500"
 				>
 					<h2
-						class="text-2xl font-bold font-pixel text-white mb-6 uppercase flex items-center gap-2"
+						class="text-2xl font-bold font-pixel text-gray-900 dark:text-white mb-6 uppercase flex items-center gap-2"
 					>
-						<span class="text-primary-400">?</span> What I Learned
+						<span class="text-primary-600 dark:text-primary-400">?</span> What I Learned
 					</h2>
 					<ul class="space-y-4">
 						{#each project.learnings as learning}
 							<li class="flex items-start gap-3">
-								<span class="mt-1 text-primary-400">>></span>
-								<span class="text-gray-200 leading-relaxed font-mono">{learning}</span>
+								<span class="mt-1 text-primary-600 dark:text-primary-400">>></span>
+								<span class="text-gray-700 dark:text-gray-300 leading-relaxed font-mono">{learning}</span>
 							</li>
 						{/each}
 					</ul>
