@@ -1,7 +1,7 @@
 ---
 title: 'When One Core Wasn’t Enough: Why Systems Got More Complex'
 description: 'A short walkthrough of why hardware moved to multicore, why speedup is limited, and why that forced software to become more complex. This sets up the core problems behind concurrency and distributed systems.'
-date: 2026-02-17
+date: 2025-12-16
 image: '/images/multicore.png'
 tags: ['Concurrency', 'Parallel Computing', 'Multiprocessors', 'Systems']
 ---
