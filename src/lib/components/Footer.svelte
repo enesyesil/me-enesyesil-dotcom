@@ -6,7 +6,7 @@
 	class="bg-amber-50 dark:bg-gray-900 border-t-4 border-gray-900 dark:border-gray-500 pt-16 pb-8 font-mono transition-colors duration-300"
 >
 	<div class="max-w-7xl mx-auto px-4">
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
 			<!-- BRANDING -->
 			<div class="flex flex-col gap-6">
 				<div class="flex items-center gap-2">
@@ -129,12 +129,12 @@
 
 		<!-- Copyright -->
 		<div
-			class="border-t-2 border-gray-900 dark:border-gray-500 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wide gap-4"
+			class="border-t-2 border-gray-900 dark:border-gray-500 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 font-bold uppercase tracking-wide gap-4 text-center md:text-left"
 		>
 			<div>
 				&copy; {new Date().getFullYear()} ENES YESIL. ALL RIGHTS RESERVED.
 			</div>
-			<div class="flex gap-4">
+			<div class="flex flex-wrap justify-center md:justify-end gap-4">
 				<span class="hover:text-gray-900 dark:hover:text-white cursor-pointer"
 					>PRIVACY_PROTOCOL</span
 				>

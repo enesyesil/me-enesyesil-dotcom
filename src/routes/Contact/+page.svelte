@@ -1,9 +1,8 @@
 <script>
-	import { Button } from 'flowbite-svelte';
 	import { EnvelopeSolid, LinkedinSolid } from 'flowbite-svelte-icons';
 </script>
 
-<div class="min-h-screen bg-transparent dark:bg-gray-950 py-12 px-4 transition-colors duration-300">
+<div class="min-h-screen bg-transparent py-12 px-4 transition-colors duration-300">
 	<div class="max-w-6xl mx-auto">
 		<!-- Hero / Header -->
 		<div class="text-center mb-16 mt-4 animate-fade-in-up">
@@ -16,10 +15,10 @@
 			</p>
 		</div>
 
-		<div class="grid lg:grid-cols-2 gap-12 items-start">
+		<div class="contact-grid items-start">
 			<!-- Left Column: Contact Methods -->
-			<div class="space-y-8 animate-fade-in-up delay-100">
-				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900">
+			<div class="space-y-4">
+				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 animate-fade-in-up delay-100">
 					<div
 						class="border-b-2 border-gray-900 dark:border-gray-500 pb-2 mb-6 font-mono text-gray-500 dark:text-gray-400 text-sm"
 					>
@@ -31,7 +30,7 @@
 
 					<div class="space-y-6">
 						<a
-							href="mailto:enesy@my.yorku.ca"
+							href="mailto:me.enesyesil@gmail.com"
 							class="flex items-center gap-4 p-4 border-2 border-transparent hover:border-gray-900 dark:hover:border-white hover:bg-white dark:hover:bg-gray-800 transition-all group"
 						>
 							<div
@@ -46,13 +45,13 @@
 								<div
 									class="text-lg text-gray-900 dark:text-white font-bold font-mono group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
 								>
-									enesy@my.yorku.ca
+									me.enesyesil@gmail.com
 								</div>
 							</div>
 						</a>
 
 						<a
-							href="https://www.linkedin.com/in/enes-yesil"
+							href="https://www.linkedin.com/in/me-enesyesil"
 							target="_blank"
 							class="flex items-center gap-4 p-4 border-2 border-transparent hover:border-gray-900 dark:hover:border-white hover:bg-white dark:hover:bg-gray-800 transition-all group"
 						>
@@ -76,49 +75,53 @@
 				</div>
 
 				<!-- Availability Note -->
-				<div
-					class="bg-primary-600 dark:bg-primary-900 border-2 border-gray-900 dark:border-gray-500 p-8 text-white shadow-hard dark:shadow-none"
-				>
-					<h3 class="text-xl font-bold font-mono mb-2 uppercase">[ STATUS: AVAILABLE ]</h3>
-					<p class="text-primary-50 dark:text-primary-100 font-mono leading-relaxed mb-4">
-						I am currently open to new opportunities, freelance projects, and collaborations. Feel
-						free to book a time to chat!
-					</p>
+				<div class="animate-fade-in-up delay-200">
+					<div
+						class="bg-primary-600 dark:bg-primary-900 border-2 border-gray-900 dark:border-gray-500 p-8 text-white shadow-hard dark:shadow-none"
+					>
+						<h3 class="text-xl font-bold font-mono mb-2 uppercase">[ STATUS: AVAILABLE ]</h3>
+						<p class="text-primary-50 dark:text-primary-100 font-mono leading-relaxed mb-4">
+							I am currently open to new opportunities, freelance projects, and collaborations. Feel
+							free to book a time to chat!
+						</p>
+					</div>
 				</div>
 			</div>
 
-			<!-- Right Column: Cal.com Embed -->
-			<div
-				class="retro-card p-4 min-h-[600px] animate-fade-in-up delay-200 bg-amber-50 dark:bg-gray-900"
-			>
-				<div
-					class="w-full h-full border-2 border-gray-900 dark:border-gray-500 bg-white dark:bg-gray-800 flex items-center justify-center relative p-8"
+			<!-- Right Column: Schedule Meeting -->
+			<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 animate-fade-in-up delay-300 text-center">
+				<span class="text-4xl mb-4 block">📅</span>
+				<h3 class="text-xl font-bold font-pixel text-gray-900 dark:text-white mb-2">
+					BOOK A CALL
+				</h3>
+				<p class="text-gray-500 dark:text-gray-400 font-mono mb-6 text-sm">
+					30 min chat — tech, projects, or opportunities.
+				</p>
+				<a
+					href="https://cal.enesyesil.me/enesyesil/30min?duration=30"
+					target="_blank"
+					class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-mono font-bold border-2 border-gray-900 dark:border-gray-500 shadow-hard dark:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all uppercase text-sm"
 				>
-					<!-- 
-                TODO: USER - Replace this placeholder with your Cal.com embed code or iframe.
-                Example iframe:
-                <iframe src="https://cal.com/enes/30min" style="width:100%;height:100%;overflow:scroll" frameborder="0"></iframe>
-             -->
-					<div class="text-center">
-						<span class="text-4xl mb-4 block">📅</span>
-						<h3 class="text-xl font-bold font-pixel text-gray-900 dark:text-white mb-2">
-							BOOK A CALL
-						</h3>
-						<p class="text-gray-500 dark:text-gray-400 font-mono mb-6 max-w-xs mx-auto text-sm">
-							Cal.com integration is ready. Please paste your embed snippet code here in the source.
-						</p>
-						<!-- Temporary Placeholder Button -->
-						<Button href="https://cal.com" target="_blank" class="retro-btn rounded-none"
-							>GO TO CAL.COM</Button
-						>
-					</div>
-				</div>
+					📅 Open Booking Page →
+				</a>
 			</div>
 		</div>
 	</div>
 </div>
 
 <style>
+	.contact-grid {
+		display: grid;
+		gap: 1rem;
+		grid-template-columns: 1fr;
+	}
+
+	@media (min-width: 1024px) {
+		.contact-grid {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+
 	.animate-fade-in-up {
 		animation: fadeInUp 0.8s ease-out forwards;
 		opacity: 0;
@@ -129,6 +132,9 @@
 	}
 	.delay-200 {
 		animation-delay: 0.2s;
+	}
+	.delay-300 {
+		animation-delay: 0.3s;
 	}
 	@keyframes fadeInUp {
 		to {
