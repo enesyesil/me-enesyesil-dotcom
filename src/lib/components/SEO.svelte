@@ -1,9 +1,9 @@
 <script lang="ts">
-	export let title: string = 'Enes Yesil | Software Engineer & Distributed Systems Enthusiast';
+	export let title: string = 'Enes Yesil | Software Engineer';
 	export let description: string =
-		"I'm a software developer interested in distributed systems, data infrastructure, and AI/ML. Currently in my final year of Computer Science at York University.";
+		"I'm a Software Engineer focused on distributed systems, leaning into agentic AI workflows and automation.";
 	export let keywords: string =
-		'Enes Yesil, Software Engineer, Distributed Systems, Data Infrastructure, AI, ML, York University';
+		"Enes Yesil, Backend Engineer, Platform Engineer, Software Engineer, Toronto, Canada, New Grad, Go, Golang, AWS, EKS, Kubernetes, Docker, Terraform, CI/CD, GitHub Actions, Microservices, Distributed Systems, gRPC, REST APIs, PostgreSQL, Redis, Observability, Prometheus, Grafana, Data Engineering, Apache Spark, Apache Iceberg, Data Pipelines, Lakehouse, MLOps, LLMOps, AI Infrastructure";
 	export let image: string = 'https://enesyesil.me/favicon.svg';
 	export let url: string = 'https://enesyesil.me';
 	export let type: string = 'website';
