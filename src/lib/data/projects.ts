@@ -45,7 +45,7 @@ export const projects: Project[] = [
 		link: 'https://fisoranalytics.org/',
 		github: 'https://github.com/enesyesil/fisor-builder',
 		image: '/images/new-fisor.png',
-		featured: true
+		featured: false
 	},
 	{
 		id: 'issuesight',
@@ -302,7 +302,7 @@ export const projects: Project[] = [
 		tags: ['Python', 'LLMs', 'Data Pipeline'],
 		github: 'https://github.com/enesyesil/fisor-builder',
 		link: '/Projects/fisor-builder',
-		featured: false
+		featured: true
 	},
 
 	/*
