@@ -1,14 +1,32 @@
-<script>
+<script lang="ts">
 	import { ArrowLeftOutline } from 'flowbite-svelte-icons';
+	import { onMount, tick } from 'svelte';
+	import mermaid from 'mermaid';
+
 	export let data;
+
+	onMount(async () => {
+		// Initialize with a theme that matches both light/dark fairly well
+		// or "default" which allows CSS overrides. Using default to let user's Tailwind dictate.
+		mermaid.initialize({ startOnLoad: false, theme: 'base' });
+		
+		// Wait for DOM to finish rendering
+		await tick();
+		
+		try {
+			await mermaid.run({ querySelector: '.mermaid' });
+		} catch (error) {
+			console.error('Mermaid render failed:', error);
+		}
+	});
 </script>
 
 <div class="min-h-screen bg-transparent py-12 px-4 transition-colors duration-300">
 	<article class="max-w-3xl mx-auto">
 		<!-- Navigation -->
-		<div class="mb-8">
+		<div class="mb-8 flex items-center justify-between">
 			<a
-				href="/Blog"
+				href="/Blog/{data.category}"
 				class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors group"
 			>
 				<div
@@ -16,7 +34,11 @@
 				>
 					<ArrowLeftOutline class="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
 				</div>
-				Back to Blog
+				Back to {data.category.replace(/-/g, ' ')}
+			</a>
+			
+			<a href="/Blog" class="text-sm font-mono text-gray-400 hover:text-gray-600 transition-colors">
+				All Logs
 			</a>
 		</div>
 
@@ -63,6 +85,16 @@
 				>
 					<img
 						src={data.data.image}
+						alt={data.data.title}
+						class="absolute inset-0 w-full h-full object-cover"
+					/>
+				</div>
+			{:else}
+				<div
+					class="overflow-hidden shadow-hard dark:shadow-none mb-12 w-full aspect-video relative border-2 border-gray-900 dark:border-gray-500"
+				>
+					<img
+						src="/api/og?title={encodeURIComponent(data.data.title)}&category={encodeURIComponent(data.category)}&v=2"
 						alt={data.data.title}
 						class="absolute inset-0 w-full h-full object-cover"
 					/>

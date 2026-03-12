@@ -12,6 +12,8 @@
 
 	// Featured posts (first 3 for a curated feel)
 	$: featuredPosts = data.posts.slice(0, 3);
+
+	// Image error fallback
 </script>
 
 <div class="min-h-screen bg-transparent py-12 px-4 transition-colors duration-300">
@@ -81,7 +83,7 @@
 						{#each filteredPosts as post}
 							<div class="retro-card flex flex-col h-full bg-amber-50 dark:bg-gray-900 group">
 								<a
-									href="/Blog/{post.slug}"
+									href="/Blog/{post.category}/{post.slug}"
 									class="block h-48 relative overflow-hidden border-b-2 border-gray-900 dark:border-gray-500"
 								>
 									{#if post.image}
@@ -94,13 +96,11 @@
 											class="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/10 transition-colors duration-300"
 										></div>
 									{:else}
-										<div
-											class="w-full h-full bg-white dark:bg-gray-800 flex items-center justify-center"
-										>
-											<span class="text-4xl opacity-30 font-pixel dark:text-gray-500"
-												>{post.category === 'engineering' ? 'CODE' : 'THOUGHT'}</span
-											>
-										</div>
+										<img
+											src="/api/og?title={encodeURIComponent(post.title)}&category={encodeURIComponent(post.category)}&v=2"
+											alt={post.title}
+											class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+										/>
 									{/if}
 									<div class="absolute top-2 right-2">
 										<span
@@ -114,7 +114,7 @@
 										class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3 leading-tight uppercase"
 									>
 										<a
-											href="/Blog/{post.slug}"
+											href="/Blog/{post.category}/{post.slug}"
 											class="hover:underline decoration-2 underline-offset-4 decoration-primary-600 dark:decoration-primary-400"
 											>{post.title}</a
 										>
@@ -135,7 +135,7 @@
 											})}</span
 										>
 										<a
-											href="/Blog/{post.slug}"
+											href="/Blog/{post.category}/{post.slug}"
 											class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline decoration-2 underline-offset-2"
 											>READ <ArrowRightOutline class="w-3 h-3 ms-1" /></a
 										>
@@ -159,55 +159,31 @@
 
 			<!-- Categories -->
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 animate-fade-in-up delay-100">
-				<!-- Engineering Category -->
-				<a
-					href="/Blog/engineering"
-					class="group relative overflow-hidden bg-amber-50 dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-hard dark:hover:shadow-none"
-				>
-					<div class="flex items-center gap-4 mb-4">
-						<span class="text-4xl">🛠️</span>
-						<h2
-							class="text-3xl font-bold font-pixel text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
-						>
-							Engineering
-						</h2>
-					</div>
-					<p class="text-gray-600 dark:text-gray-300 font-mono mb-6">
-						Deep dives into software architecture, algorithms, AI, and technical challenges.
-					</p>
-					<span
-						class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 group-hover:underline decoration-2 underline-offset-4"
+				{#each data.categories as category}
+					<a
+						href="/Blog/{category}"
+						class="group relative overflow-hidden bg-amber-50 dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-hard dark:hover:shadow-none"
 					>
-						BROWSE ENGINEERING <ArrowRightOutline
-							class="w-4 h-4 ms-2 group-hover:translate-x-1 transition-transform"
-						/>
-					</span>
-				</a>
-
-				<!-- Thoughts Category -->
-				<a
-					href="/Blog/thoughts"
-					class="group relative overflow-hidden bg-amber-50 dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-hard dark:hover:shadow-none"
-				>
-					<div class="flex items-center gap-4 mb-4">
-						<span class="text-4xl">💭</span>
-						<h2
-							class="text-3xl font-bold font-pixel text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+						<div class="flex items-center gap-4 mb-4">
+							<span class="text-4xl">{category.toLowerCase().includes('engineering') ? '🛠️' : '💭'}</span>
+							<h2
+								class="text-3xl font-bold font-pixel text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors uppercase"
+							>
+								{category.replace(/-/g, ' ')}
+							</h2>
+						</div>
+						<p class="text-gray-600 dark:text-gray-300 font-mono mb-6">
+							Explore posts about {category.replace(/-/g, ' ')}.
+						</p>
+						<span
+							class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 group-hover:underline decoration-2 underline-offset-4 uppercase"
 						>
-							My Thoughts
-						</h2>
-					</div>
-					<p class="text-gray-600 dark:text-gray-300 font-mono mb-6">
-						Personal reflections, philosophical musings, and stories from my journey.
-					</p>
-					<span
-						class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 group-hover:underline decoration-2 underline-offset-4"
-					>
-						READ THOUGHTS <ArrowRightOutline
-							class="w-4 h-4 ms-2 group-hover:translate-x-1 transition-transform"
-						/>
-					</span>
-				</a>
+							BROWSE {category.replace(/-/g, ' ')} <ArrowRightOutline
+								class="w-4 h-4 ms-2 group-hover:translate-x-1 transition-transform"
+							/>
+						</span>
+					</a>
+				{/each}
 			</div>
 
 			<!-- Featured Posts Header -->
@@ -224,7 +200,7 @@
 					<div class="retro-card flex flex-col h-full bg-amber-50 dark:bg-gray-900 group">
 						<!-- Image / Placeholder -->
 						<a
-							href="/Blog/{post.slug}"
+							href="/Blog/{post.category}/{post.slug}"
 							class="block h-48 relative overflow-hidden border-b-2 border-gray-900 dark:border-gray-500"
 						>
 							{#if post.image}
@@ -237,13 +213,11 @@
 									class="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/10 transition-colors duration-300"
 								></div>
 							{:else}
-								<div
-									class="w-full h-full bg-white dark:bg-gray-800 flex items-center justify-center"
-								>
-									<span class="text-4xl opacity-30 font-pixel dark:text-gray-500">
-										{post.category === 'engineering' ? 'CODE' : 'THOUGHT'}
-									</span>
-								</div>
+								<img
+									src="/api/og?title={encodeURIComponent(post.title)}&category={encodeURIComponent(post.category)}&v=2"
+									alt={post.title}
+									class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+								/>
 							{/if}
 							<!-- Category Badge -->
 							<div class="absolute top-2 right-2">
@@ -274,7 +248,7 @@
 								class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3 leading-tight uppercase"
 							>
 								<a
-									href="/Blog/{post.slug}"
+									href="/Blog/{post.category}/{post.slug}"
 									class="hover:underline decoration-2 underline-offset-4 decoration-primary-600 dark:decoration-primary-400"
 								>
 									{post.title}
@@ -300,7 +274,7 @@
 									})}
 								</span>
 								<a
-									href="/Blog/{post.slug}"
+									href="/Blog/{post.category}/{post.slug}"
 									class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline decoration-2 underline-offset-2"
 								>
 									READ <ArrowRightOutline class="w-3 h-3 ms-1" />
