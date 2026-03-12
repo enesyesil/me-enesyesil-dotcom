@@ -114,7 +114,7 @@
 					<div class="font-mono text-sm md:text-base space-y-4 text-gray-700 dark:text-gray-300">
 						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
 							<span class="font-bold text-gray-900 dark:text-white">[ FIELD ]</span>
-							<span>Distributed Systems</span>
+							<span>Software Engineering</span>
 						</div>
 						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
 							<span class="font-bold text-gray-900 dark:text-white">[ ENGINE ]</span>
