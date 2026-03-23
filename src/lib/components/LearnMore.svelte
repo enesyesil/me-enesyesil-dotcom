@@ -42,7 +42,7 @@
 				class="prose prose-lg font-mono text-gray-600 dark:text-gray-300 prose-headings:text-gray-900 dark:prose-headings:text-white prose-strong:text-primary-700 dark:prose-strong:text-primary-400 leading-relaxed"
 			>
 				<p>
-					Originally from Turkey, my journey has been shaped by adaptability. Growing up and moving
+					My journey has been shaped by adaptability. Growing up and moving
 					between cities and countries taught me resilience. I carry that mindset into my career and
 					how I approach problems.
 				</p>
