@@ -519,6 +519,11 @@
 										<Button href={project.link} class="retro-btn text-xs rounded-none">
 											VIEW PROJECT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 										</Button>
+										{#if project.website}
+											<Button href={project.website} target="_blank" class="retro-btn text-xs rounded-none">
+												VISIT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
+											</Button>
+										{/if}
 									</div>
 								</div>
 							</div>
@@ -565,6 +570,11 @@
 								<Button href={project.link} class="flex-1 retro-btn text-xs rounded-none">
 									VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 								</Button>
+								{#if project.website}
+									<Button href={project.website} target="_blank" class="retro-btn text-xs rounded-none">
+										VISIT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
+									</Button>
+								{/if}
 							</div>
 						</div>
 					{/if}
@@ -574,7 +584,7 @@
 			<div class="text-center">
 				<Button
 					href="/Projects"
-					class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white px-8 py-3 rounded-none font-bold border-2 border-gray-900 dark:border-gray-500 shadow-hard dark:shadow-none hover:shadow-hard-lg transition-all hover:-translate-y-0.5"
+					class="retro-btn px-8 py-3 rounded-none font-bold"
 				>
 					[ VIEW ALL PROJECTS ]
 				</Button>

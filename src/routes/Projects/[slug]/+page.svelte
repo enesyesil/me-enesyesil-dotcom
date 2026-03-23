@@ -166,9 +166,9 @@
 				</h2>
 				<div class="grid md:grid-cols-3 gap-6">
 					<!-- Website/Demo Link -->
-					{#if project.link && !project.link.startsWith('/Projects/')}
+					{#if project.website}
 						<a
-							href={project.link}
+							href={project.website}
 							target="_blank"
 							class="group bg-white dark:bg-gray-900 p-6 shadow-hard dark:shadow-none border-2 border-gray-900 dark:border-gray-500 hover:-translate-y-1 transition-all text-center flex flex-col items-center hover:bg-primary-50 dark:hover:bg-gray-800"
 						>

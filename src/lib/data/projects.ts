@@ -4,6 +4,7 @@ export interface Project {
 	description: string;
 	tags: string[];
 	link?: string;
+	website?: string; // External live website URL (distinct from internal slug link)
 	github?: string;
 	image?: string;
 	featured?: boolean;
@@ -37,6 +38,7 @@ export const projects: Project[] = [
 		image: '/images/vps_image.png',
 		techStackDetail: ['Dokploy', 'Coolify', 'DigitalOcean', 'Hetzner', 'Docker', 'Ubicloud'],
 		tags: ['Infra', 'Self-Hosted', 'Coolify', 'Dokploy', 'VPS'],
+		link: '/Projects/coolify-infra',
 		featured: true
 	},
 	{
@@ -56,7 +58,8 @@ export const projects: Project[] = [
 		tags: ['Next.js', 'Go', 'Docker', 'Open Source'],
 		image: '/images/infraup-post.png',
 		github: 'https://github.com/enesyesil/InfraUp',
-		link: 'https://infraup.dev',
+		website: 'https://infraup.dev',
+		link: '/Projects/infraup',
 		featured: true
 	},
 	{
@@ -86,7 +89,7 @@ export const projects: Project[] = [
 		],
 		tags: ['Python', 'Spark', 'LLMs', 'Iceberg', 'Go'],
 		link: 'https://fisoranalytics.org/',
-		github: 'https://github.com/enesyesil/fisor-builder',
+		github: 'https://github.com/Fisor-Analytics',
 		image: '/images/new-fisor.png',
 		featured: false
 	},
