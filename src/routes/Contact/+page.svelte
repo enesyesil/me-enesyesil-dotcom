@@ -98,7 +98,7 @@
 					30 min chat — tech, projects, or opportunities.
 				</p>
 				<a
-					href="https://cal.enesyesil.me/enesyesil/30min?duration=30"
+					href="https://cal.com/me.enesyesil/30min"
 					target="_blank"
 					class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 text-white font-mono font-bold border-2 border-gray-900 dark:border-gray-500 shadow-hard dark:shadow-none hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-none transition-all uppercase text-sm"
 				>

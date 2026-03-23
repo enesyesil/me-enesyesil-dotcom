@@ -17,6 +17,49 @@ export interface Project {
 
 export const projects: Project[] = [
 	{
+		id: 'coolify-infra',
+		title: 'Personal Self-Hosted Infrastructure Expansion with Coolify',
+		description:
+			'A multi-VPS environment comparing deployment approaches across Dokploy (Hetzner) and Coolify (DigitalOcean) in real-world conditions.',
+		longDescription:
+			'I recently expanded my self-hosted infrastructure setup beyond a single VPS to realistically compare different deployment approaches side by side.\n\nMy first server runs on Hetzner with Dokploy, where I built a strong base in multi-service deployments, Docker-based workloads, custom domains with HTTPS, persistent databases, and self-hosted app operations. To test a different self-hosted PaaS workflow, I created a second VPS on DigitalOcean using student credits and deployed Coolify. I redeployed a similar multi-service setup so I could compare platform behavior under real conditions.\n\nThe goal of this ongoing exercise is to understand how platform choices fundamentally impact developer experience, service management, database workflows, infrastructure flexibility, and long-term operational control. Next steps include testing real projects (like IssueSight) on both platforms and evaluating Ubicloud for bare-metal possibilities.',
+		features: [
+			'Dokploy on Hetzner: Direct, Docker-oriented self-hosted workflow',
+			'Coolify on DigitalOcean: Smoother, productized multi-service platform experience',
+			'Ubicloud Consideration: Exploring options for deeper infrastructure experiments on bare metal',
+			'Real-World Evaluation: Testing real projects over setup impressions'
+		],
+		learnings: [
+			'Dokploy feels more direct and Docker-oriented',
+			'Coolify feels more productized and smoother for multi-service management',
+			'Database provisioning and internal service connectivity felt easier in Coolify during testing'
+		],
+		image: '/images/vps_image.png',
+		techStackDetail: ['Dokploy', 'Coolify', 'DigitalOcean', 'Hetzner', 'Docker', 'Ubicloud'],
+		tags: ['Infra', 'Self-Hosted', 'Coolify', 'Dokploy', 'VPS'],
+		featured: true
+	},
+	{
+		id: 'infraup',
+		title: 'InfraUp',
+		description:
+			'Discovery platform for self-hosted open source alternatives to SaaS tools. Replace Notion, Slack, HubSpot, Jira, and more  on your own infrastructure.',
+		longDescription:
+			'InfraUp is an open-source discovery platform that helps users find and deploy self-hosted alternatives to popular SaaS applications. It features a curated registry of over 50 apps, complete with Docker configurations and deployment guides, allowing users to take control of their data and infrastructure.',
+		features: [
+			'App Registry: Curated collection of 50+ self-hosted open source apps',
+			'Monorepo Architecture: Built with Turborepo, Next.js 14, and Go',
+			'Automated Deployments: Ready-to-use Docker and dependency configurations',
+			'Self-Hosted Alternatives: Replace Notion, Slack, HubSpot, and Jira'
+		],
+		techStackDetail: ['Next.js 14', 'Go', 'PostgreSQL', 'Docker', 'Turborepo'],
+		tags: ['Next.js', 'Go', 'Docker', 'Open Source'],
+		image: '/images/infraup-post.png',
+		github: 'https://github.com/enesyesil/InfraUp',
+		link: 'https://infraup.dev',
+		featured: true
+	},
+	{
 		id: 'fisor',
 		title: 'Fisor Analytics',
 		description:
@@ -132,7 +175,7 @@ export const projects: Project[] = [
 		tags: ['Infra', 'Self-Hosted', 'Docker', 'VPS'],
 		link: '/Projects/self-hosted-platform',
 		featured: true,
-		image: '/images/self-hosted-img.png'
+		image: '/images/dokploy.png'
 	},
 	{
 		id: 'weddify',
