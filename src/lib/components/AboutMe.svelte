@@ -49,8 +49,9 @@
 			<div class="space-y-8 order-2 text-center lg:text-left lg:pl-10">
 				<div class="space-y-5 text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
 					<p>
-						I’m a software engineer interested in <strong class="text-gray-900 dark:text-white">distributed systems</strong> and the infrastructure that powers
-						data-heavy backend platforms.
+						I’m a software engineer interested in <strong class="text-gray-900 dark:text-white"
+							>distributed systems</strong
+						> and the infrastructure that powers data-heavy backend platforms.
 					</p>
 					<p>
 						I like learning how systems are designed, understanding the infrastructure behind them,
@@ -58,8 +59,9 @@
 						and performant.
 					</p>
 					<p>
-						I recently graduated in Computer Science from <strong class="text-gray-900 dark:text-white">York University</strong>, and I spend most of my
-						time on backend and systems-focused projects.
+						I recently graduated in Computer Science from <strong
+							class="text-gray-900 dark:text-white">York University</strong
+						>, and I spend most of my time on backend and systems-focused projects.
 					</p>
 				</div>
 

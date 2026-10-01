@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
 </script>
@@ -21,7 +22,8 @@
 				> Hi, I’m <strong
 					class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1"
 					>Enes</strong
-				> — a software engineer and recent York University CS grad, interested in backend and distributed systems.
+				> — a software engineer and a York University Computer Science graduate, focused on AI and Data
+				infrastructure, backend systems, and platform engineering.
 			</p>
 		</div>
 
@@ -42,23 +44,30 @@
 				class="prose prose-lg font-mono text-gray-600 dark:text-gray-300 prose-headings:text-gray-900 dark:prose-headings:text-white prose-strong:text-primary-700 dark:prose-strong:text-primary-400 leading-relaxed"
 			>
 				<p>
-					My journey has been shaped by adaptability. Growing up and moving
-					between cities and countries taught me resilience. I carry that mindset into my career and
-					how I approach problems.
+					My journey has been shaped by adaptability. Growing up and moving between cities and
+					countries taught me resilience. I carry that mindset into my career and how I approach
+					problems.
 				</p>
 				<p>
-					I like building and designing systems, working with distributed systems and data
-					infrastructure, and trying to make things that are simple, reliable, and practical.
+					I like building and designing systems, working with distributed systems and the
+					infrastructure behind AI and Data platforms, and making things that are simple, reliable,
+					and practical.
 				</p>
 			</div>
 
 			<!-- Special Card: Outside of Work -->
-			<div class="mt-8 p-6 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 shadow-sm relative">
-				<div class="absolute -top-3 left-4 bg-amber-50 dark:bg-gray-900 px-2 font-mono text-xs font-bold text-primary-600 dark:text-primary-400">
+			<div
+				class="mt-8 p-6 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 shadow-sm relative"
+			>
+				<div
+					class="absolute -top-3 left-4 bg-amber-50 dark:bg-gray-900 px-2 font-mono text-xs font-bold text-primary-600 dark:text-primary-400"
+				>
 					[ PERSONAL_LOG ]
 				</div>
 				<p class="font-mono text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-					Outside of work, I’m into history, economics, and soccer ⚽️ (yeah, football 😄). I like exploring new places around the city. I also enjoy quiet time learning on my own: reading, taking notes, and going deep on topics that catch my attention.
+					Outside of work, I’m into history, economics, and soccer ⚽️ (yeah, football 😄). I like
+					exploring new places around the city. I also enjoy quiet time learning on my own: reading,
+					taking notes, and going deep on topics that catch my attention.
 				</p>
 			</div>
 		</div>
@@ -70,6 +79,23 @@
 			</h2>
 
 			<div class="space-y-6">
+				<div
+					class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-primary-500"
+				>
+					<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+						<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white">
+							Software Engineer
+						</h3>
+						<span
+							class="text-sm font-bold font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 px-3 py-1 shadow-hard dark:shadow-none w-fit mt-2 md:mt-0"
+							>RAVL</span
+						>
+					</div>
+					<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+						Supporting a major Canadian bank’s AI/ML & Analytics platform infrastructure team,
+						contributing to infrastructure, automation, and platform engineering.
+					</p>
+				</div>
 				<div
 					class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-primary-500"
 				>
@@ -106,8 +132,8 @@
 					<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 						Worked on an accessibility-focused HCI project supporting thousands of students. Turned
 						research into practical UI rules and implemented them as a reusable
-						<strong>React</strong> component library aligned with accessibility standards. Also built
-						an end-to-end example app and a <strong>TypeScript</strong> tool to make resources easier
+						<strong>React</strong> component library aligned with accessibility standards. Also
+						built an end-to-end example app and a <strong>TypeScript</strong> tool to make resources easier
 						to access.
 					</p>
 				</div>
@@ -125,13 +151,11 @@
 					<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 						Worked across multiple product areas in a fast-moving environment, shipping features and
 						fixes. Improved stability by optimizing API usage, adding automated tests, and setting
-						up <strong>CI/CD</strong> for consistent releases. Later moved some processing closer to
-						the edge to improve latency and reliability.
+						up <strong>CI/CD</strong> for consistent releases. Later moved some processing closer to the
+						edge to improve latency and reliability.
 					</p>
 				</div>
-				<div
-					class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-amber-300"
-				>
+				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-amber-300">
 					<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
 						<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white">
 							Computing Support Assistant
@@ -147,9 +171,7 @@
 						non-technical users. Strengthened my debugging speed and communication under pressure.
 					</p>
 				</div>
-				<div
-					class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-indigo-400"
-				>
+				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-indigo-400">
 					<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
 						<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white">
 							Co-Founder & President
@@ -165,23 +187,21 @@
 						vision, goals, and priorities.
 					</p>
 				</div>
-				<div
-					class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-sky-400"
-				>
+				<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 border-l-[6px] border-l-sky-400">
 					<div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
 						<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white">
 							Cloud & Technology Training
 						</h3>
-						<div class="text-right mt-2 md:mt-0">
-							<span
-								class="text-sm font-bold font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 px-3 py-1 shadow-hard dark:shadow-none inline-block"
-								>PwC Canada</span
-							>
-						</div>
+						<span
+							class="text-sm font-bold font-mono text-gray-900 dark:text-white bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 px-3 py-1 shadow-hard dark:shadow-none w-fit mt-2 md:mt-0"
+							>PwC Canada</span
+						>
 					</div>
 					<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
 						Participated in mentorship sessions and employer-valued training, gaining insights into
-						technical and business environments with a focus on <strong>cloud computing, DevOps</strong>
+						technical and business environments with a focus on <strong
+							>cloud computing, DevOps</strong
+						>
 						and <strong>technology consulting</strong>.
 					</p>
 				</div>
@@ -200,8 +220,8 @@
 				<p
 					class="text-lg font-mono text-primary-50 dark:text-primary-100 leading-relaxed max-w-2xl mx-auto mb-8"
 				>
-					I’m early in my career, so my goal is simple: keep learning, ship solid work, and get better
-					at building practical, reliable software that’s easy to understand and maintain.
+					I’m early in my career, so my goal is simple: keep learning, ship solid work, and get
+					better at building practical, reliable software that’s easy to understand and maintain.
 				</p>
 				<div class="flex justify-center gap-4 flex-wrap">
 					<span class="px-4 py-2 bg-white/20 border border-white text-sm font-bold font-mono"
@@ -219,7 +239,7 @@
 
 		<!-- CTA -->
 		<div class="text-center animate-fade-in-up delay-300">
-			<Button href="/Projects" class="retro-btn rounded-none text-lg">
+			<Button href={resolve('/Projects')} class="retro-btn rounded-none text-lg">
 				VIEW MY PROJECTS <ArrowRightOutline class="w-5 h-5 ml-2" />
 			</Button>
 		</div>

@@ -79,23 +79,24 @@
 					<div
 						class="bg-primary-600 dark:bg-primary-900 border-2 border-gray-900 dark:border-gray-500 p-8 text-white shadow-hard dark:shadow-none"
 					>
-						<h3 class="text-xl font-bold font-mono mb-2 uppercase">[ STATUS: AVAILABLE ]</h3>
+						<h3 class="text-xl font-bold font-mono mb-2 uppercase">[ CURRENTLY: RAVL ]</h3>
 						<p class="text-primary-50 dark:text-primary-100 font-mono leading-relaxed mb-4">
-							I am currently open to new opportunities, freelance projects, and collaborations. Feel
-							free to book a time to chat!
+							I work as a Software Engineer at RAVL and welcome conversations about AI and Data
+							infrastructure, backend systems, platform engineering, and collaborations. Feel free
+							to book a time to chat!
 						</p>
 					</div>
 				</div>
 			</div>
 
 			<!-- Right Column: Schedule Meeting -->
-			<div class="retro-card p-8 bg-amber-50 dark:bg-gray-900 animate-fade-in-up delay-300 text-center">
+			<div
+				class="retro-card p-8 bg-amber-50 dark:bg-gray-900 animate-fade-in-up delay-300 text-center"
+			>
 				<span class="text-4xl mb-4 block">📅</span>
-				<h3 class="text-xl font-bold font-pixel text-gray-900 dark:text-white mb-2">
-					BOOK A CALL
-				</h3>
+				<h3 class="text-xl font-bold font-pixel text-gray-900 dark:text-white mb-2">BOOK A CALL</h3>
 				<p class="text-gray-500 dark:text-gray-400 font-mono mb-6 text-sm">
-					30 min chat — tech, projects, or opportunities.
+					30 min chat — tech, projects, or collaborations.
 				</p>
 				<a
 					href="https://cal.com/me.enesyesil/30min"

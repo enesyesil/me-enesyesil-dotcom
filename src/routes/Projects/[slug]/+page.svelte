@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import { LinkOutline, GithubSolid, EnvelopeSolid, ArrowLeftOutline } from 'flowbite-svelte-icons';
 	import type { PageData } from './$types';
@@ -14,7 +15,7 @@
 		<!-- Back Button -->
 		<div class="mb-8">
 			<Button
-				href="/Projects"
+				href={resolve('/Projects')}
 				color="light"
 				size="sm"
 				class="!bg-white dark:!bg-gray-900 !border-2 !border-gray-900 dark:!border-gray-500 !text-gray-900 dark:!text-white hover:!bg-gray-100 dark:hover:!bg-gray-800 shadow-hard dark:shadow-none pl-4 pr-6 py-2 rounded-none transition-transform active:translate-y-0.5 active:shadow-none"
@@ -71,15 +72,9 @@
 						<span class="text-primary-600 dark:text-primary-400">></span> Overview
 					</h2>
 					<div class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed font-mono space-y-4">
-						{#each project.longDescription.split('\n') as p}
-							{#if p.startsWith('### ')}
-								<h3 class="text-xl font-bold text-gray-900 dark:text-white mt-8 mb-2 border-b-2 border-gray-200 dark:border-gray-800 pb-2">
-									{p.replace('### ', '')}
-								</h3>
-							{:else if p.trim() !== ''}
-								<p>{@html p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p>
-							{/if}
-						{/each}
+						<!-- Content is parsed and sanitized in +page.server.ts. -->
+						<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+						{@html data.content}
 					</div>
 				</div>
 			{/if}
@@ -95,7 +90,7 @@
 						<span class="text-primary-600 dark:text-primary-400">></span> Key Features
 					</h2>
 					<ul class="grid md:grid-cols-1 gap-4">
-						{#each project.features as feature}
+						{#each project.features as feature, itemIndex2 (itemIndex2)}
 							<li
 								class="flex items-start gap-4 p-4 bg-amber-50 dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 hover:translate-x-1 transition-transform"
 							>
@@ -122,10 +117,12 @@
 						<span class="text-primary-600 dark:text-primary-400">?</span> What I Learned
 					</h2>
 					<ul class="space-y-4">
-						{#each project.learnings as learning}
+						{#each project.learnings as learning, itemIndex3 (itemIndex3)}
 							<li class="flex items-start gap-3">
 								<span class="mt-1 text-primary-600 dark:text-primary-400">>></span>
-								<span class="text-gray-700 dark:text-gray-300 leading-relaxed font-mono">{learning}</span>
+								<span class="text-gray-700 dark:text-gray-300 leading-relaxed font-mono"
+									>{learning}</span
+								>
 							</li>
 						{/each}
 					</ul>
@@ -143,7 +140,7 @@
 						<span class="text-primary-600 dark:text-primary-400">></span> Tech Stack
 					</h2>
 					<div class="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-						{#each project.techStackDetail || project.tags as tech}
+						{#each project.techStackDetail || project.tags as tech, itemIndex4 (itemIndex4)}
 							<div
 								class="flex flex-col gap-1 p-4 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 hover:-translate-y-1 transition-transform shadow-sm"
 							>
@@ -167,8 +164,10 @@
 				<div class="grid md:grid-cols-3 gap-6">
 					<!-- Website/Demo Link -->
 					{#if project.website}
+						<!-- Repository-defined absolute external URL. -->
+						<!-- eslint-disable svelte/no-navigation-without-resolve -->
 						<a
-							href={project.website}
+							href={new URL(project.website).href}
 							target="_blank"
 							class="group bg-white dark:bg-gray-900 p-6 shadow-hard dark:shadow-none border-2 border-gray-900 dark:border-gray-500 hover:-translate-y-1 transition-all text-center flex flex-col items-center hover:bg-primary-50 dark:hover:bg-gray-800"
 						>
@@ -188,6 +187,7 @@
 								>[ VISIT ]</span
 							>
 						</a>
+						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					{:else}
 						<div
 							class="group bg-gray-100 dark:bg-gray-800 p-6 shadow-none border-2 border-gray-300 dark:border-gray-600 text-center flex flex-col items-center opacity-75 cursor-not-allowed"
@@ -213,8 +213,10 @@
 
 					<!-- GitHub Link -->
 					{#if project.github}
+						<!-- Repository-defined absolute external URL. -->
+						<!-- eslint-disable svelte/no-navigation-without-resolve -->
 						<a
-							href={project.github}
+							href={new URL(project.github).href}
 							target="_blank"
 							class="group bg-white dark:bg-gray-900 p-6 shadow-hard dark:shadow-none border-2 border-gray-900 dark:border-gray-500 hover:-translate-y-1 transition-all text-center flex flex-col items-center hover:bg-gray-50 dark:hover:bg-gray-800"
 						>
@@ -234,6 +236,7 @@
 								>[ SOURCE ]</span
 							>
 						</a>
+						<!-- eslint-enable svelte/no-navigation-without-resolve -->
 					{:else}
 						<div
 							class="group bg-gray-100 dark:bg-gray-800 p-6 shadow-none border-2 border-gray-300 dark:border-gray-600 text-center flex flex-col items-center opacity-75 cursor-not-allowed"

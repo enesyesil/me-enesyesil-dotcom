@@ -1,5 +1,5 @@
-const typography = require('@tailwindcss/typography');
 /* eslint-disable @typescript-eslint/no-require-imports */
+const typography = require('@tailwindcss/typography');
 const flowbite = require('flowbite/plugin');
 
 module.exports = {

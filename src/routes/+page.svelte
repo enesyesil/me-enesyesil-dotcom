@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import {
 		GithubSolid,
@@ -90,7 +91,7 @@
 
 					<!-- Contact Button -->
 					<Button
-						href="/Contact"
+						href={resolve('/Contact')}
 						class="bg-transparent border-2 border-gray-900 dark:border-white text-gray-900 dark:text-white hover:bg-gray-900 dark:hover:bg-white hover:text-white dark:hover:text-gray-900 text-xl px-8 py-3 font-bold font-mono uppercase transition-all shadow-hard dark:shadow-none hover:shadow-hard-lg hover:-translate-y-0.5 rounded-none"
 					>
 						[ CONTACT_ME ]
@@ -112,34 +113,43 @@
 					</div>
 
 					<div class="font-mono text-sm md:text-base space-y-4 text-gray-700 dark:text-gray-300">
-						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-							<span class="font-bold text-gray-900 dark:text-white">[ FIELD ]</span>
-							<span>Software Engineering</span>
+						<div
+							class="grid grid-cols-[auto_minmax(0,1fr)] gap-3 border-b border-gray-200 dark:border-gray-700 pb-2"
+						>
+							<span class="font-bold text-gray-900 dark:text-white">[ ROLE ]</span>
+							<span class="break-words text-right">Software Engineer</span>
 						</div>
-						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-							<span class="font-bold text-gray-900 dark:text-white">[ ENGINE ]</span>
-							<!-- Changed from STACK -->
-							<span>Go, Java, Python</span>
-						</div>
-						<div class="flex justify-between border-b border-gray-200 dark:border-gray-700 pb-2">
-							<span class="font-bold text-gray-900 dark:text-white">[ CURRENT_OP ]</span>
-							<!-- Changed from STATUS -->
-							<span
-								class="text-green-600 dark:text-green-400 font-bold bg-green-50 dark:bg-green-900/20 px-2 animate-pulse"
-								>SEEKING_DATA</span
+						<div
+							class="grid grid-cols-[auto_minmax(0,1fr)] gap-3 border-b border-gray-200 dark:border-gray-700 pb-2"
+						>
+							<span class="font-bold text-gray-900 dark:text-white">[ CURRENTLY ]</span>
+							<span class="break-words text-right text-green-600 dark:text-green-400 font-bold"
+								>RAVL</span
 							>
 						</div>
-						<div class="flex justify-between pt-2">
-							<span class="font-bold text-gray-900 dark:text-white">[ LOC ]</span>
-							<span>Toronto, ON</span>
+						<div
+							class="grid grid-cols-[auto_minmax(0,1fr)] gap-3 border-b border-gray-200 dark:border-gray-700 pb-2"
+						>
+							<span class="font-bold text-gray-900 dark:text-white">[ FOCUS ]</span>
+							<span class="break-words text-right">AI & Data Infra</span>
+						</div>
+						<div
+							class="grid grid-cols-[auto_minmax(0,1fr)] gap-3 border-b border-gray-200 dark:border-gray-700 pb-2"
+						>
+							<span class="font-bold text-gray-900 dark:text-white">[ LANGUAGES ]</span>
+							<span class="break-words text-right">Go · Python · Java</span>
+						</div>
+						<div class="grid grid-cols-[auto_minmax(0,1fr)] gap-3 pt-2">
+							<span class="font-bold text-gray-900 dark:text-white">[ LOCATION ]</span>
+							<span class="break-words text-right">Toronto, ON</span>
 						</div>
 					</div>
 
 					<!-- Decorative Barcode/Data Visualization placeholder -->
 					<div class="mt-6 flex gap-1 h-4">
-						{#each Array(20) as _, i (i)}
+						{#each [...Array(20).keys()] as i (i)}
 							<div
-								class="h-full w-1 {Math.random() > 0.5
+								class="h-full w-1 {i % 3 !== 0
 									? 'bg-gray-900 dark:bg-gray-500'
 									: 'bg-gray-300 dark:bg-gray-700'}"
 							></div>
@@ -168,7 +178,7 @@
 			<!-- Section Header (Centered) -->
 			<div class="text-center mb-12 lg:mb-16">
 				<Button
-					href="/MoreMe"
+					href={resolve('/MoreMe')}
 					class="mb-6 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm px-4 py-1 shadow-hard dark:shadow-none hover:shadow-hard-lg hover:-translate-y-0.5 transition-all rounded-none uppercase"
 				>
 					<span class="mr-2">★</span> About Me
@@ -233,17 +243,37 @@
 					</div>
 					<div class="space-y-5 text-lg font-mono text-gray-700 dark:text-gray-300 leading-relaxed">
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> I’m a software engineer interested in
-							<strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">distributed systems</strong> and the <strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">infrastructure</strong> that powers <strong class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1">data-heavy backend platforms</strong>.
+							<span class="text-primary-600 dark:text-primary-400">></span> I’m a software engineer
+							interested in
+							<strong
+								class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1"
+								>distributed systems</strong
+							>
+							and the
+							<strong
+								class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1"
+								>infrastructure</strong
+							>
+							that powers
+							<strong
+								class="text-primary-700 dark:text-primary-300 bg-primary-100 dark:bg-primary-900/40 px-1"
+								>AI and Data platforms</strong
+							>.
 						</p>
 
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> I like learning how systems are designed, understanding the infrastructure behind them, simplifying complex problems, and trying to engineer solutions that are more reliable and performant.
+							<span class="text-primary-600 dark:text-primary-400">></span> I like learning how systems
+							are designed, understanding the infrastructure behind them, simplifying complex problems,
+							and trying to engineer solutions that are more reliable and performant.
 						</p>
 
 						<p>
-							<span class="text-primary-600 dark:text-primary-400">></span> I recently graduated in Computer Science from
-							<strong class="text-gray-900 dark:text-white border-b-2 border-primary-400">York University</strong>, and I spend most of my time on backend and systems-focused projects.
+							<span class="text-primary-600 dark:text-primary-400">></span> I recently graduated in
+							Computer Science from
+							<strong class="text-gray-900 dark:text-white border-b-2 border-primary-400"
+								>York University</strong
+							>, and I spend most of my time on AI and Data infrastructure, backend, and systems
+							projects.
 						</p>
 					</div>
 
@@ -256,7 +286,7 @@
 								class="border-2 border-gray-900 dark:border-gray-500 p-2 text-center bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 cursor-pointer"
 							>
 								<h3 class="font-bold text-gray-900 dark:text-white text-sm font-mono">
-									[ AI / ML ]
+									[ AI & Data ]
 								</h3>
 							</div>
 
@@ -292,7 +322,7 @@
 	</section>
 
 	<!-- TIMELINE SECTION -->
-	<section class="section-padding relative overflow-hidden bg-transparent">
+	<section id="timeline" class="section-padding relative overflow-hidden bg-transparent">
 		<div class="max-w-4xl mx-auto relative px-6">
 			<div class="text-center mb-16">
 				<Button
@@ -451,6 +481,29 @@
 							</p>
 						</div>
 					</div>
+
+					<!-- Item 7: RAVL -->
+					<div class="relative flex flex-col md:flex-row gap-6 md:gap-8 items-start">
+						<div
+							class="z-10 w-12 h-12 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 flex items-center justify-center text-primary-600 dark:text-primary-400 flex-shrink-0"
+						>
+							<BriefcaseSolid class="w-6 h-6" />
+						</div>
+
+						<div class="flex-1">
+							<span
+								class="inline-block border border-gray-900 dark:border-gray-500 px-2 py-0.5 bg-primary-100 dark:bg-primary-900/40 font-mono text-xs font-bold mb-2 text-primary-900 dark:text-primary-300"
+								>April 2026</span
+							>
+							<h3 class="text-xl font-bold font-mono text-gray-900 dark:text-white mb-2">
+								Joined RAVL as a Software Engineer
+							</h3>
+							<p class="text-gray-600 dark:text-gray-300 font-mono text-sm leading-relaxed">
+								Started supporting a major Canadian bank’s AI/ML & Analytics platform infrastructure
+								team, contributing to infrastructure, automation, and platform engineering.
+							</p>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -461,7 +514,7 @@
 		<div class="max-w-7xl mx-auto px-6">
 			<div class="text-center mb-16">
 				<Button
-					href="/Projects"
+					href={resolve('/Projects')}
 					class="mb-6 bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white font-mono text-sm px-4 py-1 shadow-hard dark:shadow-none rounded-none uppercase"
 				>
 					<span class="mr-2">★</span> Portfolio
@@ -471,7 +524,7 @@
 
 			<!-- Bento Grid Layout -->
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-				{#each featuredProjects as project, i}
+				{#each featuredProjects as project, i (i)}
 					{#if i === 0}
 						<!-- Featured Main Project (Large Card) -->
 						<div class="md:col-span-2 retro-card p-6 bg-amber-50 dark:bg-gray-900">
@@ -508,7 +561,7 @@
 										{project.description}
 									</p>
 									<div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
-										{#each project.tags.slice(0, 4) as tag}
+										{#each project.tags.slice(0, 4) as tag, itemIndex2 (itemIndex2)}
 											<span
 												class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
 												>[{tag}]</span
@@ -520,7 +573,11 @@
 											VIEW PROJECT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 										</Button>
 										{#if project.website}
-											<Button href={project.website} target="_blank" class="retro-btn text-xs rounded-none">
+											<Button
+												href={project.website}
+												target="_blank"
+												class="retro-btn text-xs rounded-none"
+											>
 												VISIT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 											</Button>
 										{/if}
@@ -535,14 +592,9 @@
 								class="h-40 bg-amber-50 dark:bg-gray-900 rounded-none mb-5 flex items-center justify-center border-2 border-gray-900 dark:border-gray-500 overflow-hidden relative"
 							>
 								{#if project.image}
-									<img
-										src={project.image}
-										alt={project.title}
-										class="w-full h-full object-cover"
-									/>
+									<img src={project.image} alt={project.title} class="w-full h-full object-cover" />
 								{:else}
-									<span
-										class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
+									<span class="text-2xl font-bold font-pixel text-primary-600 dark:text-primary-400"
 										>{project.title.split(' ')[0].toUpperCase()}</span
 									>
 								{/if}
@@ -558,7 +610,7 @@
 							</p>
 
 							<div class="flex flex-wrap gap-2 mb-5 font-mono text-xs">
-								{#each project.tags.slice(0, 3) as tag}
+								{#each project.tags.slice(0, 3) as tag, itemIndex3 (itemIndex3)}
 									<span
 										class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
 										>[{tag}]</span
@@ -571,7 +623,11 @@
 									VIEW <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 								</Button>
 								{#if project.website}
-									<Button href={project.website} target="_blank" class="retro-btn text-xs rounded-none">
+									<Button
+										href={project.website}
+										target="_blank"
+										class="retro-btn text-xs rounded-none"
+									>
 										VISIT <ArrowUpRightFromSquareOutline class="w-3 h-3 ml-1" />
 									</Button>
 								{/if}
@@ -582,10 +638,7 @@
 			</div>
 
 			<div class="text-center">
-				<Button
-					href="/Projects"
-					class="retro-btn px-8 py-3 rounded-none font-bold"
-				>
+				<Button href={resolve('/Projects')} class="retro-btn px-8 py-3 rounded-none font-bold">
 					[ VIEW ALL PROJECTS ]
 				</Button>
 			</div>

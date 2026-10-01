@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import { CodeBranchOutline, ArrowUpRightFromSquareOutline } from 'flowbite-svelte-icons';
 	import { projects } from '$lib/data/projects';
@@ -22,7 +23,7 @@
 
 		<!-- Bento Grid Layout -->
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-			{#each projects.filter((p) => p.featured).slice(0, 4) as project, i}
+			{#each projects.filter((p) => p.featured).slice(0, 4) as project, i (i)}
 				<div
 					class="group bg-white/80 backdrop-blur-sm rounded-3xl p-6 shadow-soft hover:shadow-soft-lg transition-all duration-300 hover:-translate-y-1 flex flex-col {i ===
 					0
@@ -63,7 +64,7 @@
 							</p>
 
 							<div class="flex flex-wrap gap-2 mb-5">
-								{#each project.tags as tag}
+								{#each project.tags as tag, itemIndex2 (itemIndex2)}
 									<span
 										class="px-2 py-1 bg-primary-100 text-primary-700 text-xs rounded-full font-medium"
 										>{tag}</span
@@ -102,7 +103,7 @@
 
 		<div class="text-center">
 			<Button
-				href="/Projects"
+				href={resolve('/Projects')}
 				class="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-3 rounded-xl font-medium shadow-soft hover:shadow-soft-lg transition-all hover:-translate-y-0.5"
 			>
 				View All Projects

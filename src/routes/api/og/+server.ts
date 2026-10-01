@@ -1,19 +1,31 @@
-export function GET({ url }) {
-	const title = url.searchParams.get('title') || 'Untitled';
-	const category = url.searchParams.get('category') || 'Post';
+import { escapeHtml, normalizeOgCategory, normalizeOgTitle } from '$lib/server/security';
+import type { RequestHandler } from './$types';
+
+export const GET: RequestHandler = ({ url }) => {
+	const title = normalizeOgTitle(url.searchParams.get('title'));
+	const category = normalizeOgCategory(url.searchParams.get('category'));
 
 	// Split title into lines so it doesn't overflow horizontally
 	// Simple word wrapping
 	const words = title.split(' ');
-	const lines = [];
+	const lines: string[] = [];
 	let currentLine = '';
 
-	for (const word of words) {
-		if ((currentLine + ' ' + word).length > 25) {
+	for (let word of words) {
+		while (word.length > 25) {
+			if (currentLine) {
+				lines.push(currentLine);
+				currentLine = '';
+			}
+			lines.push(word.slice(0, 25));
+			word = word.slice(25);
+		}
+
+		if (currentLine && `${currentLine} ${word}`.length > 25) {
 			lines.push(currentLine);
 			currentLine = word;
 		} else {
-			currentLine = currentLine === '' ? word : currentLine + ' ' + word;
+			currentLine = currentLine === '' ? word : `${currentLine} ${word}`;
 		}
 	}
 	if (currentLine) {
@@ -26,7 +38,7 @@ export function GET({ url }) {
 
 	let textElements = '';
 	lines.forEach((line, index) => {
-		textElements += `<text x="50%" y="${startY + index * 70}" dominant-baseline="middle" text-anchor="middle" font-family="monospace, sans-serif" font-weight="bold" font-size="64" fill="white">${line}</text>\n`;
+		textElements += `<text x="50%" y="${startY + index * 70}" dominant-baseline="middle" text-anchor="middle" font-family="monospace, sans-serif" font-weight="bold" font-size="64" fill="white">${escapeHtml(line)}</text>\n`;
 	});
 
 	// The green background svg string
@@ -54,7 +66,7 @@ export function GET({ url }) {
         <!-- Category Badge -->
         <rect x="60" y="60" width="auto" height="40" fill="transparent" />
         <text x="60" y="90" font-family="monospace, sans-serif" font-weight="bold" font-size="24" fill="#a7f3d0" letter-spacing="2">
-            [${category.toUpperCase()}]
+			[${escapeHtml(category.toUpperCase())}]
         </text>
 
         <!-- Title -->
@@ -63,8 +75,10 @@ export function GET({ url }) {
 
 	return new Response(svg, {
 		headers: {
-			'Content-Type': 'image/svg+xml',
-			'Cache-Control': 'public, max-age=86400'
+			'Cache-Control': 'public, max-age=86400, stale-while-revalidate=604800',
+			'Content-Security-Policy': "default-src 'none'; sandbox",
+			'Content-Type': 'image/svg+xml; charset=utf-8',
+			'X-Content-Type-Options': 'nosniff'
 		}
 	});
-}
+};

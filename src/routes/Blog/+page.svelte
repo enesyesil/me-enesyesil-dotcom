@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { ArrowRightOutline } from 'flowbite-svelte-icons';
 
 	export let data;
@@ -80,10 +81,12 @@
 
 				{#if filteredPosts.length > 0}
 					<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{#each filteredPosts as post}
+						{#each filteredPosts as post, itemIndex1 (itemIndex1)}
 							<div class="retro-card flex flex-col h-full bg-amber-50 dark:bg-gray-900 group">
 								<a
-									href="/Blog/{post.category}/{post.slug}"
+									href={resolve(
+										`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+									)}
 									class="block h-48 relative overflow-hidden border-b-2 border-gray-900 dark:border-gray-500"
 								>
 									{#if post.image}
@@ -97,7 +100,9 @@
 										></div>
 									{:else}
 										<img
-											src="/api/og?title={encodeURIComponent(post.title)}&category={encodeURIComponent(post.category)}&v=2"
+											src="/api/og?title={encodeURIComponent(
+												post.title
+											)}&category={encodeURIComponent(post.category)}&v=2"
 											alt={post.title}
 											class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
 										/>
@@ -114,7 +119,9 @@
 										class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3 leading-tight uppercase"
 									>
 										<a
-											href="/Blog/{post.category}/{post.slug}"
+											href={resolve(
+												`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+											)}
 											class="hover:underline decoration-2 underline-offset-4 decoration-primary-600 dark:decoration-primary-400"
 											>{post.title}</a
 										>
@@ -135,7 +142,9 @@
 											})}</span
 										>
 										<a
-											href="/Blog/{post.category}/{post.slug}"
+											href={resolve(
+												`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+											)}
 											class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline decoration-2 underline-offset-2"
 											>READ <ArrowRightOutline class="w-3 h-3 ms-1" /></a
 										>
@@ -159,13 +168,15 @@
 
 			<!-- Categories -->
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 animate-fade-in-up delay-100">
-				{#each data.categories as category}
+				{#each data.categories as category, itemIndex2 (itemIndex2)}
 					<a
-						href="/Blog/{category}"
+						href={resolve(`/Blog/${encodeURIComponent(category)}`)}
 						class="group relative overflow-hidden bg-amber-50 dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-500 p-8 transition-transform duration-300 hover:-translate-y-1 hover:shadow-hard dark:hover:shadow-none"
 					>
 						<div class="flex items-center gap-4 mb-4">
-							<span class="text-4xl">{category.toLowerCase().includes('engineering') ? '🛠️' : '💭'}</span>
+							<span class="text-4xl"
+								>{category.toLowerCase().includes('engineering') ? '🛠️' : '💭'}</span
+							>
 							<h2
 								class="text-3xl font-bold font-pixel text-gray-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors uppercase"
 							>
@@ -178,7 +189,8 @@
 						<span
 							class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 group-hover:underline decoration-2 underline-offset-4 uppercase"
 						>
-							BROWSE {category.replace(/-/g, ' ')} <ArrowRightOutline
+							BROWSE {category.replace(/-/g, ' ')}
+							<ArrowRightOutline
 								class="w-4 h-4 ms-2 group-hover:translate-x-1 transition-transform"
 							/>
 						</span>
@@ -196,11 +208,13 @@
 			<div
 				class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up delay-200"
 			>
-				{#each featuredPosts as post}
+				{#each featuredPosts as post, itemIndex3 (itemIndex3)}
 					<div class="retro-card flex flex-col h-full bg-amber-50 dark:bg-gray-900 group">
 						<!-- Image / Placeholder -->
 						<a
-							href="/Blog/{post.category}/{post.slug}"
+							href={resolve(
+								`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+							)}
 							class="block h-48 relative overflow-hidden border-b-2 border-gray-900 dark:border-gray-500"
 						>
 							{#if post.image}
@@ -214,7 +228,9 @@
 								></div>
 							{:else}
 								<img
-									src="/api/og?title={encodeURIComponent(post.title)}&category={encodeURIComponent(post.category)}&v=2"
+									src="/api/og?title={encodeURIComponent(post.title)}&category={encodeURIComponent(
+										post.category
+									)}&v=2"
 									alt={post.title}
 									class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
 								/>
@@ -234,7 +250,7 @@
 							<!-- Tags -->
 							<div class="flex flex-wrap gap-2 mb-4 font-mono text-xs">
 								{#if post.tags}
-									{#each post.tags.slice(0, 3) as tag}
+									{#each post.tags.slice(0, 3) as tag, itemIndex4 (itemIndex4)}
 										<span
 											class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
 											>[{tag}]</span
@@ -248,7 +264,9 @@
 								class="text-2xl font-bold font-mono text-gray-900 dark:text-white mb-3 leading-tight uppercase"
 							>
 								<a
-									href="/Blog/{post.category}/{post.slug}"
+									href={resolve(
+										`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+									)}
 									class="hover:underline decoration-2 underline-offset-4 decoration-primary-600 dark:decoration-primary-400"
 								>
 									{post.title}
@@ -274,7 +292,9 @@
 									})}
 								</span>
 								<a
-									href="/Blog/{post.category}/{post.slug}"
+									href={resolve(
+										`/Blog/${encodeURIComponent(post.category)}/${encodeURIComponent(post.slug)}`
+									)}
 									class="inline-flex items-center font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline decoration-2 underline-offset-2"
 								>
 									READ <ArrowRightOutline class="w-3 h-3 ms-1" />

@@ -1,9 +1,16 @@
 <script>
+	import { resolve } from '$app/paths';
+	import { afterNavigate } from '$app/navigation';
+	import { page } from '$app/stores';
 	import { Navbar, Button, NavBrand, NavLi, NavUl, NavHamburger } from 'flowbite-svelte';
 	import { SunSolid, MoonSolid } from 'flowbite-svelte-icons';
 	import { onMount } from 'svelte';
 
 	let isDark = false;
+	let menuHidden = true;
+	afterNavigate(() => {
+		menuHidden = true;
+	});
 
 	onMount(() => {
 		isDark = document.documentElement.classList.contains('dark');
@@ -24,7 +31,7 @@
 <Navbar
 	class="bg-amber-50 dark:bg-gray-900 sticky top-0 z-50 border-b-2 border-gray-900 dark:border-gray-500 px-4 py-4 transition-colors duration-300"
 >
-	<NavBrand href="/">
+	<NavBrand href={resolve('/')}>
 		<span
 			class="self-center whitespace-nowrap text-2xl font-bold font-mono text-gray-900 dark:text-white"
 			>enesyesil.me()</span
@@ -45,39 +52,44 @@
 		</button>
 
 		<div class="hidden md:block">
-			<Button href="/Contact" class="retro-btn rounded-none">CONTACT</Button>
+			<Button href={resolve('/Contact')} class="retro-btn rounded-none">CONTACT</Button>
 		</div>
-		<NavHamburger class="w-full md:hidden ml-3 dark:text-white dark:hover:bg-gray-800" />
+		<NavHamburger
+			onClick={() => (menuHidden = !menuHidden)}
+			aria-expanded={!menuHidden}
+			aria-controls="site-menu"
+			class="w-full md:hidden ml-3 dark:text-white dark:hover:bg-gray-800"
+		/>
 	</div>
 
-	<NavUl class="dark:bg-gray-900">
+	<NavUl id="site-menu" hidden={menuHidden} activeUrl={$page.url.pathname} class="dark:bg-gray-900">
 		<NavLi
-			href="/"
+			href={resolve('/')}
 			class="text-lg font-mono text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
 			>[HOME]</NavLi
 		>
 		<NavLi
-			href="/Resume"
+			href={resolve('/Resume')}
 			class="text-lg font-mono text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
 			>[RESUME]</NavLi
 		>
 		<NavLi
-			href="/MoreMe"
+			href={resolve('/MoreMe')}
 			class="text-lg font-mono text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
 			>[ABOUT ME]</NavLi
 		>
 		<NavLi
-			href="/Projects"
+			href={resolve('/Projects')}
 			class="text-lg font-mono text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
 			>[PROJECTS]</NavLi
 		>
 		<NavLi
-			href="/Blog"
+			href={resolve('/Blog')}
 			class="text-lg font-mono text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
 			>[BLOG]</NavLi
 		>
 		<li class="md:hidden mt-4">
-			<Button href="/Contact" class="w-full retro-btn rounded-none">CONTACT</Button>
+			<Button href={resolve('/Contact')} class="w-full retro-btn rounded-none">CONTACT</Button>
 		</li>
 	</NavUl>
 </Navbar>
