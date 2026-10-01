@@ -21,8 +21,11 @@ tag = 'sha-' + os.environ['RELEASE_SHA']
 scenario = os.environ['SCENARIO']
 content_type = 'application/json'
 if '/applications/' in url:
-    value = {'docker_registry_image_name': os.environ['COOLIFY_IMAGE'], 'docker_registry_image_tag': tag, 'status': 'running:healthy'}
-elif url.endswith('/api/v1/deploy'):
+    domains = {'no-domain': None, 'http-domain': 'http://preview.example',
+               'port-domain': 'https://preview.example:3000',
+               'multiple-domains': 'http://ignored.example,https://preview.example/'}
+    value = {'docker_registry_image_name': os.environ['COOLIFY_IMAGE'], 'docker_registry_image_tag': tag, 'status': 'running:healthy', 'fqdn': domains.get(scenario, 'https://preview.example')}
+elif '/api/v1/deploy?' in url:
     value = {'deployments': [{'resource_uuid': 'site-app', 'deployment_uuid': 'deploy-1'}]}
 elif '/deployments/' in url:
     value = {'status': 'failed' if os.environ['SCENARIO'] == 'failed' else 'finished', 'docker_registry_image_tag': 'sha-wrong' if os.environ['SCENARIO'] == 'wrong-tag' else tag}
@@ -60,7 +63,7 @@ if '--write-out' in args:
 
 
 class DeploymentGates(unittest.TestCase):
-    def run_deploy(self, scenario):
+    def run_deploy(self, scenario, webhook=None):
         with tempfile.TemporaryDirectory() as directory:
             mock = Path(directory) / 'curl'
             mock.write_text(MOCK_CURL)
@@ -71,13 +74,15 @@ class DeploymentGates(unittest.TestCase):
             sleep.chmod(0o755)
             log = Path(directory) / 'requests.jsonl'
             environment = dict(os.environ, PATH=directory + os.pathsep + os.environ['PATH'],
-                               COOLIFY_URL='https://coolify.example', COOLIFY_APP_UUID='site-app',
-                               COOLIFY_API_TOKEN='test-token', COOLIFY_CHECK_URL='https://preview.example',
+                               COOLIFY_API_TOKEN='test-token',
+                               COOLIFY_DEPLOY_WEBHOOK=webhook if webhook is not None else 'https://coolify.example/api/v1/deploy?uuid=site-app&force=false',
                                COOLIFY_IMAGE='ghcr.io/owner/site', RELEASE_SHA='a' * 40,
                                REQUEST_LOG=str(log), SCENARIO=scenario)
+            for derived in ['COOLIFY_URL', 'COOLIFY_APP_UUID', 'COOLIFY_CHECK_URL']:
+                environment.pop(derived, None)
             result = subprocess.run(['bash', str(Path(__file__).with_name('deploy-coolify.sh'))],
                                     env=environment, capture_output=True, text=True, timeout=10)
-            requests = [json.loads(line) for line in log.read_text().splitlines()]
+            requests = [json.loads(line) for line in log.read_text().splitlines()] if log.exists() else []
             self.assertNotIn('test-token', result.stdout + result.stderr)
             return result, requests
 
@@ -86,9 +91,10 @@ class DeploymentGates(unittest.TestCase):
         result, requests = self.run_deploy('success')
         self.assertEqual(result.returncode, 0, result.stderr)
         mutations = [r for r in requests if r['method'] != 'GET']
-        self.assertEqual([r['method'] for r in mutations], ['PATCH', 'POST'])
+        self.assertEqual([r['method'] for r in mutations], ['PATCH'])
         self.assertEqual(mutations[0]['body']['docker_registry_image_tag'], 'sha-' + 'a' * 40)
-        self.assertEqual(mutations[1]['body']['uuid'], 'site-app')
+        webhook_calls = [r for r in requests if '/api/v1/deploy?' in r['url']]
+        self.assertEqual(webhook_calls, [{'method': 'GET', 'url': 'https://coolify.example/api/v1/deploy?uuid=site-app&force=false'}])
         self.assertTrue(any(r['url'].endswith('/api/resume/download') for r in requests))
         self.assertTrue(any(r['url'].endswith('/Blog/engineering/example') for r in requests))
 
@@ -109,7 +115,38 @@ class DeploymentGates(unittest.TestCase):
                 result, requests = self.run_deploy(scenario)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual(sum(r['url'].endswith('/api/health') for r in requests), 2)
-                self.assertEqual([r['method'] for r in requests if r['method'] != 'GET'], ['PATCH', 'POST'])
+                self.assertEqual([r['method'] for r in requests if r['method'] != 'GET'], ['PATCH'])
+                self.assertEqual(sum('/api/v1/deploy?' in r['url'] for r in requests), 1)
+
+    def test_invalid_webhook_never_receives_credentials(self):
+        for webhook in [
+            'https://coolify.example/wrong-path?uuid=site-app',
+            'http://coolify.example/api/v1/deploy?uuid=site-app',
+            'https://coolify.example/api/v1/deploy?uuid=',
+            'https://coolify.example/api/v1/deploy?uuid=site-app,another-app',
+            'https://coolify.example/api/v1/deploy?uuid=site-app&tag=production',
+            'https://coolify.example/api/v1/deploy?uuid=site-app&uuid=another-app',
+            'https://coolify.example/api/v1/deploy?uuid=site-app&force=true',
+            'https://coolify.example/api/v1/deploy?uuid=site-app#fragment',
+            '',
+        ]:
+            with self.subTest(webhook=webhook):
+                result, requests = self.run_deploy('success', webhook)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertEqual(requests, [])
+
+    def test_public_domain_is_read_from_application(self):
+        for scenario in ['port-domain', 'multiple-domains']:
+            with self.subTest(scenario=scenario):
+                result, requests = self.run_deploy(scenario)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertTrue(any(r['url'] == 'https://preview.example/api/health' for r in requests))
+                self.assertFalse(any(':3000' in r['url'] for r in requests))
+        for scenario in ['no-domain', 'http-domain']:
+            with self.subTest(scenario=scenario):
+                result, requests = self.run_deploy(scenario)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertFalse(any('/api/v1/deploy?' in r['url'] for r in requests))
 
     @unittest.skipUnless(shutil.which('jq'), 'jq is required by the deployment script')
     def test_invalid_assets_block_success(self):
