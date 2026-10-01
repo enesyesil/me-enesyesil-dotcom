@@ -7,11 +7,13 @@ export default defineConfig({
 	plugins: [sveltekit()],
 	preview: {
 		port: 3000,
-		host: true // Listen on 0.0.0.0
+		host: '127.0.0.1',
+		strictPort: true
 	},
 	server: {
 		port: 3000,
-		host: true // Listen on 0.0.0.0
+		host: '127.0.0.1',
+		strictPort: true
 	},
 	test: {
 		globals: true,

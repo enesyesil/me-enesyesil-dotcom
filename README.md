@@ -8,11 +8,7 @@ Welcome to my personal website! I'm Enes Yesil, a passionate software developer 
 - **Journey**: Discover my journey, read my story, and learn more about my experiences and milestones.
 - **Contact**: Get in touch with me for collaborations or inquiries.
 
-
 ### Tech Stack
 
 - [Node.js](https://nodejs.org/)
 - [Svelte](https://svelte.dev/)
-
-
-

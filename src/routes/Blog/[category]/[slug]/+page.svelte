@@ -1,18 +1,20 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	import { ArrowLeftOutline } from 'flowbite-svelte-icons';
 	import { onMount, tick } from 'svelte';
-	import mermaid from 'mermaid';
 
 	export let data;
 
 	onMount(async () => {
+		const { default: mermaid } = await import('mermaid');
+
 		// Initialize with a theme that matches both light/dark fairly well
 		// or "default" which allows CSS overrides. Using default to let user's Tailwind dictate.
-		mermaid.initialize({ startOnLoad: false, theme: 'base' });
-		
+		mermaid.initialize({ startOnLoad: false, theme: 'base', securityLevel: 'strict' });
+
 		// Wait for DOM to finish rendering
 		await tick();
-		
+
 		try {
 			await mermaid.run({ querySelector: '.mermaid' });
 		} catch (error) {
@@ -26,7 +28,7 @@
 		<!-- Navigation -->
 		<div class="mb-8 flex items-center justify-between">
 			<a
-				href="/Blog/{data.category}"
+				href={resolve(`/Blog/${encodeURIComponent(data.category)}`)}
 				class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors group"
 			>
 				<div
@@ -36,8 +38,11 @@
 				</div>
 				Back to {data.category.replace(/-/g, ' ')}
 			</a>
-			
-			<a href="/Blog" class="text-sm font-mono text-gray-400 hover:text-gray-600 transition-colors">
+
+			<a
+				href={resolve('/Blog')}
+				class="text-sm font-mono text-gray-400 hover:text-gray-600 transition-colors"
+			>
 				All Logs
 			</a>
 		</div>
@@ -50,7 +55,7 @@
 			<header class="text-center mb-12">
 				{#if data.data.tags}
 					<div class="flex flex-wrap justify-center gap-2 mb-6">
-						{#each data.data.tags as tag}
+						{#each data.data.tags as tag, itemIndex1 (itemIndex1)}
 							<span
 								class="px-3 py-1 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm font-mono font-bold tracking-wide uppercase border-2 border-gray-900 dark:border-gray-500 shadow-sm"
 								>[{tag}]</span
@@ -94,7 +99,9 @@
 					class="overflow-hidden shadow-hard dark:shadow-none mb-12 w-full aspect-video relative border-2 border-gray-900 dark:border-gray-500"
 				>
 					<img
-						src="/api/og?title={encodeURIComponent(data.data.title)}&category={encodeURIComponent(data.category)}&v=2"
+						src="/api/og?title={encodeURIComponent(data.data.title)}&category={encodeURIComponent(
+							data.category
+						)}&v=2"
 						alt={data.data.title}
 						class="absolute inset-0 w-full h-full object-cover"
 					/>

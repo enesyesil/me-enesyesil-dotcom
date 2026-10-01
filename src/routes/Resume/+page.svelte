@@ -1,7 +1,8 @@
 <script lang="ts">
+	import { resolve } from '$app/paths';
 	export let data;
-	import { Button, Card } from 'flowbite-svelte';
-	import { FilePdfSolid, ArrowDownToBracketOutline } from 'flowbite-svelte-icons';
+	import { Button } from 'flowbite-svelte';
+	import { ArrowDownToBracketOutline } from 'flowbite-svelte-icons';
 	import { spring } from 'svelte/motion';
 
 	const count = spring(0, {
@@ -42,7 +43,7 @@
 							</div>
 						</div>
 						<Button
-							href="/api/resume/download"
+							href={resolve('/api/resume/download')}
 							on:click={() => count.update((n) => n + 1)}
 							class="w-full mt-2 retro-btn rounded-none"
 						>
@@ -55,37 +56,24 @@
 
 		<!-- PDF Viewer Container -->
 		<div
-			class="retro-card p-2 md:p-4 animate-fade-in-up delay-100 h-[80vh] bg-white dark:bg-gray-900"
+			class="retro-card p-2 md:p-4 animate-fade-in-up delay-100 h-[80vh] flex flex-col bg-white dark:bg-gray-900"
 		>
 			<div
 				class="border-b-2 border-gray-900 dark:border-gray-500 pb-2 mb-4 font-mono text-gray-500 dark:text-gray-400 text-sm px-2"
 			>
 				preview.pdf
 			</div>
-			<!-- 
-          Using Google Docs Viewer as a fallback or object embed. 
-          For best cross-browser PDF embedding, <object> or <iframe> is standard.
-       -->
-			<object
+			<iframe
 				title="Enes Yesil Resume"
-				data="/enes_yesil_resume.pdf"
-				type="application/pdf"
-				class="w-full h-full border-2 border-gray-900 dark:border-gray-500"
-			>
-				<div
-					class="flex flex-col items-center justify-center h-full text-center p-8 bg-amber-50 dark:bg-gray-800"
-				>
-					<FilePdfSolid class="w-16 h-16 text-primary-400 mb-4" />
-					<p class="text-gray-600 dark:text-gray-300 mb-4 font-mono">
-						It appears you don't have a PDF plugin for this browser. No biggie... you can <a
-							href="/enes_yesil_resume.pdf"
-							class="text-primary-600 dark:text-primary-400 font-bold hover:underline"
-							>click here to download the PDF file.</a
-						>
-					</p>
-				</div>
-			</object>
+				src="/enes_yesil_resume.pdf"
+				class="w-full flex-1 min-h-0 border-2 border-gray-900 dark:border-gray-500"
+			></iframe>
 		</div>
+		<p class="mt-4 text-center font-mono text-sm">
+			If the preview is unavailable, <a class="underline" href={resolve('/api/resume/download')}
+				>download the resume PDF</a
+			>.
+		</p>
 	</div>
 </div>
 

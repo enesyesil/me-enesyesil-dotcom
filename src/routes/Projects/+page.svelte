@@ -16,13 +16,14 @@
 				ALL <span class="text-primary-600 dark:text-primary-400">PROJECTS</span>
 			</h1>
 			<p class="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto font-mono">
-				> A mix of prototypes, experiments, and ideas in progress. Sometimes the code shouldn’t work, but occasionally does 🙃
+				> A mix of prototypes, experiments, and ideas in progress. Sometimes the code shouldn’t
+				work, but occasionally does 🙃
 			</p>
 		</div>
 
 		<!-- Bento Grid Layout -->
 		<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-			{#each projects as project}
+			{#each projects as project, itemIndex1 (itemIndex1)}
 				<div class="retro-card p-8 group flex flex-col h-full bg-amber-50 dark:bg-gray-900">
 					<div class="flex flex-col h-full">
 						<div
@@ -53,7 +54,7 @@
 							</p>
 
 							<div class="flex flex-wrap gap-2 mb-6 font-mono text-xs">
-								{#each project.tags as tag}
+								{#each project.tags as tag, itemIndex2 (itemIndex2)}
 									<span
 										class="px-2 py-1 bg-white dark:bg-gray-800 border border-gray-900 dark:border-gray-500 text-gray-900 dark:text-white"
 										>[{tag}]</span

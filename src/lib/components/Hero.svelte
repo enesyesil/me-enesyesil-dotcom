@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { Button } from 'flowbite-svelte';
 	import {
 		GithubSolid,
@@ -35,13 +36,13 @@
 	<!-- CTA Buttons -->
 	<div class="flex flex-col sm:flex-row gap-4 mb-16 animate-fade-in-up delay-200">
 		<Button
-			href="/MoreMe"
+			href={resolve('/MoreMe')}
 			class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 text-lg font-medium shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all rounded-xl"
 		>
 			Learn More <ArrowRightOutline class="w-5 h-5 ml-2" />
 		</Button>
 		<Button
-			href="/Projects"
+			href={resolve('/Projects')}
 			class="bg-white/80 backdrop-blur-sm text-gray-700 px-8 py-3 text-lg font-medium hover:bg-white hover:shadow-lg transition-all rounded-xl"
 		>
 			View Projects

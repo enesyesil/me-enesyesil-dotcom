@@ -1,4 +1,5 @@
 <script>
+	import { resolve } from '$app/paths';
 	import { GithubSolid, LinkedinSolid, EnvelopeSolid } from 'flowbite-svelte-icons';
 </script>
 
@@ -39,32 +40,32 @@
 				</h3>
 				<nav class="grid grid-cols-2 gap-4 text-sm">
 					<a
-						href="/"
+						href={resolve('/')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ HOME ]</a
 					>
 					<a
-						href="/MoreMe"
+						href={resolve('/MoreMe')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ ABOUT ]</a
 					>
 					<a
-						href="/Projects"
+						href={resolve('/Projects')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ PROJECTS ]</a
 					>
 					<a
-						href="/Blog"
+						href={resolve('/Blog')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ BLOG ]</a
 					>
 					<a
-						href="/Contact"
+						href={resolve('/Contact')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ CONTACT ]</a
 					>
 					<a
-						href="/Resume"
+						href={resolve('/Resume')}
 						class="hover:text-primary-600 dark:hover:text-primary-400 hover:translate-x-1 transition-transform duration-200"
 						>[ RESUME ]</a
 					>
@@ -104,6 +105,7 @@
 				<!-- Social Links -->
 				<div class="flex gap-4 mt-2">
 					<a
+						aria-label="GitHub"
 						href="https://github.com/enesyesil"
 						target="_blank"
 						class="p-2 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 hover:bg-gray-900 hover:text-white dark:hover:bg-gray-700 transition-colors shadow-sm section-hover"
@@ -111,6 +113,7 @@
 						<GithubSolid class="w-5 h-5" />
 					</a>
 					<a
+						aria-label="LinkedIn"
 						href="https://linkedin.com/in/me-enesyesil"
 						target="_blank"
 						class="p-2 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 hover:bg-primary-700 hover:text-white dark:hover:bg-gray-700 transition-colors shadow-sm section-hover"
@@ -118,7 +121,8 @@
 						<LinkedinSolid class="w-5 h-5" />
 					</a>
 					<a
-						href="mailto:enesy@my.yorku.ca"
+						aria-label="Email Enes"
+						href="mailto:me.enesyesil@gmail.com"
 						class="p-2 bg-white dark:bg-gray-800 border-2 border-gray-900 dark:border-gray-500 hover:bg-red-600 hover:text-white dark:hover:bg-gray-700 transition-colors shadow-sm section-hover"
 					>
 						<EnvelopeSolid class="w-5 h-5" />

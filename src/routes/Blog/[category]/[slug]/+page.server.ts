@@ -1,8 +1,9 @@
 import { getPost } from '$lib/server/github';
-import { marked } from 'marked';
+import { escapeHtml, resolveStaticImageHref, sanitizeBlogHtml } from '$lib/server/security';
 import { error } from '@sveltejs/kit';
-import fs from 'fs';
-import path from 'path';
+import { Marked, Renderer } from 'marked';
+
+const MAX_MERMAID_SOURCE_LENGTH = 10_000;
 
 export async function load({ params }) {
 	const { category, slug } = params;
@@ -12,40 +13,36 @@ export async function load({ params }) {
 		throw error(404, 'Post not found');
 	}
 
-	const renderer = new marked.Renderer();
+	const renderer = new Renderer();
 	const originalCodeRenderer = renderer.code.bind(renderer);
 	const originalImageRenderer = renderer.image.bind(renderer);
 
-	renderer.code = function({ text, lang, escaped }) {
-		if (lang === 'mermaid') {
-			return `<div class="mermaid">${text}</div>`;
+	renderer.code = function (token) {
+		const { text, lang } = token;
+		if (lang === 'mermaid' && text.length <= MAX_MERMAID_SOURCE_LENGTH) {
+			return `<div class="mermaid">${escapeHtml(text)}</div>`;
 		}
-		return originalCodeRenderer({ text, lang, escaped });
+		return originalCodeRenderer(token);
 	};
 
-	renderer.image = function(token) {
-		const { href, title, text } = token;
+	renderer.image = function (token) {
+		const { href, text } = token;
 		let finalHref = href;
-		
-		if (finalHref && (finalHref.startsWith('/') || finalHref.startsWith('./') || finalHref.startsWith('images/'))) {
-			// Resolve relative paths generically aiming for static/images
-			let cleanPath = finalHref.startsWith('/') ? finalHref.slice(1) : finalHref;
-			if (cleanPath.startsWith('./')) cleanPath = cleanPath.slice(2);
-			if (!cleanPath.startsWith('images/')) cleanPath = 'images/' + cleanPath;
-			
-			const staticLocalPath = path.join(process.cwd(), 'static', cleanPath);
-			if (!fs.existsSync(staticLocalPath)) {
-				// Fallback to our OG endpoint to completely hide 404s from terminal
-				finalHref = `/api/og?title=${encodeURIComponent(text || 'Image')}&category=${encodeURIComponent(category)}&v=2`;
-			}
+
+		const isExternal = finalHref
+			? /^[a-z][a-z\d+.-]*:/i.test(finalHref) || finalHref.startsWith('//')
+			: false;
+		if (finalHref && !isExternal) {
+			finalHref =
+				resolveStaticImageHref(finalHref) ||
+				`/api/og?title=${encodeURIComponent(text || 'Image')}&category=${encodeURIComponent(category)}&v=2`;
 		}
-		
-		return originalImageRenderer({ href: finalHref, title, text });
+
+		return originalImageRenderer({ ...token, href: finalHref });
 	};
 
-	marked.setOptions({ renderer });
-
-	const html = await marked.parse(post.content || '');
+	const markdown = new Marked({ renderer });
+	const html = sanitizeBlogHtml(await markdown.parse(post.content || ''));
 
 	return {
 		category,
