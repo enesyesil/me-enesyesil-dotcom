@@ -1,17 +1,38 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-for key in COOLIFY_URL COOLIFY_APP_UUID COOLIFY_API_TOKEN COOLIFY_IMAGE RELEASE_SHA COOLIFY_CHECK_URL; do
+for key in COOLIFY_API_TOKEN COOLIFY_DEPLOY_WEBHOOK COOLIFY_IMAGE RELEASE_SHA; do
   if [[ -z "${!key:-}" ]]; then
     echo "Missing required setting: $key" >&2
     exit 1
   fi
 done
-[[ "$COOLIFY_URL" =~ ^https://[^/?#]+(/[^?#]*)?$ ]] || { echo 'COOLIFY_URL must use HTTPS' >&2; exit 1; }
-[[ "$COOLIFY_CHECK_URL" =~ ^https://[^/?#]+$ ]] || { echo 'COOLIFY_CHECK_URL must be an HTTPS origin without a trailing slash' >&2; exit 1; }
-[[ "$COOLIFY_APP_UUID" =~ ^[a-zA-Z0-9_-]+$ ]] || { echo 'Invalid application UUID' >&2; exit 1; }
 [[ "$RELEASE_SHA" =~ ^[a-f0-9]{40}$ ]] || { echo 'Expected full commit SHA' >&2; exit 1; }
 [[ "$COOLIFY_IMAGE" =~ ^ghcr\.io/[a-z0-9._/-]+$ ]] || { echo 'Expected a GHCR image name' >&2; exit 1; }
+
+# Derive the instance and single application from the configured webhook.
+# Reject tag/multi-resource webhooks so other applications cannot be deployed accidentally.
+settings=$(python3 - <<'PY'
+import os
+import sys
+from urllib.parse import urlsplit, parse_qs
+
+webhook = urlsplit(os.environ['COOLIFY_DEPLOY_WEBHOOK'])
+query = parse_qs(webhook.query, keep_blank_values=True)
+uuid = query.get('uuid', [])
+if (webhook.scheme != 'https' or not webhook.hostname or webhook.username or webhook.password
+        or webhook.path != '/api/v1/deploy' or webhook.fragment
+        or len(uuid) != 1 or not uuid[0]
+        or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_-' for c in uuid[0])
+        or set(query) - {'uuid', 'force'}
+        or query.get('force', ['false']) != ['false']):
+    sys.exit('Use an HTTPS resource webhook with one application UUID and force=false')
+print(f'https://{webhook.netloc}')
+print(uuid[0])
+PY
+)
+COOLIFY_URL=${settings%%$'\n'*}
+COOLIFY_APP_UUID=${settings#*$'\n'}
 
 api="${COOLIFY_URL%/}/api/v1"
 tag="sha-$RELEASE_SHA"
@@ -32,8 +53,27 @@ request "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
 jq -e --arg image "$COOLIFY_IMAGE" --arg tag "$tag" \
   '.docker_registry_image_name == $image and .docker_registry_image_tag == $tag' \
   "$work_dir/application.json" >/dev/null
-jq -n --arg uuid "$COOLIFY_APP_UUID" '{uuid:$uuid,force:false}' > "$work_dir/deploy.json"
-request --request POST "$api/deploy" --data-binary "@$work_dir/deploy.json" > "$work_dir/started.json"
+# Use the first HTTPS domain configured on the application for public checks.
+# Coolify's domain port suffix selects the internal proxy target, not the public port.
+COOLIFY_CHECK_URL=$(python3 - "$work_dir/application.json" <<'PY'
+import json
+import sys
+from urllib.parse import urlsplit
+
+application = json.load(open(sys.argv[1]))
+for domain in (application.get('fqdn') or '').split(','):
+    url = urlsplit(domain.strip())
+    if (url.scheme == 'https' and url.hostname and not url.username and not url.password
+            and url.path in ('', '/') and not url.query and not url.fragment):
+        host = f'[{url.hostname}]' if ':' in url.hostname else url.hostname
+        print(f'https://{host}')
+        break
+else:
+    sys.exit('Configure an HTTPS root domain on this Coolify application before deploying')
+PY
+)
+# Invoke the resource's authenticated deploy webhook once, after the immutable tag update.
+request --request GET "$COOLIFY_DEPLOY_WEBHOOK" > "$work_dir/started.json"
 deployment_uuid=$(jq -er --arg uuid "$COOLIFY_APP_UUID" \
   '.deployments[] | select(.resource_uuid == $uuid) | .deployment_uuid' "$work_dir/started.json")
 [[ "$deployment_uuid" =~ ^[a-zA-Z0-9_-]+$ ]] || { echo 'Invalid deployment UUID' >&2; exit 1; }
