@@ -114,10 +114,27 @@ echo "Deploying $COOLIFY_IMAGE:$tag (deployment $deployment_uuid)"
 finished=false
 for attempt in $(seq 1 90); do
   request "deployment status read" "$api/deployments/$deployment_uuid" > "$work_dir/status.json"
-  status=$(jq -er '.status' "$work_dir/status.json")
+  if ! status=$(jq -er '.status | select(type == "string" and length > 0)' "$work_dir/status.json"); then
+    echo 'Coolify deployment response has no usable status; inspect this deployment in the dashboard' >&2
+    exit 1
+  fi
+  if [[ "${previous_status:-}" != "$status" ]]; then
+    echo "Coolify deployment status: $status"
+    previous_status=$status
+  fi
   case "$status" in
     finished)
-      jq -e --arg tag "$tag" '.docker_registry_image_tag == $tag' "$work_dir/status.json" >/dev/null
+      # Some self-hosted versions omit the image tag from deployment records.
+      # Reject a conflicting recorded tag; otherwise verify configuration and served SHA below.
+      if ! jq -e --arg tag "$tag" \
+        '.docker_registry_image_tag == null or .docker_registry_image_tag == "" or .docker_registry_image_tag == $tag' \
+        "$work_dir/status.json" >/dev/null; then
+        echo 'Finished deployment reports an image tag different from this release' >&2
+        exit 1
+      fi
+      if jq -e '.docker_registry_image_tag == null or .docker_registry_image_tag == ""' "$work_dir/status.json" >/dev/null; then
+        echo 'Deployment record omits the image tag; verifying application configuration and public release SHA'
+      fi
       finished=true
       break
       ;;
@@ -132,7 +149,8 @@ done
 healthy=false
 for attempt in $(seq 1 18); do
   request "application read" "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
-  if jq -e --arg tag "$tag" '.docker_registry_image_tag == $tag and (.status | startswith("running:healthy"))' \
+  if jq -e --arg image "$COOLIFY_IMAGE" --arg tag "$tag" \
+    '.docker_registry_image_name == $image and .docker_registry_image_tag == $tag and ((.status // "") | startswith("running:healthy"))' \
     "$work_dir/application.json" >/dev/null; then
     healthy=true
     break
