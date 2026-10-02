@@ -20,11 +20,18 @@ with open(os.environ['REQUEST_LOG'], 'a') as output:
 tag = 'sha-' + os.environ['RELEASE_SHA']
 scenario = os.environ['SCENARIO']
 content_type = 'application/json'
+http_code = '200'
+if method == 'PATCH' and scenario in ('forbidden', 'method-not-allowed'):
+    if '--dump-header' in args:
+        with open(args[args.index('--dump-header') + 1], 'w') as output:
+            output.write('Allow: GET, HEAD\nContent-Type: text/html\nSet-Cookie: private-value\n')
+    print('403' if scenario == 'forbidden' else '405', end='')
+    sys.exit(22)
 if '/applications/' in url:
     domains = {'no-domain': None, 'http-domain': 'http://preview.example',
                'port-domain': 'https://preview.example:3000',
                'multiple-domains': 'http://ignored.example,https://preview.example/'}
-    value = {'docker_registry_image_name': os.environ['COOLIFY_IMAGE'], 'docker_registry_image_tag': tag, 'status': 'running:healthy', 'fqdn': domains.get(scenario, 'https://preview.example')}
+    value = {'uuid': 'site-app', 'docker_registry_image_name': os.environ['COOLIFY_IMAGE'], 'docker_registry_image_tag': tag, 'status': 'running:healthy', 'fqdn': domains.get(scenario, 'https://preview.example')}
 elif '/api/v1/deploy?' in url:
     value = {'deployments': [{'resource_uuid': 'site-app', 'deployment_uuid': 'deploy-1'}]}
 elif '/deployments/' in url:
@@ -58,7 +65,7 @@ if '--output' in args:
 else:
     print(body)
 if '--write-out' in args:
-    print(content_type, end='')
+    print(http_code if args[args.index('--write-out') + 1] == '%{http_code}' else content_type, end='')
 '''
 
 
@@ -134,6 +141,21 @@ class DeploymentGates(unittest.TestCase):
                 result, requests = self.run_deploy('success', webhook)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertEqual(requests, [])
+
+    def test_forbidden_update_explains_permissions_without_deploying(self):
+        result, requests = self.run_deploy('forbidden')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('image-tag update failed (HTTP 403)', result.stderr)
+        self.assertIn('deploy-only token cannot update', result.stderr)
+        self.assertFalse(any('/api/v1/deploy?' in r['url'] for r in requests))
+
+    def test_rejected_patch_reports_operation_and_safe_protocol_metadata(self):
+        result, requests = self.run_deploy('method-not-allowed')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('image-tag update failed (HTTP 405)', result.stderr)
+        self.assertIn('Allow: GET, HEAD', result.stderr)
+        self.assertNotIn('private-value', result.stderr + result.stdout)
+        self.assertFalse(any('/api/v1/deploy?' in r['url'] for r in requests))
 
     def test_public_domain_is_read_from_application(self):
         for scenario in ['port-domain', 'multiple-domains']:

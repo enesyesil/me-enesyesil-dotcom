@@ -22,7 +22,7 @@ def main():
             or set(query) - {'uuid', 'force'}
             or query.get('force', ['false']) != ['false']):
         sys.exit('Use this application’s HTTPS resource webhook with force=false, without tags.')
-    token = getpass.getpass('Coolify API token (hidden; read/update/deploy permissions): ')
+    token = getpass.getpass('Coolify API token (hidden; read/write/deploy permissions): ')
     if not token:
         sys.exit('API token is required.')
     values = {

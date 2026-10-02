@@ -40,16 +40,48 @@ work_dir=$(mktemp -d)
 trap 'rm -rf "$work_dir"' EXIT
 # Keep API responses out of logs because deployment responses can include configuration.
 request() {
-  curl --fail --silent --show-error --connect-timeout 10 --max-time 60 \
+  local operation="$1" status_code exit_code
+  shift
+  if status_code=$(curl --fail --silent --show-error --connect-timeout 10 --max-time 60 \
     --header "Authorization: Bearer $COOLIFY_API_TOKEN" \
-    --header 'Content-Type: application/json' "$@"
+    --header 'Content-Type: application/json' \
+    --dump-header "$work_dir/api-headers.txt" \
+    --output "$work_dir/api-response.json" --write-out '%{http_code}' "$@"); then
+    cat "$work_dir/api-response.json"
+  else
+    exit_code=$?
+    echo "Coolify $operation failed (HTTP $status_code)." >&2
+    case "$status_code" in
+      401) echo 'Replace COOLIFY_API_TOKEN with the complete, unexpired token for this application’s team.' >&2 ;;
+      403) echo 'Token needs read, write (image update), and deploy permissions. Check token owner/team role, API Access and runner IP allowlist. A deploy-only token cannot update the image.' >&2 ;;
+      405)
+        echo 'The instance or reverse proxy rejected this HTTP method. Verify the Coolify version/API route and proxy support for PATCH. Rerunning an old commit will not apply local script fixes.' >&2
+        # Print only protocol metadata; cookies and response bodies stay private.
+        if [[ -f "$work_dir/api-headers.txt" ]]; then
+          python3 - "$work_dir/api-headers.txt" >&2 <<'PY'
+from pathlib import Path
+import sys
+
+for line in Path(sys.argv[1]).read_text().splitlines():
+    if line.lower().startswith(('allow:', 'content-type:')):
+        print(line)
+PY
+        fi
+        ;;
+    esac
+    # Do not print response bodies: they may contain application configuration.
+    return "$exit_code"
+  fi
 }
+# Check resource visibility before attempting to change it.
+request "application preflight read" "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
+jq -e '.uuid and .docker_registry_image_name' "$work_dir/application.json" >/dev/null
 jq -n --arg image "$COOLIFY_IMAGE" --arg tag "$tag" \
   '{docker_registry_image_name:$image,docker_registry_image_tag:$tag}' > "$work_dir/update.json"
-request --request PATCH "$api/applications/$COOLIFY_APP_UUID" \
+request "image-tag update" --request PATCH "$api/applications/$COOLIFY_APP_UUID" \
   --data-binary "@$work_dir/update.json" > "$work_dir/application.json"
 # Read back configuration before starting a deployment.
-request "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
+request "application read" "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
 jq -e --arg image "$COOLIFY_IMAGE" --arg tag "$tag" \
   '.docker_registry_image_name == $image and .docker_registry_image_tag == $tag' \
   "$work_dir/application.json" >/dev/null
@@ -73,7 +105,7 @@ else:
 PY
 )
 # Invoke the resource's authenticated deploy webhook once, after the immutable tag update.
-request --request GET "$COOLIFY_DEPLOY_WEBHOOK" > "$work_dir/started.json"
+request "deploy webhook" --request GET "$COOLIFY_DEPLOY_WEBHOOK" > "$work_dir/started.json"
 deployment_uuid=$(jq -er --arg uuid "$COOLIFY_APP_UUID" \
   '.deployments[] | select(.resource_uuid == $uuid) | .deployment_uuid' "$work_dir/started.json")
 [[ "$deployment_uuid" =~ ^[a-zA-Z0-9_-]+$ ]] || { echo 'Invalid deployment UUID' >&2; exit 1; }
@@ -81,7 +113,7 @@ echo "Deploying $COOLIFY_IMAGE:$tag (deployment $deployment_uuid)"
 
 finished=false
 for attempt in $(seq 1 90); do
-  request "$api/deployments/$deployment_uuid" > "$work_dir/status.json"
+  request "deployment status read" "$api/deployments/$deployment_uuid" > "$work_dir/status.json"
   status=$(jq -er '.status' "$work_dir/status.json")
   case "$status" in
     finished)
@@ -99,7 +131,7 @@ done
 [[ "$finished" == true ]] || { echo 'Coolify deployment timed out' >&2; exit 1; }
 healthy=false
 for attempt in $(seq 1 18); do
-  request "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
+  request "application read" "$api/applications/$COOLIFY_APP_UUID" > "$work_dir/application.json"
   if jq -e --arg tag "$tag" '.docker_registry_image_tag == $tag and (.status | startswith("running:healthy"))' \
     "$work_dir/application.json" >/dev/null; then
     healthy=true
