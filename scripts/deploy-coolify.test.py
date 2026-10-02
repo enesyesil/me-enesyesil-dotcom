@@ -40,12 +40,20 @@ elif '/api/v1/deploy?' in url:
     value = {'deployments': [{'resource_uuid': 'site-app', 'deployment_uuid': 'deploy-1'}]}
 elif '/deployments/' in url:
     value = {'status': 'failed' if os.environ['SCENARIO'] == 'failed' else 'finished', 'docker_registry_image_tag': 'sha-wrong' if os.environ['SCENARIO'] == 'wrong-tag' else tag}
+    if scenario in ('missing-tag', 'missing-tag-old-site'):
+        value.pop('docker_registry_image_tag')
+    elif scenario == 'null-tag':
+        value['docker_registry_image_tag'] = None
+    elif scenario == 'empty-tag':
+        value['docker_registry_image_tag'] = ''
+    elif scenario == 'missing-status':
+        value.pop('status')
 elif url.endswith('/api/health'):
     requests = [json.loads(line) for line in open(os.environ['REQUEST_LOG'])]
     health_calls = sum(r['url'].endswith('/api/health') for r in requests)
     if scenario == 'transient-http' and health_calls == 1:
         sys.exit(22)
-    value = {'status': 'ok', 'commit': 'old-commit' if scenario == 'old-site' or (scenario == 'transient-old' and health_calls == 1) else os.environ['RELEASE_SHA']}
+    value = {'status': 'ok', 'commit': 'old-commit' if scenario in ('old-site', 'missing-tag-old-site') or (scenario == 'transient-old' and health_calls == 1) else os.environ['RELEASE_SHA']}
 elif url.endswith('/api/resume/download'):
     content_type = 'text/html' if scenario == 'pdf-mime' else 'application/pdf'
     value = '{}' if scenario == 'pdf-body' else '%PDF-1.7\nfixture\n%%EOF\n'
@@ -173,6 +181,20 @@ class DeploymentGates(unittest.TestCase):
                 result, requests = self.run_deploy(scenario)
                 self.assertNotEqual(result.returncode, 0)
                 self.assertFalse(any('/api/v1/deploy?' in r['url'] for r in requests))
+
+    def test_legacy_deployment_records_still_require_served_release(self):
+        for scenario in ['missing-tag', 'null-tag', 'empty-tag']:
+            with self.subTest(scenario=scenario):
+                result, requests = self.run_deploy(scenario)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn('verifying application configuration and public release SHA', result.stdout)
+                self.assertTrue(any(r['url'].endswith('/api/health') for r in requests))
+        result, _ = self.run_deploy('missing-tag-old-site')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('did not become ready for the released commit', result.stderr)
+        result, _ = self.run_deploy('missing-status')
+        self.assertNotEqual(result.returncode, 0)
+        self.assertIn('no usable status', result.stderr)
 
     @unittest.skipUnless(shutil.which('jq'), 'jq is required by the deployment script')
     def test_invalid_assets_block_success(self):
