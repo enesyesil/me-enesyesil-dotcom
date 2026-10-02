@@ -22,12 +22,12 @@ The local checks use a resident copy of the working tree under `/private/tmp/sit
 2. Enable an HTTP health check at `/api/health` on port `3000`. Set `NODE_ENV=production`, `PORT=3000`, and `ORIGIN` to the temporary HTTPS origin; change `ORIGIN` to `https://enesyesil.me` during cutover. The image contains its release SHA; do not override `RELEASE_SHA` in Coolify.
 3. The image runs as the `node` user. `RESUME_DATA_PATH=/tmp/resume-data.json` is an ephemeral counter. If persistence is required, mount a writable directory owned by UID 1000 and set the path inside it.
 4. If GHCR is private, configure registry pull credentials on the Coolify server using a token with `read:packages`. Confirm the server can pull the exact published image.
-5. Enable API Access in Settings > Advanced. Create a Coolify API token with update/deploy actions and the read access required for application/deployment verification. A deploy-only token is insufficient for updating the exact image tag and checking status. Restrict its scope where supported and allow the GitHub runner to reach the API. In this site's Configuration > Webhooks, copy **Deploy Webhook (auth required)**. Use the resource UUID webhook with `force=false`, not a tag webhook.
+5. Enable API Access in Settings > Advanced. Create a Coolify API token with `write`/`deploy` actions and the read access required for application/deployment verification. A deploy-only token is insufficient for updating the exact image tag and checking status. Restrict its scope where supported and allow the GitHub runner to reach the API. In this site's Configuration > Webhooks, copy **Deploy Webhook (auth required)**. Use the resource UUID webhook with `force=false`, not a tag webhook.
 6. Configure the GitHub `production` environment and these Actions secrets:
 
 | Secret                   | Value                                                                   |
 | ------------------------ | ----------------------------------------------------------------------- |
-| `COOLIFY_API_TOKEN`      | API token with application update, deploy, and read permissions         |
+| `COOLIFY_API_TOKEN`      | API token with `write`, `deploy`, and `read` permissions                |
 | `COOLIFY_DEPLOY_WEBHOOK` | `https://<coolify-host>/api/v1/deploy?uuid=<site-app-uuid>&force=false` |
 
 Configure these two secrets through GitHub CLI from the repository root:
@@ -60,8 +60,14 @@ References: [Docker Image application](https://coolify.io/docs/applications/depl
 
 ## Local verification
 
-The resident snapshot passes all eight application tests, Svelte checks (zero errors), lint and production build. The webhook deployment suite has six tests covering deployment failures, exact commit verification, transient readiness, invalid assets and domain discovery and rejection of malformed/multi-resource webhook URLs. Svelte reports 1956 unused CSS warnings in the legacy Tailwind component. The completed baseline security scan found no critical/high source vulnerabilities and one medium blog refresh amplification issue, now fixed and regression tested. Dependency audit reports zero critical/high/moderate and three low advisories. Blog category/article navigation and the mobile menu were checked in the local production build. The local Docker daemon is stopped, so the image build still needs CI or a running Docker daemon.
+The resident snapshot passes all eight application tests, Svelte checks (zero errors), lint and production build. The webhook deployment suite has eight tests covering deployment failures, exact commit verification, transient readiness, invalid assets and domain discovery and rejection of malformed/multi-resource webhook URLs. Svelte reports 1956 unused CSS warnings in the legacy Tailwind component. The completed baseline security scan found no critical/high source vulnerabilities and one medium blog refresh amplification issue, now fixed and regression tested. Dependency audit reports zero critical/high/moderate and three low advisories. Blog category/article navigation and the mobile menu were checked in the local production build. The local Docker daemon is stopped, so the image build still needs CI or a running Docker daemon.
 
 ## External work still required
 
 GitHub CLI authentication was verified on October 1, 2026. The existing Production environment has no secrets configured yet. The Coolify deploy webhook, scoped API token and DNS access have not been supplied. The public check origin is read from the application configuration. No image has been published, no live deployment or DNS cutover has been performed, and no Dokploy application or credential has been removed. These remain required before the migration can be called complete.
+
+## Deployment authorization troubleshooting
+
+The October 1 master release published its GHCR image but the first application image-tag PATCH returned HTTP 403. A deploy-only token cannot update image configuration. Create a token for the application’s team with `read`, `write`, and `deploy` abilities and an administrator/owner token user. Check that API Access is enabled and any IP allowlist permits the GitHub runner. Replace the token using `gh secret set COOLIFY_API_TOKEN --repo enesyesil/me-enesyesil-dotcom --env production`, then rerun only the failed job using `gh run rerun 36938084300 --failed --repo enesyesil/me-enesyesil-dotcom`. The script now names failed API operations and gives authorization guidance without logging response bodies.
+
+HTTP 405 on the image-tag update means the deployed instance or its proxy rejects PATCH on the application API route. Confirm the installed Coolify version and the copied resource webhook’s host. The script now checks application visibility before mutation and names the failed operation, logging only Allow and Content-Type headers on 405. Publish the diagnostic script changes before rerunning; GitHub retries continue using the original commit. Do not substitute arbitrary HTTP methods or retry a configuration mutation automatically.
