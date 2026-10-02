@@ -55,7 +55,7 @@ request() {
       401) echo 'Replace COOLIFY_API_TOKEN with the complete, unexpired token for this application’s team.' >&2 ;;
       403) echo 'Token needs read, write (image update), and deploy permissions. Check token owner/team role, API Access and runner IP allowlist. A deploy-only token cannot update the image.' >&2 ;;
       405)
-        echo 'The instance or reverse proxy rejected this HTTP method. Verify the Coolify version/API route and proxy support for PATCH. Rerunning an old commit will not apply local script fixes.' >&2
+        echo 'The instance or reverse proxy rejected this request method. Check the Allow header below for the methods supported by this endpoint.' >&2
         # Print only protocol metadata; cookies and response bodies stay private.
         if [[ -f "$work_dir/api-headers.txt" ]]; then
           python3 - "$work_dir/api-headers.txt" >&2 <<'PY'
@@ -105,7 +105,7 @@ else:
 PY
 )
 # Invoke the resource's authenticated deploy webhook once, after the immutable tag update.
-request "deploy webhook" --request GET "$COOLIFY_DEPLOY_WEBHOOK" > "$work_dir/started.json"
+request "deploy webhook" --request POST "$COOLIFY_DEPLOY_WEBHOOK" > "$work_dir/started.json"
 deployment_uuid=$(jq -er --arg uuid "$COOLIFY_APP_UUID" \
   '.deployments[] | select(.resource_uuid == $uuid) | .deployment_uuid' "$work_dir/started.json")
 [[ "$deployment_uuid" =~ ^[a-zA-Z0-9_-]+$ ]] || { echo 'Invalid deployment UUID' >&2; exit 1; }

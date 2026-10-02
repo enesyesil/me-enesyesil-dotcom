@@ -33,6 +33,10 @@ if '/applications/' in url:
                'multiple-domains': 'http://ignored.example,https://preview.example/'}
     value = {'uuid': 'site-app', 'docker_registry_image_name': os.environ['COOLIFY_IMAGE'], 'docker_registry_image_tag': tag, 'status': 'running:healthy', 'fqdn': domains.get(scenario, 'https://preview.example')}
 elif '/api/v1/deploy?' in url:
+    # Match the self-hosted endpoint: GET is rejected, only POST queues deployment.
+    if method != 'POST':
+        print('405', end='')
+        sys.exit(22)
     value = {'deployments': [{'resource_uuid': 'site-app', 'deployment_uuid': 'deploy-1'}]}
 elif '/deployments/' in url:
     value = {'status': 'failed' if os.environ['SCENARIO'] == 'failed' else 'finished', 'docker_registry_image_tag': 'sha-wrong' if os.environ['SCENARIO'] == 'wrong-tag' else tag}
@@ -98,10 +102,10 @@ class DeploymentGates(unittest.TestCase):
         result, requests = self.run_deploy('success')
         self.assertEqual(result.returncode, 0, result.stderr)
         mutations = [r for r in requests if r['method'] != 'GET']
-        self.assertEqual([r['method'] for r in mutations], ['PATCH'])
+        self.assertEqual([r['method'] for r in mutations], ['PATCH', 'POST'])
         self.assertEqual(mutations[0]['body']['docker_registry_image_tag'], 'sha-' + 'a' * 40)
         webhook_calls = [r for r in requests if '/api/v1/deploy?' in r['url']]
-        self.assertEqual(webhook_calls, [{'method': 'GET', 'url': 'https://coolify.example/api/v1/deploy?uuid=site-app&force=false'}])
+        self.assertEqual(webhook_calls, [{'method': 'POST', 'url': 'https://coolify.example/api/v1/deploy?uuid=site-app&force=false'}])
         self.assertTrue(any(r['url'].endswith('/api/resume/download') for r in requests))
         self.assertTrue(any(r['url'].endswith('/Blog/engineering/example') for r in requests))
 
@@ -122,7 +126,7 @@ class DeploymentGates(unittest.TestCase):
                 result, requests = self.run_deploy(scenario)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 self.assertEqual(sum(r['url'].endswith('/api/health') for r in requests), 2)
-                self.assertEqual([r['method'] for r in requests if r['method'] != 'GET'], ['PATCH'])
+                self.assertEqual([r['method'] for r in requests if r['method'] != 'GET'], ['PATCH', 'POST'])
                 self.assertEqual(sum('/api/v1/deploy?' in r['url'] for r in requests), 1)
 
     def test_invalid_webhook_never_receives_credentials(self):
